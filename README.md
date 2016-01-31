@@ -8,4 +8,4 @@ eSports Event Organisation And Management System
 ##Done by
 - [Andrey Ivanov](https://github.com/andrewjohnsson) - Lead, Backend
 - [Andrey Litvinchuk]() - 
-- [Alexey Shaveiko]()
+- [Aliaksei Shaveika]()
