@@ -2,143 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a597d598-a8e8-4a95-8dff-e697f7415b5b" name="Default" comment="Initial Commit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/hibernate-entitymanager-4.2.2.final.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/mysql-connector-java-5.1.38-bin.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/Bundled_Web_Content.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/LabSPP_clean_war.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Hibernate_4_2_2_4_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Hibernate_Validator_5_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Struts_2_2_3_20_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/javax_json_processing_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_38_bin.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/struts2_dojo_plugin_2_3_15_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/struts2_json_plugin.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/META-INF/orm.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/META-INF/persistence.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/helper/JSONHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/persistence/HibernateUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hibernate_mapping.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-compiler/src/app/user/user.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-compiler/src/app/user/user.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/error.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/index.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/list.jsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/dist/false.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/dist/list.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/dist/result.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/dist/test.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/components/footer/footer.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/components/footer/footer.directive.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/components/footer/footer.directive.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/components/footer/footer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/components/navbar/navbar.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/components/navbar/navbar.directive.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/components/navbar/navbar.directive.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/components/navbar/navbar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/events/events.controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/events/events.controller.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/events/events.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/index.config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/index.constants.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/index.module.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/index.route.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/index.run.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/main/main.controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/main/main.controller.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/main/main.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/testDB/testdb.controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/testDB/testdb.controller.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/testDB/testdb.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/user/user.controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/user/user.controller.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/app/user/user.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gulp/src/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/log4j-1.2.17.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/WEB-INF/classes/by/bsuir/spp/ils/lab/controller/action/user/ReadUser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/false.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/maps/scripts/app-bb7957d14c.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/maps/styles/app-a7038fa205.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/result.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/scripts/app-bb7957d14c.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/styles/app-a7038fa205.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/test.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/META-INF/persistence.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/controller/DBTestConnectionController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/controller/action/user/CreateUser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/controller/action/user/DeleteUser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/controller/action/user/ReadUser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/controller/action/user/UpdateUser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/DBTestConnectionService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/entity/Admin.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/entity/Document.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/entity/Event.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/entity/Invitation.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/entity/Invite.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/entity/Manager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/entity/Passport.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/entity/Permission.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/entity/Player.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/entity/Supervisor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/entity/Team.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/entity/Ticket.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/entity/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/model/entity/Viewer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/META-INF/persistence.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/DBTestConnectionController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/action/user/CreateUser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/action/user/DeleteUser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/action/user/UpdateUser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/DBTestConnectionService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/entity/Admin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/entity/Document.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/entity/Event.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/entity/Invitation.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/entity/Invite.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/entity/Manager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/entity/Passport.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/entity/Permission.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/entity/Player.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/entity/Supervisor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/entity/Team.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/entity/Ticket.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/entity/User.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/model/entity/Viewer.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/action/user/ReadUser.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/action/user/UserAction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/.bowerrc" afterPath="$PROJECT_DIR$/web-compiler/.bowerrc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/.editorconfig" afterPath="$PROJECT_DIR$/web-compiler/.editorconfig" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/.eslintrc" afterPath="$PROJECT_DIR$/web-compiler/.eslintrc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/.gitignore" afterPath="$PROJECT_DIR$/web-compiler/.gitignore" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/.yo-rc.json" afterPath="$PROJECT_DIR$/web-compiler/.yo-rc.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/bower.json" afterPath="$PROJECT_DIR$/web-compiler/bower.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/e2e/.eslintrc" afterPath="$PROJECT_DIR$/web-compiler/e2e/.eslintrc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/e2e/main.po.js" afterPath="$PROJECT_DIR$/web-compiler/e2e/main.po.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/e2e/main.spec.js" afterPath="$PROJECT_DIR$/web-compiler/e2e/main.spec.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/gulp/.eslintrc" afterPath="$PROJECT_DIR$/web-compiler/gulp/.eslintrc" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/gulp/build.js" afterPath="$PROJECT_DIR$/web-compiler/gulp/build.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/gulp/conf.js" afterPath="$PROJECT_DIR$/web-compiler/gulp/conf.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/gulp/e2e-tests.js" afterPath="$PROJECT_DIR$/web-compiler/gulp/e2e-tests.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/gulp/inject.js" afterPath="$PROJECT_DIR$/web-compiler/gulp/inject.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/gulp/scripts.js" afterPath="$PROJECT_DIR$/web-compiler/gulp/scripts.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/gulp/server.js" afterPath="$PROJECT_DIR$/web-compiler/gulp/server.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/gulp/unit-tests.js" afterPath="$PROJECT_DIR$/web-compiler/gulp/unit-tests.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/gulp/watch.js" afterPath="$PROJECT_DIR$/web-compiler/gulp/watch.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/gulpfile.js" afterPath="$PROJECT_DIR$/web-compiler/gulpfile.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/karma.conf.js" afterPath="$PROJECT_DIR$/web-compiler/karma.conf.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/package.json" afterPath="$PROJECT_DIR$/web-compiler/package.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/protractor.conf.js" afterPath="$PROJECT_DIR$/web-compiler/protractor.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/WEB-INF/classes/by/bsuir/spp/ils/lab/service/UserService.class" afterPath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/WEB-INF/classes/by/bsuir/spp/ils/lab/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/service/UserService.class" afterPath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LabSPP.iml" afterPath="$PROJECT_DIR$/LabSPP.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/WEB-INF/classes/struts.xml" afterPath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/WEB-INF/classes/struts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/index.html" afterPath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/list.jsp" afterPath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LabSPP/struts.xml" afterPath="$PROJECT_DIR$/out/production/LabSPP/struts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/service/UserService.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/struts.xml" afterPath="$PROJECT_DIR$/src/struts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LabSPP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -209,8 +74,8 @@
       <file leaf-file-name="usersList.directive.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-compiler/src/app/components/usersList/usersList.directive.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61206895">
-              <caret line="68" column="7" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
+            <state vertical-scroll-proportion="1.1052631">
+              <caret line="72" column="25" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -533,394 +398,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-compiler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-compiler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-compiler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-compiler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-compiler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-compiler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="usersList" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-compiler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="navbar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-compiler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="persistence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="production" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="artifacts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -946,6 +423,22 @@
     <property name="JPA.DatabaseSchemaImportDialog" value="2d63b9eb-06f5-4532-8e27-3a4c0a3019c9" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="FullScreen" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="271" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="273" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="276" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1070" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="271" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="273" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="276" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1070" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -1653,16 +1146,16 @@
       <workItem from="1458455044226" duration="4273000" />
       <workItem from="1458462288311" duration="409000" />
       <workItem from="1458480631419" duration="256000" />
-      <workItem from="1458539892599" duration="11880000" />
+      <workItem from="1458539892599" duration="12111000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142081000" />
+    <option name="totallyTimeSpent" value="142312000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -1672,8 +1165,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40312877" sideWeight="0.5046097" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29912874" sideWeight="0.4953903" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32913843" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29912874" sideWeight="0.4953903" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19322917" sideWeight="0.47612733" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5502728" sideWeight="0.4377811" order="2" side_tool="true" content_ui="tabs" />
@@ -2124,8 +1617,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-compiler/src/app/components/usersList/usersList.directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61206895">
-          <caret line="68" column="7" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
+        <state vertical-scroll-proportion="1.1052631">
+          <caret line="72" column="25" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
           <folding />
         </state>
       </provider>
