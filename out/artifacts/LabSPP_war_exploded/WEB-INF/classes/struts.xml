@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+  <constant name="struts.devMode" value="true" />
+
+    <package name="json-default" extends="struts-default">
+      <result-types>
+        <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+      </result-types>
+      <interceptors>
+        <interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/>
+      </interceptors>
+    </package>
+
+    <package name="default" extends="json-default">
+      <action name="create" class="by.bsuir.spp.ils.lab.controller.action.user.UserAction" method="create">
+        <result type="json"/>
+      </action>
+
+      <action name="delete" class="by.bsuir.spp.ils.lab.controller.action.user.UserAction" method="delete">
+        <result name="input" type="json"/>
+        <result name="success" type="json"/>
+      </action>
+
+      <action name="read" class="by.bsuir.spp.ils.lab.controller.action.user.UserAction" method="read">
+        <result type="json"/>
+      </action>
+
+      <action name="index" class="by.bsuir.spp.ils.lab.controller.action.user.UserAction" method="list">
+        <result type="json"/>
+      </action>
+    </package>
+</struts>

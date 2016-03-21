@@ -1,0 +1,20 @@
+<div class="content-wrapper">
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1>{{ events.title }}</h1>
+      <small>{{ events.subtitle }}</small>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 text-center" ng-repeat="item in events.items" ng-show="{{item.isExpired}}">
+        <div class="panel panel-default">
+          <h3>{{ item.name }}</h3><span class="badge">{{ item.price | currency }}</span>
+          <p>{{ item.description }}</p>
+          <a class="btn btn-default" ng-hide="{{ item.isSoldOut }}" href="/event/{{ item.id }}">Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

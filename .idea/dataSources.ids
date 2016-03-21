@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - @localhost" uuid="2d63b9eb-06f5-4532-8e27-3a4c0a3019c9">
+    <database-info product="MySQL" version="5.7.9" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <schema name="" catalog="esports"/>
+    <table name="admin" schema="" catalog="esports" type="TABLE">
+      <column name="admin_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="admin_id,user_id"/>
+      <foreign-key name="fk_admin_user1" columns="user_id" ref-table="user" ref-schema="" ref-catalog="esports" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_admin_user1_idx" unique="false" columns="user_id"/>
+    </table>
+    <table name="document" schema="" catalog="esports" type="TABLE">
+      <column name="document_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="number" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="issuer" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="document_id,user_id"/>
+      <foreign-key name="fk_document_user1" columns="user_id" ref-table="user" ref-schema="" ref-catalog="esports" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_invitation_document1" table="invitation" schema="" catalog="esports" columns="document_id"/>
+      <exported-key name="fk_passport_document1" table="passport" schema="" catalog="esports" columns="document_id"/>
+      <index name="fk_document_user1_idx" unique="false" columns="user_id"/>
+    </table>
+    <table name="event" schema="" catalog="esports" type="TABLE">
+      <column name="event_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="event_id"/>
+      <exported-key name="fk_supervisor_event1" table="supervisor" schema="" catalog="esports" columns="event_id"/>
+      <index name="name_UNIQUE" unique="true" columns="name"/>
+    </table>
+    <table name="invitation" schema="" catalog="esports" type="TABLE">
+      <column name="invitation_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="document_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="invitation_id,document_id"/>
+      <foreign-key name="fk_invitation_document1" columns="document_id" ref-table="document" ref-schema="" ref-catalog="esports" ref-columns="document_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_invitation_document1_idx" unique="false" columns="document_id"/>
+    </table>
+    <table name="manager" schema="" catalog="esports" type="TABLE">
+      <column name="manager_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="team_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="manager_id,user_id,team_id"/>
+      <foreign-key name="fk_manager_team1" columns="team_id" ref-table="team" ref-schema="" ref-catalog="esports" ref-columns="team_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_manager_user1" columns="user_id" ref-table="user" ref-schema="" ref-catalog="esports" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_manager_team1_idx" unique="false" columns="team_id"/>
+      <index name="fk_manager_user1_idx" unique="false" columns="user_id"/>
+    </table>
+    <table name="passport" schema="" catalog="esports" type="TABLE">
+      <column name="passport_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="document_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="series" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nationality" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="passport_id,document_id"/>
+      <foreign-key name="fk_passport_document1" columns="document_id" ref-table="document" ref-schema="" ref-catalog="esports" ref-columns="document_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_permission_passport1" table="permission" schema="" catalog="esports" columns="passport_id"/>
+      <index name="fk_passport_document1_idx" unique="false" columns="document_id"/>
+    </table>
+    <table name="permission" schema="" catalog="esports" type="TABLE">
+      <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="passport_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="permission_id,passport_id"/>
+      <foreign-key name="fk_permission_passport1" columns="passport_id" ref-table="passport" ref-schema="" ref-catalog="esports" ref-columns="passport_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_ticket_permission1" table="ticket" schema="" catalog="esports" columns="permission_id"/>
+      <index name="fk_permission_passport1_idx" unique="false" columns="passport_id"/>
+    </table>
+    <table name="player" schema="" catalog="esports" type="TABLE">
+      <column name="player_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="team_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="player_id,user_id,team_id"/>
+      <foreign-key name="fk_player_team1" columns="team_id" ref-table="team" ref-schema="" ref-catalog="esports" ref-columns="team_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_player_user1" columns="user_id" ref-table="user" ref-schema="" ref-catalog="esports" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_player_team1_idx" unique="false" columns="team_id"/>
+      <index name="fk_player_user1_idx" unique="false" columns="user_id"/>
+    </table>
+    <table name="supervisor" schema="" catalog="esports" type="TABLE">
+      <column name="supervisor_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="event_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="supervisor_id,user_id,event_id"/>
+      <foreign-key name="fk_supervisor_event1" columns="event_id" ref-table="event" ref-schema="" ref-catalog="esports" ref-columns="event_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_supervisor_user1" columns="user_id" ref-table="user" ref-schema="" ref-catalog="esports" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_supervisor_event1_idx" unique="false" columns="event_id"/>
+      <index name="fk_supervisor_user1_idx" unique="false" columns="user_id"/>
+    </table>
+    <table name="team" schema="" catalog="esports" type="TABLE">
+      <column name="team_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="team_id"/>
+      <exported-key name="fk_manager_team1" table="manager" schema="" catalog="esports" columns="team_id"/>
+      <exported-key name="fk_player_team1" table="player" schema="" catalog="esports" columns="team_id"/>
+      <index name="name_UNIQUE" unique="true" columns="name"/>
+    </table>
+    <table name="ticket" schema="" catalog="esports" type="TABLE">
+      <column name="ticket_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="sector" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="seat" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="viewer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ticket_id,viewer_id,permission_id"/>
+      <foreign-key name="fk_ticket_permission1" columns="permission_id" ref-table="permission" ref-schema="" ref-catalog="esports" ref-columns="permission_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_ticket_viewer1" columns="viewer_id" ref-table="viewer" ref-schema="" ref-catalog="esports" ref-columns="viewer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="seat_UNIQUE" unique="true" columns="seat"/>
+      <index name="sector_UNIQUE" unique="true" columns="sector"/>
+      <index name="fk_ticket_permission1_idx" unique="false" columns="permission_id"/>
+      <index name="fk_ticket_viewer1_idx" unique="false" columns="viewer_id"/>
+    </table>
+    <table name="user" schema="" catalog="esports" type="TABLE">
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="login" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="age" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="user_id"/>
+      <exported-key name="fk_admin_user1" table="admin" schema="" catalog="esports" columns="user_id"/>
+      <exported-key name="fk_document_user1" table="document" schema="" catalog="esports" columns="user_id"/>
+      <exported-key name="fk_manager_user1" table="manager" schema="" catalog="esports" columns="user_id"/>
+      <exported-key name="fk_player_user1" table="player" schema="" catalog="esports" columns="user_id"/>
+      <exported-key name="fk_supervisor_user1" table="supervisor" schema="" catalog="esports" columns="user_id"/>
+      <exported-key name="fk_viewer_user" table="viewer" schema="" catalog="esports" columns="user_id"/>
+      <index name="login_UNIQUE" unique="true" columns="login"/>
+    </table>
+    <table name="viewer" schema="" catalog="esports" type="TABLE">
+      <column name="viewer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="viewer_id,user_id"/>
+      <foreign-key name="fk_viewer_user" columns="user_id" ref-table="user" ref-schema="" ref-catalog="esports" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_ticket_viewer1" table="ticket" schema="" catalog="esports" columns="viewer_id"/>
+      <index name="fk_viewer_user_idx" unique="false" columns="user_id"/>
+    </table>
+  </data-source>
+</component>

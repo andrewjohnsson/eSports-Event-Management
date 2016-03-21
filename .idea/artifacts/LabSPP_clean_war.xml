@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="LabSPP:clean_war">
+    <output-path>$PROJECT_DIR$/out/artifacts/LabSPP_clean_war</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="LabSPP" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="Struts 2-2.3.20.1" module-name="LabSPP" />
+          <element id="library" level="project" name="Hibernate Validator-5.0.1" />
+          <element id="library" level="project" name="Struts 2-2.3.20.1" />
+          <element id="library" level="project" name="struts2-dojo-plugin-2.3.15.3" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.38-bin" />
+          <element id="library" level="project" name="Hibernate 4.2.2-4.2.2" />
+          <element id="library" level="project" name="javax.json.processing-1.0" />
+          <element id="library" level="project" name="struts2-json-plugin" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="LabSPP/web/Web" />
+    </root>
+  </artifact>
+</component>
