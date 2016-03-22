@@ -15,8 +15,48 @@ import org.hibernate.Transaction;
 public class UserService extends HibernateUtil {
   private JSONHelper helper = new JSONHelper();
   private Session session;
-
   public UserService() {}
+
+  private String getPrefix(String query){
+    String prefix;
+    if (!query.endsWith("'")){
+      prefix = " where";
+    }
+    else{
+      prefix = " and";
+    }
+    return prefix;
+  }
+
+  private String generateQuery(User user){
+    String query;
+    query = "from User";
+    if (null != user.getName()){
+      if (!user.getName().isEmpty()){
+        query += this.getPrefix(query) + " name = " + "'" + user.getName() + "'";
+      }
+    }
+    if (null != user.getLogin()) {
+      if (!user.getLogin().isEmpty()){
+          query += this.getPrefix(query) + " login = " + "'" + user.getLogin() + "'";
+      }
+    }
+    if (null != user.getPassword()){
+      if (!user.getPassword().isEmpty()) {
+        query += this.getPrefix(query) + " password = " + "'" + user.getPassword() + "'";
+      }
+    }
+    if (null != user.getEmail()){
+      if (!user.getEmail().isEmpty()){
+        query += this.getPrefix(query) + " email = " + "'" + user.getEmail() + "'";
+      }
+    }
+    if (0 < user.getAge()){
+      query += this.getPrefix(query) + " age = " + "'" + user.getAge() + "'";
+    }
+    System.out.println(query);
+    return query;
+  }
 
   public User add(User user) {
     session = HibernateUtil.getSessionFactory().openSession();
@@ -61,7 +101,7 @@ public class UserService extends HibernateUtil {
       Transaction transaction = session.beginTransaction();
       try {
         try {
-          users = (List<User>) session.createQuery("from User where name = " + "'" + user.getName() + "'").list();
+          users = (List<User>) session.createQuery(generateQuery(user)).list();
           transaction.commit();
         } catch (HibernateException e) {
           e.printStackTrace();

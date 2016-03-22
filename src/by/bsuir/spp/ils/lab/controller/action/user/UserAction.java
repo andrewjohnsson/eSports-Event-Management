@@ -17,11 +17,9 @@ public class UserAction extends ActionSupport{
   private List<User> users;
   private User user;
   private int id;
-  JSONHelper helper;
 
   public UserAction(){
     service = new UserService();
-    helper = new JSONHelper();
   }
 
   public String create() {

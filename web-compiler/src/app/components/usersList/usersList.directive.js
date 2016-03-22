@@ -35,7 +35,7 @@
       vm.listUsers = function () {
         $http({
           method: 'GET',
-          url: 'index',
+          url: 'list',
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function (data) {
           vm.list = data.users;
