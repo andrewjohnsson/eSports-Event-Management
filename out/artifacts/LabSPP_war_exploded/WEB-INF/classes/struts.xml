@@ -30,7 +30,7 @@
         <result type="json"/>
       </action>
 
-      <action name="index" class="by.bsuir.spp.ils.lab.controller.action.user.UserAction" method="list">
+      <action name="list" class="by.bsuir.spp.ils.lab.controller.action.user.UserAction" method="list">
         <result type="json"/>
       </action>
     </package>

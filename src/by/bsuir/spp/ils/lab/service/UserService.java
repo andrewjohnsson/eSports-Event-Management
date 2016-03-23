@@ -13,7 +13,6 @@ import org.hibernate.Transaction;
  * Created by andrewjohnsson on 29.02.16.
  */
 public class UserService extends HibernateUtil {
-  private JSONHelper helper = new JSONHelper();
   private Session session;
   public UserService() {}
 
@@ -54,7 +53,6 @@ public class UserService extends HibernateUtil {
     if (0 < user.getAge()){
       query += this.getPrefix(query) + " age = " + "'" + user.getAge() + "'";
     }
-    System.out.println(query);
     return query;
   }
 
