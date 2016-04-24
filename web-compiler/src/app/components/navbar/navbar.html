@@ -17,21 +17,18 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In<span class="caret"></span></a>
           <ul class="dropdown-menu auth">
-            <form>
-              <li>
-                <div class="container-fluid">
-                  <div class="row">
-                    <ul class="nav nav-pills nav-justified">
-                      <li role="presentation" class="active"><a ng-click="menu.auth.changeTab($event)">Login</a></li>
-                      <li role="presentation"><a ng-click="menu.auth.changeTab($event)">Register</a></li>
-                    </ul>
-                    <hr/>
-                    <login-directive ng-show="menu.auth.state == 0"></login-directive>
-                    <register-directive ng-show="menu.auth.state == 1"></register-directive>
-                  </div>
+            <li>
+              <div class="container-fluid">
+                <div class="row">
+                  <form>
+                    <uib-tabset type="pills">
+                      <uib-tab index="0" heading="Login"><login-directive></login-directive></uib-tab>
+                      <uib-tab index="0" heading="Register"><register-directive></register-directive></uib-tab>
+                    </uib-tabset>
+                  </form>
                 </div>
-              </li>
-            </form>
+              </div>
+            </li>
           </ul>
         </li>
       </ul>

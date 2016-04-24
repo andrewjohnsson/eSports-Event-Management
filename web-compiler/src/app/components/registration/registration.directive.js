@@ -20,7 +20,7 @@
       var vm = this;
 
       vm.submit = function(){
-        alert('Clicked on register');
+        alert('Registration Form Will Apperar Here Soon');
       }
     }
 

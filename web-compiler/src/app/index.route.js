@@ -14,11 +14,23 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
+      .state('cpanel', {
+        url: '/cpanel',
+        templateUrl: 'app/cpanel/cpanel.html',
+        controller: 'CpanelController',
+        controllerAs: 'ctrl'
+      })
       .state('user', {
         url: '/user',
         templateUrl: 'app/user/user.html',
         controller: 'UsersController',
         controllerAs: 'users'
+      })
+      .state('team', {
+        url: '/team',
+        templateUrl: 'app/team/team.html',
+        controller: 'TeamsController',
+        controllerAs: 'teams'
       })
       .state('result', {
         url: '/result',
