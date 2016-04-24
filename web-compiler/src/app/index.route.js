@@ -16,8 +16,8 @@
       })
       .state('cpanel', {
         url: '/cpanel',
-        templateUrl: 'app/cpanel/cpanel.html',
-        controller: 'CpanelController',
+        templateUrl: 'app/dashboard/dashboard.html',
+        controller: 'DashboardController',
         controllerAs: 'ctrl'
       })
       .state('user', {

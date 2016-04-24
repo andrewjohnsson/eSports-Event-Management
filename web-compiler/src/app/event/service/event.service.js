@@ -6,43 +6,18 @@
     .service('EventService', EventService);
 
   /** @ngInject */
-  function EventService(HttpService, ParserService) {
+  function EventService(HttpService, ParserService, $q) {
     /** @ngInject */
 
     var vm = this;
 
-    vm.events = [];
-    vm.participants = [];
-
-    vm.getEvents = function(){
-	    if (vm.events != undefined){
-			return vm.events;
-	    }
-    }
-
-    vm.setEvents = function(events){
-	    vm.events = events
-    }
-
-    vm.getParticipants = function(participants){
-	    if (vm.participants != undefined){
-			return vm.participants;
-	    }
-    }
-
-    vm.setParticipants = function(participants){
-	    vm.participants = participants
-    }
-
     vm.get = function(){
-	    var data = HttpService.getData({method: 'GET', url: 'list_events'})
-	    if (data != undefined){
-		    vm.setEvents(data.events)
-			  vm.setParticipants(data.participants)
-	    }else{
-		    alert('Problems with getting the list of events')
-	    }
-    }
+      var deferred = $q.defer();
+      HttpService.getData({method: 'GET', url: 'list_events'}).then(function(response){
+        deferred.resolve(response.data)
+      });
+      return deferred.promise;
+    };
 
     vm.get()
 

@@ -6,18 +6,23 @@
     .service('HttpService', HttpService);
 
   /** @ngInject */
-  function HttpService($http) {
+  function HttpService($http, $q) {
     /** @ngInject */
     var vm = this;
 
     vm.getData = function(conf){
-	    $http({
-          method: conf.method,
-          url: conf.url,
-          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        }).success(function (data) {
-          return data
-        });
+      var deferred = $q.defer()
+      $http({
+        method: conf.method,
+        url: conf.url,
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      }).then(function (response) {
+        deferred.resolve(response)
+      }, function(err){
+        deferred.reject(undefined)
+        alert('Failed to load ' + conf.url + '!')
+      });
+      return deferred.promise;
     }
   }
 
