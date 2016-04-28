@@ -16,14 +16,59 @@
     };
 
     /** @ngInject */
-    function LoginController(HttpService, ParserService, md5) {
+    function LoginController(AuthService, $log, $location) {
       var vm = this;
 
+      vm.loginFields = [
+        {
+          key: 'email',
+          type: 'input',
+          templateOptions: {
+            type: 'email',
+            label: 'Email address',
+            placeholder: 'Email address'
+          }
+        },
+        {
+          key: 'password',
+          type: 'input',
+          templateOptions: {
+            type: 'password',
+            label: 'Password',
+            placeholder: 'Password'
+          }
+        }
+      ];
+
+      vm.isLogged = false;
+
+      AuthService.isLogged().then(function(data){
+        if (data == true){
+          vm.isLogged = true;
+          vm.currentUser = AuthService.getUser();
+          $log.log(vm.currentUser);
+        }
+      });
+
       vm.login = function(user){
-        user.password = md5.createHash(md5.createHash(user.password)+'somesalt');
-        vm.params = ParserService.parseParams($.param(user), 'user');
-        HttpService.getData({method: 'POST', url: 'login?'+ vm.params}).then(function(data){
-          alert(data);
+        AuthService.login(user).then(function(data){
+          if (data == true){
+            vm.isLogged = true;
+            vm.currentUser = AuthService.getUser();
+          }else{
+            alert('Wrong Credentials');
+          }
+        }, function(){
+          $log.error('Login Failed For User ' + user.email)
+        });
+      };
+
+      vm.logout = function(){
+        AuthService.isLogged().then(function(){
+          AuthService.logout().then(function(){
+            vm.isLogged = false;
+            $location.url('/');
+          });
         });
       }
     }

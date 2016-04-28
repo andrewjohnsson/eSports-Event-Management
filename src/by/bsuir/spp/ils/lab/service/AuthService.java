@@ -15,25 +15,28 @@ import java.util.Map;
  * Created by andrewjohnsson on 10.04.16.
  */
 public class AuthService extends HibernateUtil implements SessionAware {
+  private UserService userService;
+  private User currentUser;
   private Session session;
   private Map authSession;
 
   public AuthService(){
     this.authSession = ActionContext.getContext().getSession();
+    this.userService = new UserService();
   }
 
-  public List<User> checkLoginState(String email, String password){
-    List<User> userList;
+  public User isLogged(String email, String password){
     if ((null != email) && (null != password)){
       if ((!email.isEmpty()) && (!password.isEmpty())){
         session = HibernateUtil.getSessionFactory().openSession();
         try{
           Transaction transaction = session.beginTransaction();
           try {
-            userList = session.createQuery("from User where email = " + "'" + email + "' And password  = " + "'" + password + "'").list();
+            User temp = (User) session.createQuery("from User where email = " + "'" + email + "' And password  = " + "'" + password + "'").list().get(0);
             transaction.commit();
-            if ((userList != null) && (!userList.isEmpty())){
-              return userList;
+            if (temp != null){
+              setCurrentUser(temp);
+              return this.currentUser;
             }
           }catch (HibernateException e){
             transaction.rollback();
@@ -47,10 +50,9 @@ public class AuthService extends HibernateUtil implements SessionAware {
     return null;
   }
 
-  public Map setUserLogin(int id, byte[] permissions, String name){
+  public Map setUserLogin(int id, byte[] permissions){
     this.authSession.put("id", id);
     this.authSession.put("permissions", permissions);
-    this.authSession.put("name", name);
     return this.authSession;
   }
 
@@ -70,13 +72,15 @@ public class AuthService extends HibernateUtil implements SessionAware {
     this.authSession.put("permissions", value);
   }
 
-  public String getUserName(){
-    if (this.authSession.get("name") != null)
-      return this.authSession.get("name").toString();
-    return "";
+  public User getCurrentUser(){
+    return this.currentUser;
   }
 
-  public void logOut(){
+  public void setCurrentUser(User user){
+    this.currentUser = user;
+  }
+
+  public void logout(){
     this.authSession.clear();
   }
 

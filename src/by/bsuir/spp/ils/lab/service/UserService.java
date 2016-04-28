@@ -61,7 +61,6 @@ public class UserService extends HibernateUtil{
 
   public List<User> find(User user) {
     session = HibernateUtil.getSessionFactory().openSession();
-
     List<User> users = null;
     try {
       transaction = session.beginTransaction();

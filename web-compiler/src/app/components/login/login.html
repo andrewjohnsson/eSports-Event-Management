@@ -1,4 +1,4 @@
-<form class="form" ng-submit="ctrl.login(user)">
+<!--<form class="form" ng-submit="ctrl.login(user)" block-ui="loginFormBlock" ng-hide="ctrl.isLogged">
   <div class="form-group">
     <label class="sr-only" for="email">Email address</label>
     <input type="email" class="form-control" id="email" placeholder="Email address" ng-model="user.email" required>
@@ -10,4 +10,23 @@
   <div class="form-group">
     <button type="submit" class="btn btn-primary btn-block">Sign in</button>
   </div>
-</form>
+</form>-->
+<formly-form model="ctrl.user" fields="ctrl.loginFields" ng-hide="ctrl.isLogged">
+  <button type="submit" class="btn btn-primary btn-block" ng-click="ctrl.login(ctrl.user)">Login</button>
+</formly-form>
+
+<div class="tab-content" block-ui="userInfoBlock" ng-show="ctrl.isLogged">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <img class="userpic" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
+      <h4>{{ctrl.currentUser.name}}</h4>
+      <h5>Awesome Team</h5>
+      <p>{{ ctrl.currentUser.email }}</p>
+    </div>
+  </div>
+  <div class="col=md-12 bottom">
+    <a href="/#/cpanel" class="btn btn-default btn-block">Dashboard</a>
+    <button class="btn btn-default btn-block">My Account</button>
+    <button class="btn btn-primary btn-block" ng-click="ctrl.logout()">Log Out</button>
+  </div>
+</div>

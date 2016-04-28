@@ -19,17 +19,15 @@
       return deferred.promise;
     };
 
-    vm.get()
-
     vm.add = function(team){
         vm.params = ParserService.parseParams($.param(team), 'event')
         return HttpService.getData({method: 'POST', url: 'create_event?'+ vm.params})
-    }
+    };
 
     vm.search = function(team){
       vm.params = ParserService.parseParams($.param(team), 'event')
       return HttpService.getData({method: 'POST', url: 'read_event?' + vm.params}).users
-    }
+    };
 
     vm.remove = function(type, id){
       HttpService.getData({method: 'POST', url: 'delete_event?id='+id})

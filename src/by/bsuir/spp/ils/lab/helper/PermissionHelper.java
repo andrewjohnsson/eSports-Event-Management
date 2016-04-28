@@ -21,8 +21,8 @@ public class PermissionHelper extends HibernateUtil {
   }
 
   private void UpdateStatus(){
-    session = HibernateUtil.getSessionFactory().openSession();
-    transaction = session.beginTransaction();
+    this.session = HibernateUtil.getSessionFactory().openSession();
+    this.transaction = session.beginTransaction();
     List<User> users = (List<User>) session.createQuery("from User where id ="+service.getUserId()).list();
     service.setUserPermissions(users.get(0).getPermissions());
   }

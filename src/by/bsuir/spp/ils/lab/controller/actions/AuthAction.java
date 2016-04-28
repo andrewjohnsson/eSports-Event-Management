@@ -2,8 +2,10 @@ package by.bsuir.spp.ils.lab.controller.actions;
 
 import by.bsuir.spp.ils.lab.entity.User;
 import by.bsuir.spp.ils.lab.service.AuthService;
+import by.bsuir.spp.ils.lab.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -11,34 +13,67 @@ import java.util.List;
  */
 public class AuthAction extends ActionSupport {
   private AuthService authService;
+	private UserService userService;
   private User user;
-  private List<User> users;
+	private String error;
 
   public AuthAction(){
-    authService = new AuthService();
+		authService = new AuthService();
+		userService = new UserService();
   }
 
   public String login(){
     String email, pass;
-    if (authService.getUserId() != 0){return SUCCESS;}
     if (this.getUser() != null) {
-      System.out.println(this.getUser().getEmail());
       email = this.getUser().getEmail();
       pass = this.getUser().getPassword();
       if (email.length() < 4 || pass.length() < 4) {
         System.out.println("Incorrect login or pass length");
         return ERROR;
       } else {
-        users = authService.checkLoginState(email, pass);
-        if (users != null) {
-          authService.setUserLogin(users.get(0).getId(), users.get(0).getPermissions(), users.get(0).getName());
-          return SUCCESS;
-        } else
-          System.out.println("No such user");
+				try {
+					setUser(authService.isLogged(email, pass));
+					authService.setUserLogin(getUser().getId(), getUser().getPermissions());
+					return SUCCESS;
+				}catch (Exception e){
+					System.out.println("No such user");
+					return SUCCESS;
+				}
       }
     }
-    return ERROR;
+		user = null;
+		setError("Cannot login!");
+    return SUCCESS;
   }
+
+	public String register(){
+		if ((getUser() != null) && authService.getUserId() == 0) {
+			try {
+				this.user = userService.add(getUser());
+				return SUCCESS;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return SUCCESS;
+	}
+
+	public String check(){
+		int id = authService.getUserId();
+		if (id != 0){
+			User temp = new User();
+			temp.setId(id);
+			this.setUser(userService.find(temp).get(0));
+			return SUCCESS;
+		}
+		setError("You are not logged in!");
+		return SUCCESS;
+	}
+
+	public String logout(){
+		authService.logout();
+		return SUCCESS;
+	}
 
   public User getUser() { return user; }
 
@@ -46,7 +81,7 @@ public class AuthAction extends ActionSupport {
     this.user = person;
   }
 
-  public List<User> getUsers() {
-    return users;
-  }
+	public String getError() { return error; }
+
+	public void setError(String error) { this.error = error; }
 }

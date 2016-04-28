@@ -46,7 +46,6 @@
         <property name="eventId" column="event_id"/>
         <property name="isbusy" column="isbusy"/>
         <property name="name" column="name"/>
-        <property name="login" column="login"/>
         <property name="password" column="password"/>
         <property name="email" column="email"/>
     </class>

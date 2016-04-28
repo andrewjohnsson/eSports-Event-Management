@@ -2,6 +2,7 @@ package by.bsuir.spp.ils.lab.controller.actions;
 
 import by.bsuir.spp.ils.lab.entity.Event;
 import by.bsuir.spp.ils.lab.entity.Team;
+import by.bsuir.spp.ils.lab.helper.PermissionHelper;
 import by.bsuir.spp.ils.lab.service.TeamService;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
@@ -12,19 +13,25 @@ import java.util.Map;
  */
 public class TeamAction extends ActionSupport {
   private TeamService service = new TeamService();
+  private PermissionHelper helper;
   private Team team;
   private List<Team> teams;
   private Map<Integer, List<Event>> participations;
 
-  public TeamAction(){}
+  public TeamAction(){
+    helper = new PermissionHelper();
+  }
 
   public String create(){
-    try {
-      this.team = service.add(getTeam());
-    } catch (Exception e) {
-      e.printStackTrace();
+    if (helper.canCreateTeam() || helper.isAdmin()){
+      try {
+        this.team = service.add(getTeam());
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+      return SUCCESS;
     }
-    return SUCCESS;
+    return ERROR;
   }
 
   public String read() {
@@ -38,17 +45,23 @@ public class TeamAction extends ActionSupport {
   }
 
   public String update(){
-    try {
-      this.teams = service.list();        //TO-DO Find impl here
-    } catch (Exception e) {
-      e.printStackTrace();
+    if (helper.canCreateTeam() || helper.isAdmin()){
+      try {
+        this.teams = service.list();        //TO-DO Find impl here
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+      return SUCCESS;
     }
-    return SUCCESS;
+    return ERROR;
   }
 
   public String delete() {
-    service.delete(getTeam().getId());
-    return SUCCESS;
+    if (helper.canCreateTeam() || helper.isAdmin()) {
+      service.delete(getTeam().getId());
+      return SUCCESS;
+    }
+    return ERROR;
   }
 
   public Team getTeam() { return this.team;}

@@ -14,14 +14,14 @@
         <li ng-repeat="item in menu.items"><a ui-sref="{{ item.link }}">{{ item.title }}</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In<span class="caret"></span></a>
-          <ul class="dropdown-menu auth">
+        <li uib-dropdown>
+          <a id="btn-append-to-single-button" role="button" uib-dropdown-toggle>Authorize<span class="caret"></span></a>
+          <ul class="dropdown-menu auth" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-single-button">
             <li>
               <div class="container-fluid">
                 <div class="row">
                   <form>
-                    <uib-tabset type="pills">
+                    <uib-tabset>
                       <uib-tab index="0" heading="Login"><login-directive></login-directive></uib-tab>
                       <uib-tab index="0" heading="Register"><register-directive></register-directive></uib-tab>
                     </uib-tabset>

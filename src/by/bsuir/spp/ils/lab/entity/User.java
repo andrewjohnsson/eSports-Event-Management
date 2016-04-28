@@ -4,7 +4,9 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by andrewjohnsson on 10.04.16.
@@ -18,7 +20,6 @@ public class User {
   private Integer eventId;
   private byte isbusy;
   private String name;
-  private String login;
   private String password;
   private String email;
 
@@ -58,15 +59,32 @@ public class User {
     return permissions;
   }
 
-  public void setPermissions(byte[] permissions) {
-    this.permissions = permissions;
-  }
+  public void setPermissions(String perms) {
+		String[] arr = perms.split(",");
+		List<String> list = new ArrayList<>();
+		byte[] permissions = new byte[4];
+		permissions[0] = 0;
+		permissions[1] = 0;
+		permissions[2] = 0;
+		permissions[3] = 0;
+		for (String el : arr) {
+			list.add(el);
+		}
+		list.forEach(item -> {
+			if (item.equals("48")){
+				permissions[list.indexOf(item)] = 0;
+			}else{
+				permissions[list.indexOf(item)] = 1;
+			}
+		});
+		this.permissions = permissions;
+	}
 
-  @Basic
-  @Column(name = "age")
-  public Integer getAge() {
-    return age;
-  }
+@Basic
+@Column(name = "age")
+public Integer getAge() {
+	return age;
+	}
 
   public void setAge(Integer age) {
     this.age = age;
@@ -112,16 +130,6 @@ public class User {
     this.name = name;
   }
 
-  @Basic
-  @Column(name = "login")
-  public String getLogin() {
-    return login;
-  }
-
-  public void setLogin(String login) {
-    this.login = login;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -136,7 +144,6 @@ public class User {
     if (teamId != null ? !teamId.equals(user.teamId) : user.teamId != null) return false;
     if (eventId != null ? !eventId.equals(user.eventId) : user.eventId != null) return false;
     if (name != null ? !name.equals(user.name) : user.name != null) return false;
-    if (login != null ? !login.equals(user.login) : user.login != null) return false;
     if (password != null ? !password.equals(user.password) : user.password != null) return false;
     if (email != null ? !email.equals(user.email) : user.email != null) return false;
 
@@ -152,7 +159,6 @@ public class User {
     result = 31 * result + (eventId != null ? eventId.hashCode() : 0);
     result = 31 * result + (int) isbusy;
     result = 31 * result + (name != null ? name.hashCode() : 0);
-    result = 31 * result + (login != null ? login.hashCode() : 0);
     result = 31 * result + (password != null ? password.hashCode() : 0);
     result = 31 * result + (email != null ? email.hashCode() : 0);
     return result;

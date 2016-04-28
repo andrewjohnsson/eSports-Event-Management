@@ -15,14 +15,14 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class UserAction extends ActionSupport{
   private UserService userService;
-  private AuthService authService;
+  //private AuthService authService;
   private PermissionHelper helper;
   private List<User> users;
   private User user;
 
   public UserAction(){
     userService = new UserService();
-    authService = new AuthService();
+    //authService = new AuthService();
     helper = new PermissionHelper();
   }
 
@@ -48,12 +48,18 @@ public class UserAction extends ActionSupport{
   }
 
   public String update() {
-    this.users = userService.list();
+    if (helper.isAdmin()) {
+      this.users = userService.list();
+    }else{
+      return ERROR;
+    }
     return SUCCESS;
   }
 
   public String delete() {
-    userService.delete(getUser().getId());
+    if (helper.isAdmin()) {
+      userService.delete(getUser().getId());
+    }
     return SUCCESS;
   }
 

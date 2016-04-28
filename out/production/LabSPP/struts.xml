@@ -23,6 +23,24 @@
         <result name="input" type="json"/>
       </action>
 
+      <action name="logout" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="logout">
+        <result type="json"/>
+        <result name="error" type="json"/>
+        <result name="input" type="json"/>
+      </action>
+
+      <action name="register" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="register">
+        <result type="json"/>
+        <result name="error" type="json"/>
+        <result name="input" type="json"/>
+      </action>
+
+      <action name="check" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="check">
+        <result type="json"/>
+        <result name="login">index.html</result>
+        <result name="input" type="json"/>
+      </action>
+
       <action name="create_user" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="create">
         <result type="json"/>
         <result name="input" type="json"/>

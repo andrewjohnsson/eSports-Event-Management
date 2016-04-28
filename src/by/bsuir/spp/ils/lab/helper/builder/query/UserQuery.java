@@ -27,11 +27,6 @@ public class UserQuery {
         query += this.getPrefix(query) + " name = " + "'" + user.getName() + "'";
       }
     }
-    if (null != user.getLogin()) {
-      if (!user.getLogin().isEmpty()){
-        query += this.getPrefix(query) + " login = " + "'" + user.getLogin() + "'";
-      }
-    }
     if (null != user.getPassword()){
       if (!user.getPassword().isEmpty()) {
         query += this.getPrefix(query) + " password = " + "'" + user.getPassword() + "'";
