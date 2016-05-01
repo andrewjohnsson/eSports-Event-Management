@@ -3,7 +3,7 @@ package by.bsuir.spp.ils.lab.helper;
 import by.bsuir.spp.ils.lab.entity.User;
 import by.bsuir.spp.ils.lab.persistence.HibernateUtil;
 import by.bsuir.spp.ils.lab.service.AuthService;
-import com.sun.tools.javac.util.List;
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

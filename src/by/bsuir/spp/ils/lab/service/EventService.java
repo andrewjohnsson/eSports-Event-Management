@@ -2,12 +2,14 @@ package by.bsuir.spp.ils.lab.service;
 
 import by.bsuir.spp.ils.lab.entity.Event;
 import by.bsuir.spp.ils.lab.entity.Team;
+import by.bsuir.spp.ils.lab.entity.Ticket;
 import by.bsuir.spp.ils.lab.helper.builder.query.EventQuery;
 import by.bsuir.spp.ils.lab.persistence.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +34,14 @@ public class EventService extends HibernateUtil {
       try {
         session.save(event);
         if (!transaction.wasCommitted()) {
+          int seatsCount = 1000;
+          // int seatsCount = Event.getSeatsCount();
+          for(int i = 1; i <= seatsCount; i++){
+            Ticket ticket = new Ticket();
+            ticket.setEventId(event.getId());
+            ticket.setSeat(String.valueOf(i));
+            session.save(ticket);
+          }
           transaction.commit();
         }
         return event;

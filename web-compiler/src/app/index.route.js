@@ -18,8 +18,8 @@
         url: '/cpanel',
         templateUrl: 'app/dashboard/dashboard.html',
         controller: 'DashboardController',
-        controllerAs: 'ctrl',
-        resolve: {isLogged: function(AuthService, $location){AuthService.isLogged().then(function(data){if (data != true){$location.url('/404')}},function(){$location.url('/404')})}}
+        controllerAs: 'ctrl'//,
+        // resolve: {isLogged: function(AuthService, $location){AuthService.isLogged().then(function(data){if (data != true){$location.url('/404')}},function(){$location.url('/404')})}}
       })
       .state('users', {
         url: '/users',
