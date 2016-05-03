@@ -94,8 +94,6 @@
         }
       ];
 
-      vm.originalFields = angular.copy(vm.registerFields);
-
       vm.register = function(){
         AuthService.isLogged().then(function(data){
           if (data != true){
@@ -104,7 +102,6 @@
               if (response.data.error == null){
                 $log.log(response.data);
                 vm.isRegistered = true;
-                vm.registerFields = angular.copy(originalFields);
               }
             });
           }else{

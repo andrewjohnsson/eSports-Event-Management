@@ -2,39 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a597d598-a8e8-4a95-8dff-e697f7415b5b" name="Default" comment="Fix Auth">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/WEB-INF/classes/by/bsuir/spp/ils/lab/entity/User.class" afterPath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/WEB-INF/classes/by/bsuir/spp/ils/lab/entity/User.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/entity/User.class" afterPath="$PROJECT_DIR$/out/production/LabSPP/by/bsuir/spp/ils/lab/entity/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Bundled_Web_Content/index.html" afterPath="$PROJECT_DIR$/out/artifacts/Bundled_Web_Content/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/WEB-INF/classes/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/WEB-INF/classes/hibernate.cfg.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/index.html" afterPath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LabSPP/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/out/production/LabSPP/hibernate.cfg.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LabSPP/hibernate_mapping.xml" afterPath="$PROJECT_DIR$/out/production/LabSPP/hibernate_mapping.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/actions/AuthAction.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/actions/AuthAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/actions/EventAction.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/actions/EventAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/entity/Event.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/entity/Event.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/entity/TeamHasEvent.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/entity/TeamHasEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/entity/User.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/entity/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/helper/PermissionHelper.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/helper/PermissionHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/helper/builder/query/UserQuery.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/helper/builder/query/UserQuery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/service/AuthService.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/service/AuthService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/service/EventService.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/service/EventService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/service/TicketService.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/service/TicketService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hibernate_mapping.xml" afterPath="$PROJECT_DIR$/src/hibernate_mapping.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/struts.xml" afterPath="$PROJECT_DIR$/src/struts.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/components/login/login.directive.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/components/login/login.directive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/components/login/login.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/components/login/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/components/registration/registration.directive.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/components/registration/registration.directive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/components/registration/registration.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/components/registration/registration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/components/service/auth/auth.service.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/components/service/auth/auth.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/components/service/common/http.service.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/components/service/common/http.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/components/service/common/parser.service.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/components/service/common/parser.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/dashboard/dashboard.controller.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/dashboard/dashboard.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/dashboard/dashboard.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/dashboard/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/index.route.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/index.route.js" />
     </list>
     <ignored path="LabSPP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -148,7 +125,7 @@
         <entry file="file://$PROJECT_DIR$/web-compiler/src/app/components/registration/registration.directive.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="96" column="58" selection-start-line="96" selection-start-column="6" selection-end-line="96" selection-end-column="58" />
+              <caret line="103" column="39" selection-start-line="103" selection-start-column="39" selection-end-line="103" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -228,20 +205,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.directive.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.directive.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-compiler/src/app/components/login/login.directive.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="61" selection-start-line="59" selection-start-column="61" selection-end-line="59" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.42537314">
+              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TeamHasEvent.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TeamHasEvent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/entity/TeamHasEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17910448">
+            <state vertical-scroll-proportion="0.0">
               <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
               <folding />
             </state>
@@ -339,9 +316,9 @@
         <option value="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/entity/User.java" />
         <option value="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/actions/EventAction.java" />
         <option value="$PROJECT_DIR$/web-compiler/src/app/dashboard/dashboard.controller.js" />
+        <option value="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/entity/TeamHasEvent.java" />
         <option value="$PROJECT_DIR$/web-compiler/src/app/components/registration/registration.directive.js" />
         <option value="$PROJECT_DIR$/web-compiler/src/app/components/login/login.directive.js" />
-        <option value="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/entity/TeamHasEvent.java" />
       </list>
     </option>
   </component>
@@ -1794,7 +1771,7 @@
       <workItem from="1462037902700" duration="5000" />
       <workItem from="1462129656554" duration="393000" />
       <workItem from="1462198086805" duration="4882000" />
-      <workItem from="1462280097903" duration="10689000" />
+      <workItem from="1462280097903" duration="10727000" />
     </task>
     <task id="LOCAL-00001" summary="Set Up Git At IntelliJ">
       <created>1458573469333</created>
@@ -1826,11 +1803,17 @@
       <option name="project" value="LOCAL" />
       <updated>1461507502043</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fix Auth">
+      <created>1462298847587</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1462298847587</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="359837000" />
+    <option name="totallyTimeSpent" value="359875000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2341,26 +2324,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/entity/TeamHasEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web-compiler/src/app/components/registration/registration.directive.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="96" column="58" selection-start-line="96" selection-start-column="6" selection-end-line="96" selection-end-column="58" />
+          <caret line="103" column="39" selection-start-line="103" selection-start-column="39" selection-end-line="103" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-compiler/src/app/components/login/login.directive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="61" selection-start-line="59" selection-start-column="61" selection-end-line="59" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/entity/TeamHasEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17910448">
-          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.42537314">
+          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
           <folding />
         </state>
       </provider>

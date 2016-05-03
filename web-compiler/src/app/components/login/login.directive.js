@@ -40,8 +40,6 @@
         }
       ];
 
-      vm.originalFields = angular.copy(vm.loginFields);
-
       vm.isLogged = false;
 
       AuthService.isLogged().then(function(data){
@@ -57,7 +55,6 @@
           if (data == true){
             vm.isLogged = true;
             vm.currentUser = AuthService.getUser();
-            vm.loginFields = angular.copy(vm.originalFields);
           }else{
             alert('Wrong Credentials');
           }
