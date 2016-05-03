@@ -6,9 +6,10 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider) {
+  function config($logProvider, blockUIConfig) {
     // Enable log
     $logProvider.debugEnabled(true);
+    blockUIConfig.autoBlock = false;
   }
 
 })();

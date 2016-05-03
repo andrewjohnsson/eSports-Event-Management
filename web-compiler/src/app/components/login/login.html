@@ -1,0 +1,17 @@
+<formly-form model="ctrl.loginModel" fields="ctrl.loginFields" ng-hide="ctrl.isLogged">
+  <button type="submit" class="btn btn-primary btn-block" ng-click="ctrl.login(ctrl.user)">Login</button>
+</formly-form>
+
+<div class="tab-content" block-ui="userInfoBlock" ng-show="ctrl.isLogged">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h4>{{ctrl.currentUser.name}}</h4>
+      <p>{{ ctrl.currentUser.email }}</p>
+    </div>
+  </div>
+  <div class="col=md-12 bottom">
+    <a href="/#/cpanel" class="btn btn-default btn-block">Dashboard</a>
+    <button class="btn btn-default btn-block">My Account</button>
+    <button class="btn btn-primary btn-block" ng-click="ctrl.logout()">Log Out</button>
+  </div>
+</div>

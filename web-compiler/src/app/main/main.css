@@ -1,0 +1,11 @@
+.content-wrapper{
+  position: absolute;
+  top: 50px;
+  padding-top: 20px;
+  bottom: 160px;
+  width: 100%;
+  overflow-x: hidden;
+}
+.tab-content{
+  margin-top: 25px;
+}

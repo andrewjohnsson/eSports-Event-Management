@@ -14,26 +14,39 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
-      .state('user', {
-        url: '/user',
-        templateUrl: 'app/user/user.html',
+      .state('cpanel', {
+        url: '/cpanel',
+        templateUrl: 'app/dashboard/dashboard.html',
+        controller: 'DashboardController',
+        controllerAs: 'ctrl',
+        resolve: {isLogged: function(AuthService, $location){AuthService.isLogged().then(function(data){if (data != true){$location.url('/404')}},function(){$location.url('/404')})}}
+      })
+      .state('users', {
+        url: '/users',
+        templateUrl: 'app/user/users.html',
         controller: 'UsersController',
         controllerAs: 'users'
       })
-      .state('result', {
-        url: '/result',
-        templateUrl: '/result.jsp'
+      .state('team', {
+        url: '/team',
+        templateUrl: 'app/team/team.html',
+        controller: 'TeamsController',
+        controllerAs: 'teams'
       })
-      .state('events', {
-        url: '/events',
-        templateUrl: 'app/events/events.html',
+      .state('event', {
+        url: '/event',
+        templateUrl: 'app/event/event.html',
         controller: 'EventController',
-        controllerAs: 'events'
+        controllerAs: 'ctrl'
       })
       .state('about', {
         url: '/about',
         templateUrl: 'app/about/about.html'
       })
+      .state('404', {
+        url: '/404',
+        templateUrl: 'app/404/main.html'
+      });
 
     $urlRouterProvider.otherwise('/');
   }

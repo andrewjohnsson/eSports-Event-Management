@@ -18,6 +18,7 @@
     /** @ngInject */
     function NavbarController() {
       var vm = this;
+
       vm.brand = {
         title: 'LabSPP',
         link: '/'
@@ -30,11 +31,11 @@
         },
         {
           title: 'Teams',
-          link: 'teams'
+          link: 'team'
         },
         {
           title: 'Events',
-          link: 'events'
+          link: 'event'
         },
         {
           title: 'About Us',

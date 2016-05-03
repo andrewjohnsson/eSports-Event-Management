@@ -3,92 +3,50 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <!-- <class name="by.bsuir.spp.ils.lab.entity.Admin" table="admin" schema="" catalog="esports">
-        <composite-id mapped="true" class="by.bsuir.spp.ils.lab.entity.AdminPK">
-            <key-property name="adminId" column="admin_id"/>
-            <key-property name="userId" column="user_id"/>
-        </composite-id>
-    </class>
-    <class name="by.bsuir.spp.ils.lab.entity.Document" table="document" schema="" catalog="esports">
+    <class name="by.bsuir.spp.ils.lab.entity.Document" table="document" schema="esports">
         <composite-id mapped="true" class="by.bsuir.spp.ils.lab.entity.DocumentPK">
-            <key-property name="documentId" column="document_id"/>
+            <key-property name="id" column="id"/>
             <key-property name="userId" column="user_id"/>
         </composite-id>
-        <property name="number" column="number"/>
-        <property name="issuer" column="issuer"/>
-    </class>
-    <class name="by.bsuir.spp.ils.lab.entity.Event" table="event" schema="" catalog="esports">
-        <id name="eventId" column="event_id"/>
-        <property name="name" column="name"/>
-        <property name="date" column="date"/>
-        <property name="time" column="time"/>
-    </class>
-    <class name="by.bsuir.spp.ils.lab.entity.Invitation" table="invitation" schema="" catalog="esports">
-        <composite-id mapped="true" class="by.bsuir.spp.ils.lab.entity.InvitationPK">
-            <key-property name="invitationId" column="invitation_id"/>
-            <key-property name="documentId" column="document_id"/>
-        </composite-id>
-    </class>
-    <class name="by.bsuir.spp.ils.lab.entity.Manager" table="manager" schema="" catalog="esports">
-        <composite-id mapped="true" class="by.bsuir.spp.ils.lab.entity.ManagerPK">
-            <key-property name="managerId" column="manager_id"/>
-            <key-property name="userId" column="user_id"/>
-            <key-property name="teamId" column="team_id"/>
-        </composite-id>
-    </class>
-    <class name="by.bsuir.spp.ils.lab.entity.Passport" table="passport" schema="" catalog="esports">
-        <composite-id mapped="true" class="by.bsuir.spp.ils.lab.entity.PassportPK">
-            <key-property name="passportId" column="passport_id"/>
-            <key-property name="documentId" column="document_id"/>
-        </composite-id>
+        <property name="inheritId" column="inherit_id"/>
         <property name="series" column="series"/>
+        <property name="number" column="number"/>
         <property name="nationality" column="nationality"/>
     </class>
-    <class name="by.bsuir.spp.ils.lab.entity.Permission" table="permission" schema="" catalog="esports">
-        <composite-id mapped="true" class="by.bsuir.spp.ils.lab.entity.PermissionPK">
-            <key-property name="permissionId" column="permission_id"/>
-            <key-property name="passportId" column="passport_id"/>
-        </composite-id>
+    <class name="by.bsuir.spp.ils.lab.entity.Event" table="event" schema="esports">
+        <id name="id" column="id"/>
+        <property name="name" column="name"/>
+        <property name="date" column="date"/>
     </class>
-    <class name="by.bsuir.spp.ils.lab.entity.Player" table="player" schema="" catalog="esports">
-        <composite-id mapped="true" class="by.bsuir.spp.ils.lab.entity.PlayerPK">
-            <key-property name="playerId" column="player_id"/>
-            <key-property name="userId" column="user_id"/>
+    <class name="by.bsuir.spp.ils.lab.entity.Team" table="team" schema="esports">
+        <id name="id" column="id"/>
+        <property name="name" column="name"/>
+        <property name="userId" column="user_id"/>
+    </class>
+    <class name="by.bsuir.spp.ils.lab.entity.TeamHasEvent" table="team_has_event" schema="esports">
+        <composite-id mapped="true" class="by.bsuir.spp.ils.lab.entity.TeamHasEventPK">
             <key-property name="teamId" column="team_id"/>
-        </composite-id>
-    </class>
-    <class name="by.bsuir.spp.ils.lab.entity.Supervisor" table="supervisor" schema="" catalog="esports">
-        <composite-id mapped="true" class="by.bsuir.spp.ils.lab.entity.SupervisorPK">
-            <key-property name="supervisorId" column="supervisor_id"/>
-            <key-property name="userId" column="user_id"/>
             <key-property name="eventId" column="event_id"/>
         </composite-id>
     </class>
-    <class name="by.bsuir.spp.ils.lab.entity.Team" table="team" schema="" catalog="esports">
-        <id name="teamId" column="team_id"/>
-        <property name="name" column="name"/>
-    </class>
-    <class name="by.bsuir.spp.ils.lab.entity.Ticket" table="ticket" schema="" catalog="esports">
+    <class name="by.bsuir.spp.ils.lab.entity.Ticket" table="ticket" schema="esports">
         <composite-id mapped="true" class="by.bsuir.spp.ils.lab.entity.TicketPK">
-            <key-property name="ticketId" column="ticket_id"/>
-            <key-property name="viewerId" column="viewer_id"/>
-            <key-property name="permissionId" column="permission_id"/>
+            <key-property name="id" column="id"/>
+            <key-property name="eventId" column="event_id"/>
         </composite-id>
-        <property name="sector" column="sector"/>
+        <property name="price" column="price"/>
         <property name="seat" column="seat"/>
-    </class>-->
-    <class name="by.bsuir.spp.ils.lab.entity.User" table="user" schema="" catalog="esports">
-        <id name="userId" column="user_id"/>
+        <property name="userId" column="user_id"/>
+    </class>
+    <class name="by.bsuir.spp.ils.lab.entity.User" table="user" schema="esports">
+        <id name="id" column="id"/>
+        <property name="permissions" column="permissions"/>
+        <property name="age" column="age"/>
+        <property name="teamId" column="team_id"/>
+        <property name="eventId" column="event_id"/>
+        <property name="isbusy" column="isbusy"/>
         <property name="name" column="name"/>
-        <property name="login" column="login"/>
         <property name="password" column="password"/>
         <property name="email" column="email"/>
-        <property name="age" column="age"/>
     </class>
-    <!--<class name="by.bsuir.spp.ils.lab.entity.Viewer" table="viewer" schema="" catalog="esports">
-        <composite-id mapped="true" class="by.bsuir.spp.ils.lab.entity.ViewerPK">
-            <key-property name="viewerId" column="viewer_id"/>
-            <key-property name="userId" column="user_id"/>
-        </composite-id>
-    </class>-->
 </hibernate-mapping>

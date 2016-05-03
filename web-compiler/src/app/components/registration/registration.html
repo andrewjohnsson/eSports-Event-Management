@@ -1,0 +1,13 @@
+<formly-form model="regCtrl.regModel" fields="regCtrl.registerFields" ng-hide="regCtrl.isRegistered">
+  <button type="submit" class="btn btn-primary btn-block" ng-click="regCtrl.register(ctrl.user)">Register</button>
+</formly-form>
+
+<div class="tab-content" block-ui="successRegBlock" ng-show="regCtrl.isRegistered">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h4>Congratulations!</h4>
+      <h5>You are successfully registered.</h5>
+      <p>You can log in the system now</p>
+    </div>
+  </div>
+</div>

@@ -17,20 +17,98 @@
     </package>
 
     <package name="default" extends="json-default">
-      <action name="create" class="by.bsuir.spp.ils.lab.controller.action.user.UserAction" method="create">
+      <action name="login" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="login">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
         <result type="json"/>
-      </action>
-
-      <action name="delete" class="by.bsuir.spp.ils.lab.controller.action.user.UserAction" method="delete">
+        <result name="error" type="json"/>
         <result name="input" type="json"/>
-        <result name="success" type="json"/>
       </action>
 
-      <action name="read" class="by.bsuir.spp.ils.lab.controller.action.user.UserAction" method="read">
+      <action name="logout" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="logout">
+        <result type="json"/>
+        <result name="error" type="json"/>
+        <result name="input" type="json"/>
+      </action>
+
+      <action name="register" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="register">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
+        <result type="json"/>
+        <result name="error" type="json"/>
+        <result name="input" type="json"/>
+      </action>
+
+      <action name="check" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="check">
+        <result type="json"/>
+        <result name="input" type="json"/>
+      </action>
+
+      <action name="create_user" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="create">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
+        <result type="json"/>
+        <result name="input" type="json"/>
+      </action>
+
+      <action name="delete_user" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="delete">
+        <result name="input" type="json"/>
         <result type="json"/>
       </action>
 
-      <action name="list" class="by.bsuir.spp.ils.lab.controller.action.user.UserAction" method="list">
+      <action name="read_user" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="read">
+        <result type="json"/>
+        <result name="input" type="json"/>
+      </action>
+
+      <action name="list_users" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="list">
+        <result type="json"/>
+      </action>
+
+      <action name="create_team" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="create">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
+        <result type="json"/>
+      </action>
+
+      <action name="list_teams" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="read">
+        <result type="json"/>
+      </action>
+
+      <action name="edit_team" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="update">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
+        <result type="json"/>
+      </action>
+
+      <action name="delete_team" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="delete">
+        <result type="json"/>
+      </action>
+
+      <action name="create_event" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="create">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
+        <result type="json"/>
+      </action>
+
+      <action name="list_events" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="read">
+        <result type="json"/>
+      </action>
+
+      <action name="edit_event" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="update">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
+        <result type="json"/>
+      </action>
+
+      <action name="delete_event" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="delete">
         <result type="json"/>
       </action>
     </package>

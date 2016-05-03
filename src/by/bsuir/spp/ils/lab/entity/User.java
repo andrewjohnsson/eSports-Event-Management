@@ -4,161 +4,184 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.*;
 
 /**
- * Class for person entity
+ * Created by andrewjohnsson on 10.04.16.
  */
 @Entity
 public class User {
+  private int id;
+  private Integer age;
+  private Integer teamId;
+  private Integer eventId;
+  private boolean isbusy;
+  private String name;
+  private String password;
+  private String email;
+  private boolean isAdmin;
+  private boolean isPlayer;
+  private boolean isManager;
+  private boolean isSupervisor;
+  private boolean isViewer;
+	private byte[] permissions;
 
-    /**
-     * User's ID
-     */
-    private int userId;
-    /**
-     * User's name
-     */
-    private String name;
-    /**
-     * User's email
-     */
-    private String email;
-    /**
-     * User's documents
-     */
-    //private Document[] docs;
-    /**
-     * User's age
-     */
-    private int age;
+  @Id
+  @Column(name = "id")
+  public int getId() {
+    return id;
+  }
 
-    /**
-     * User's login
-     */
-    private String login;
+  public void setId(int id) {
+    this.id = id;
+  }
 
-    /**
-     * User's password
-     */
-    private String password;
-    /**
-     * Default constructor
-     */
-    public User() {
+  @Basic
+  @Column(name = "password")
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  @Basic
+  @Column(name = "email")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  @Basic
+  @Column(name = "age")
+  public Integer getAge() {
+    return age;
     }
 
-    /**
-     * User class constructor
-     * @param name New user's name
-     * @param sName New user's surname
-     * @param age New user's age
-     * @param email New user's email
-     * @param docs New user's documents array
-     */
-    public void User(String name, String sName, int age, String email/*, Document docs*/) {
-        // TODO implement here
-    }
+  public void setAge(Integer age) {
+    this.age = age;
+  }
 
-    /**
-     * Returns user's name
-     */
-    @Basic
-    @Column(name = "name")
-    public String getName() {
-        return this.name;
-    }
-    /**
-     * Sets user's name
-     * @param name String with user's  new name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
+  @Basic
+  @Column(name = "team_id")
+  public Integer getTeamId() {
+    return teamId;
+  }
 
-    /**
-     * Returns user's email
-     */
-    @Basic
-    @Column(name = "email")
-    public String getEmail() {
-        return  this.email;
-    }
+  public void setTeamId(Integer teamId) {
+    this.teamId = teamId;
+  }
 
-    /**
-     * Sets user's email
-     * @param email String with user's new email
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  @Basic
+  @Column(name = "event_id")
+  public Integer getEventId() {
+    return eventId;
+  }
 
-    @Basic
-    @Column(name = "age")
-    /**
-     * Returns user's age
-     */
-    public int getAge() {
-        return this.age;
-    }
+  public void setEventId(Integer eventId) {
+    this.eventId = eventId;
+  }
 
-    /**
-     * Sets user's age
-     * @param age Age to set
-     */
-    public void setAge(int age) {
-        this.age = age;
-    }
+  @Basic
+  @Column(name = "isbusy")
+  public boolean getIsbusy() {
+    return isbusy;
+  }
 
-    @Id
-    @Column(name = "user_id")
-    public int getUserId() {
-        return userId;
-    }
+  public void setIsbusy(boolean isbusy) {
+    this.isbusy = isbusy;
+  }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+  @Basic
+  @Column(name = "name")
+  public String getName() {
+    return name;
+  }
 
-    @Basic
-    @Column(name = "login")
-    public String getLogin() {
-        return login;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+  @Basic
+  @Column(name = "isAdmin")
+  public boolean getIsAdmin() {
+    return isAdmin;
+  }
 
-    @Basic
-    @Column(name = "password")
-    public String getPassword() {
-        return password;
-    }
+  public void setIsAdmin(boolean admin) {
+    isAdmin = admin;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  @Basic
+  @Column(name = "isPlayer")
+  public boolean getIsPlayer() {
+    return isPlayer;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+  public void setIsPlayer(boolean player) {
+    isPlayer = player;
+  }
 
-        User user = (User) o;
+  @Basic
+  @Column(name = "isManager")
+  public boolean getIsManager() {
+    return isManager;
+  }
 
-        if (userId != user.userId) return false;
-        if (login != null ? !login.equals(user.login) : user.login != null) return false;
-        if (password != null ? !password.equals(user.password) : user.password != null) return false;
+  public void setIsManager(boolean manager) {
+    isManager = manager;
+  }
 
-        return true;
-    }
+  @Basic
+  @Column(name = "isSupervisor")
+  public boolean getIsSupervisor() {
+    return isSupervisor;
+  }
 
-    @Override
-    public int hashCode() {
-        int result = userId;
-        result = 31 * result + (login != null ? login.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        return result;
-    }
+  public void setIsSupervisor(boolean supervisor) {
+    isSupervisor = supervisor;
+  }
+
+  @Basic
+  @Column(name = "isViewer")
+  public boolean getIsViewer() {
+    return isViewer;
+  }
+
+  public void setIsViewer(boolean viewer) {
+    isViewer = viewer;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    User user = (User) o;
+
+    if (id != user.id) return false;
+    if (isbusy != user.isbusy) return false;
+    if (age != null ? !age.equals(user.age) : user.age != null) return false;
+    if (teamId != null ? !teamId.equals(user.teamId) : user.teamId != null) return false;
+    if (eventId != null ? !eventId.equals(user.eventId) : user.eventId != null) return false;
+    if (name != null ? !name.equals(user.name) : user.name != null) return false;
+    if (password != null ? !password.equals(user.password) : user.password != null) return false;
+		return email != null ? email.equals(user.email) : user.email == null;
+
+	}
+
+  @Override
+  public int hashCode() {
+    int result = id;
+    result = 31 * result + (age != null ? age.hashCode() : 0);
+    result = 31 * result + (teamId != null ? teamId.hashCode() : 0);
+    result = 31 * result + (eventId != null ? eventId.hashCode() : 0);
+    result = 31 * result + (name != null ? name.hashCode() : 0);
+    result = 31 * result + (password != null ? password.hashCode() : 0);
+    result = 31 * result + (email != null ? email.hashCode() : 0);
+    return result;
+  }
 }
