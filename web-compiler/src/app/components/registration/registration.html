@@ -1,4 +1,4 @@
-<formly-form model="regCtrl.user" fields="regCtrl.registerFields">
+<formly-form model="regCtrl.regModel" fields="regCtrl.registerFields" ng-hide="regCtrl.isRegistered">
   <button type="submit" class="btn btn-primary btn-block" ng-click="regCtrl.register(ctrl.user)">Register</button>
 </formly-form>
 

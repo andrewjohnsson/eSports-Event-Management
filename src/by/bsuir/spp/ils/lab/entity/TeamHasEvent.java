@@ -40,9 +40,8 @@ public class TeamHasEvent {
     TeamHasEvent that = (TeamHasEvent) o;
 
     if (teamId != that.teamId) return false;
-    if (eventId != that.eventId) return false;
+    return eventId == that.eventId;
 
-    return true;
   }
 
   @Override

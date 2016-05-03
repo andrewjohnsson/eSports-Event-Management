@@ -9,6 +9,10 @@
   function DashboardController(UserService, TeamService, EventService) {
     var vm = this;
 
+    vm.playerForm = {};
+    vm.teamForm = {};
+    vm.eventForm = {};
+
     vm.list = function() {
       UserService.get().then(function(response){
         vm.userslist = response.users;
@@ -28,16 +32,44 @@
 
     vm.list();
 
-    vm.addUser = function(item){
-      UserService.add(item).then(function(){
-        vm.list();
-      });
+    vm.add = function(type, item){
+      switch (type){
+        case 'user':
+          UserService.add(item).then(function(){
+            vm.list();
+          });
+          break;
+        case 'team':
+          TeamService.add(item).then(function(){
+            vm.list();
+          });
+          break;
+        case 'event':
+          EventService.add(item).then(function(){
+            vm.list();
+          });
+          break;
+      }
     };
 
-    vm.findUser = function(item){
-      UserService.search(item).then(function(response){
-        vm.userslist = response.users;
-      });
+    vm.find = function(type, item){
+      switch (type){
+        case 'user':
+          UserService.search(item).then(function(response){
+            vm.userslist = response.users;
+          });
+          break;
+        case 'team':
+          TeamService.search(item).then(function(response){
+            vm.teamslist = response.teams;
+          });
+          break;
+        case 'event':
+          EventService.search(item).then(function(response){
+            vm.eventslist = response.events;
+          });
+          break;
+      }
     };
 
     vm.remove = function(type, id){

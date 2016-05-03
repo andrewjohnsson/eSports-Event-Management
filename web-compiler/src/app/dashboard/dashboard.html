@@ -6,7 +6,7 @@
 		    <uib-tab index="0" heading="Users">
 		      <div class="row">
 		        <div class="col-xs-12">
-		          <form ng-submit="ctrl.addUser(user)">
+		          <form ng-submit="ctrl.add('user', user)">
 		            <div class="container-fluid">
 		              <div class="form-group col-xs-6 col-md-3 col-md-offset-2">
 		                <input type="text" ng-model="user.name" class="form-control" placeholder=Name>
@@ -19,7 +19,7 @@
 		                <input type="password" ng-model="user.password" class="form-control" placeholder=Password>
 		              </div>
 		              <div class="form-group col-xs-6 col-md-2">
-		                <button type="button" class="btn btn-default" ng-click="ctrl.findUser(user)">Find</button>
+		                <button type="button" class="btn btn-default" ng-click="ctrl.find('user', user)">Find</button>
 		                <button type="submit" class="btn btn-default">Add</button>
 		              </div>
 
@@ -67,6 +67,17 @@
 		      </div>
 		    </uib-tab>
 		    <uib-tab index="1" heading="Teams">
+          <div class="col-xs-12">
+            <form ng-submit="ctrl.add('team', team)">
+              <div class="container-fluid">
+                <div class="form-group col-xs-6 col-md-3 col-md-offset-2">
+                  <input type="text" ng-model="team.name" class="form-control" placeholder=Name>
+                  <input type="number" ng-model="team.managerId" class="form-control" placeholder=Date>
+                </div>
+              </div>
+            </form>
+            <br/>
+          </div>
 		      <table class="table table-striped">
 		        <tr>
 		          <td>Manager</td>
@@ -88,6 +99,17 @@
 		      </table>
 		    </uib-tab>
 		    <uib-tab index="2" heading="Events">
+          <div class="col-xs-12">
+            <form ng-submit="ctrl.add('event', event)">
+              <div class="container-fluid">
+                <div class="form-group col-xs-6 col-md-3 col-md-offset-2">
+                  <input type="text" ng-model="event.name" class="form-control" placeholder=Name>
+                  <input type="text" ng-model="event.date" class="form-control" placeholder=Date>
+                </div>
+              </div>
+            </form>
+            <br/>
+          </div>
 		      <table class="table table-striped">
 		        <tr>
 		          <td>Name</td>

@@ -6,7 +6,7 @@
     .service('AuthService', AuthService);
 
   /** @ngInject */
-  function AuthService(HttpService, ParserService, blockUI, $q, $log, md5) {
+  function AuthService(HttpService, blockUI, $q) {
     /** @ngInject */
     var vm = this;
 
@@ -48,8 +48,7 @@
       var deferred = $q.defer();
       var entity = user;
       loginForm.start("Logging in...");
-      entity.password = md5.createHash(md5.createHash(user.password)+'somesalt');
-      HttpService.getData({method: 'GET', url: 'login?'+ 'user.email='+encodeURIComponent(entity.email)+'&user.password='+encodeURIComponent(entity.password)}).then(function(response){
+      HttpService.getData({method: 'POST', url: 'login', data: user}).then(function(response){
         if (response.data.user != undefined){
           vm.setUser(response.data.user);
           deferred.resolve(true);
@@ -67,7 +66,7 @@
 
     vm.isLogged = function(){
       var deferred = $q.defer();
-      HttpService.getData({method: 'POST', url: 'check'}).then(function(response){
+      HttpService.getData({method: 'GET', url: 'check'}).then(function(response){
         if (response.data.user != null && response.data.error == null){
           vm.setUser(response.data.user);
           deferred.resolve(true);
@@ -91,15 +90,12 @@
         deferred.reject();
       });
       return deferred.promise;
-    }
+    };
 
-    vm.register = function(user){
+    vm.register = function(model){
       var deferred = $q.defer();
-      user.password = md5.createHash(md5.createHash(user.password)+'somesalt');
-      vm.params = ParserService.parseParams($.param(user), 'user');
-      HttpService.getData({method: 'GET', url: 'register?'+vm.params}).then(function(response){
-        $log.log(response);
-        deferred.resolve(response.data);
+      HttpService.getData({method: 'POST', url: 'register', data: angular.toJson(model)}).then(function(response){
+        deferred.resolve(response);
       },function(){
         deferred.reject();
       });

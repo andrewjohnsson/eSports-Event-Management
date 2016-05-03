@@ -8,7 +8,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -50,9 +49,8 @@ public class AuthService extends HibernateUtil implements SessionAware {
     return null;
   }
 
-  public Map setUserLogin(int id, byte[] permissions){
+  public Map setUserLogin(int id){
     this.authSession.put("id", id);
-    this.authSession.put("permissions", permissions);
     return this.authSession;
   }
 
@@ -62,14 +60,13 @@ public class AuthService extends HibernateUtil implements SessionAware {
     return 0;
   }
 
-  public byte[] getUserPermissions(){
+  public String getUserPermissions(){
     if (this.authSession.get("permissions") != null)
-      return (byte[]) this.authSession.get("permissions");
+      return (String) this.authSession.get("permissions");
     return null;
   }
 
-  public void setUserPermissions(byte[] value){
-    this.authSession.put("permissions", value);
+  public void setUserPermissions(byte[] value){this.authSession.put("permissions", value);
   }
 
   public User getCurrentUser(){

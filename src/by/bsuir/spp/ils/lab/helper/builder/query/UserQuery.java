@@ -2,8 +2,6 @@ package by.bsuir.spp.ils.lab.helper.builder.query;
 
 import by.bsuir.spp.ils.lab.entity.User;
 
-import java.util.Arrays;
-
 /**
  * Created by andrewjohnsson on 03.04.16.
  */
@@ -50,11 +48,6 @@ public class UserQuery {
     if (null != user.getEventId()) {
       if (user.getEventId() > 0){
         query += this.getPrefix(query) + " event_id = " + "'" + user.getEventId() + "'";
-      }
-    }
-    if (user.getPermissions() != null) {
-      if (user.getPermissions().length > 0) {
-        query += this.getPrefix(query) + " permissions = " + "'" + user.getPermissions() + "'";
       }
     }
     return query;

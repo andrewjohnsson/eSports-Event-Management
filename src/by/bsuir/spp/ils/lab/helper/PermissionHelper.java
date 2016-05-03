@@ -3,7 +3,6 @@ package by.bsuir.spp.ils.lab.helper;
 import by.bsuir.spp.ils.lab.entity.User;
 import by.bsuir.spp.ils.lab.persistence.HibernateUtil;
 import by.bsuir.spp.ils.lab.service.AuthService;
-import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -20,46 +19,34 @@ public class PermissionHelper extends HibernateUtil {
     service = new AuthService();
   }
 
-  private void UpdateStatus(){
+  public User UpdateUser(){
     this.session = HibernateUtil.getSessionFactory().openSession();
     this.transaction = session.beginTransaction();
-    List<User> users = (List<User>) session.createQuery("from User where id ="+service.getUserId()).list();
-    service.setUserPermissions(users.get(0).getPermissions());
+    User user = (User) session.createQuery("from User where id ="+service.getUserId()).list().get(0);
+    byte[] newPermissions = new byte[]{
+			(byte)(user.getIsViewer()?1:0),
+			(byte)(user.getIsPlayer()?1:0),
+			(byte)(user.getIsManager()?1:0),
+			(byte)(user.getIsSupervisor()?1:0),
+			(byte)(user.getIsAdmin()?1:0)
+		};
+    service.setUserPermissions(newPermissions);
+    return user;
   }
 
   public boolean canWatchGames(){
-    UpdateStatus();
-    if(service.getUserPermissions()[0] == 49) {
-      return true;
-    }
-    return false;
+    return UpdateUser().getIsViewer();
   }
   public boolean canPlayGames(){
-    UpdateStatus();
-    if(service.getUserPermissions()[1] == 49) {
-      return true;
-    }
-    return false;
+    return UpdateUser().getIsPlayer();
   }
   public boolean canCreateTeam(){
-    UpdateStatus();
-    if(service.getUserPermissions()[2] == 49) {
-      return true;
-    }
-    return false;
+    return UpdateUser().getIsManager();
   }
   public boolean canAddEvent(){
-    UpdateStatus();
-    if(service.getUserPermissions()[3] == 49) {
-      return true;
-    }
-    return false;
+    return UpdateUser().getIsSupervisor();
   }
   public boolean isAdmin(){
-    UpdateStatus();
-    if(service.getUserPermissions()[4] == 49) {
-      return true;
-    }
-    return false;
+    return UpdateUser().getIsAdmin();
   }
 }

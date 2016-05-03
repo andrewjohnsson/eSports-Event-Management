@@ -40,7 +40,6 @@
     </class>
     <class name="by.bsuir.spp.ils.lab.entity.User" table="user" schema="esports">
         <id name="id" column="id"/>
-        <property name="permissions" column="permissions"/>
         <property name="age" column="age"/>
         <property name="teamId" column="team_id"/>
         <property name="eventId" column="event_id"/>
@@ -48,5 +47,10 @@
         <property name="name" column="name"/>
         <property name="password" column="password"/>
         <property name="email" column="email"/>
+        <property name="isAdmin" column="isAdmin"/>
+        <property name="isPlayer" column="isPlayer"/>
+        <property name="isManager" column="isManager"/>
+        <property name="isSupervisor" column="isSupervisor"/>
+        <property name="isViewer" column="isViewer"/>
     </class>
 </hibernate-mapping>

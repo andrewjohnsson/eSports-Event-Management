@@ -19,9 +19,13 @@
     function RegisterController(AuthService, $log) {
       var vm = this;
 
+      vm.service = AuthService;
+      vm.isRegistered = false;
+      vm.permissions = vm.service.getPermissions();
+
       vm.registerFields = [
         {
-          key: 'email',
+          key: 'user.email',
           type: 'input',
           templateOptions: {
             type: 'email',
@@ -30,7 +34,7 @@
           }
         },
         {
-          key: 'password',
+          key: 'user.password',
           type: 'input',
           templateOptions: {
             type: 'password',
@@ -39,7 +43,7 @@
           }
         },
         {
-          key: 'name',
+          key: 'user.name',
           type: 'input',
           templateOptions: {
             type: 'text',
@@ -48,7 +52,7 @@
           }
         },
         {
-          key: 'age',
+          key: 'user.age',
           type: 'input',
           templateOptions: {
             type: 'number',
@@ -57,7 +61,7 @@
           }
         },
         {
-          key: 'permissions[0]',
+          key: 'user.isViewer',
           type: 'checkbox',
           templateOptions: {
             type: 'checkbox',
@@ -65,7 +69,7 @@
           }
         },
         {
-          key: 'permissions[1]',
+          key: 'user.isPlayer',
           type: 'checkbox',
           templateOptions: {
             type: 'checkbox',
@@ -73,7 +77,7 @@
           }
         },
         {
-          key: 'permissions[2]',
+          key: 'user.isManager',
           type: 'checkbox',
           templateOptions: {
             type: 'checkbox',
@@ -81,7 +85,7 @@
           }
         },
         {
-          key: 'permissions[3]',
+          key: 'user.isSupervisor',
           type: 'checkbox',
           templateOptions: {
             type: 'checkbox',
@@ -90,22 +94,17 @@
         }
       ];
 
-      vm.service = AuthService;
-      vm.isRegistered = false;
-      vm.permissions = vm.service.getPermissions();
+      vm.originalFields = angular.copy(vm.registerFields);
 
       vm.register = function(){
         AuthService.isLogged().then(function(data){
           if (data != true){
-            var permissions = [0, 0, 0, 0];
-            var selectedPermissions = Object.keys(vm.user.permissions);
-            selectedPermissions.forEach(function(elem){
-              permissions[elem] = 1;
-            });
-            vm.user.permissions = permissions.toString();
-            vm.service.register(vm.user).then(function(response){
-              if (response.error == null){
+            $log.log(vm.regModel);
+            vm.service.register(vm.regModel).then(function(response){
+              if (response.data.error == null){
+                $log.log(response.data);
                 vm.isRegistered = true;
+                vm.registerFields = angular.copy(originalFields);
               }
             });
           }else{

@@ -4,9 +4,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by andrewjohnsson on 10.04.16.
@@ -14,14 +11,19 @@ import java.util.List;
 @Entity
 public class User {
   private int id;
-  private byte[] permissions;
   private Integer age;
   private Integer teamId;
   private Integer eventId;
-  private byte isbusy;
+  private boolean isbusy;
   private String name;
   private String password;
   private String email;
+  private boolean isAdmin;
+  private boolean isPlayer;
+  private boolean isManager;
+  private boolean isSupervisor;
+  private boolean isViewer;
+	private byte[] permissions;
 
   @Id
   @Column(name = "id")
@@ -54,37 +56,10 @@ public class User {
   }
 
   @Basic
-  @Column(name = "permissions")
-  public byte[] getPermissions() {
-    return permissions;
-  }
-
-  public void setPermissions(String perms) {
-		String[] arr = perms.split(",");
-		List<String> list = new ArrayList<>();
-		byte[] permissions = new byte[4];
-		permissions[0] = 0;
-		permissions[1] = 0;
-		permissions[2] = 0;
-		permissions[3] = 0;
-		for (String el : arr) {
-			list.add(el);
-		}
-		list.forEach(item -> {
-			if (item.equals("48")){
-				permissions[list.indexOf(item)] = 0;
-			}else{
-				permissions[list.indexOf(item)] = 1;
-			}
-		});
-		this.permissions = permissions;
-	}
-
-@Basic
-@Column(name = "age")
-public Integer getAge() {
-	return age;
-	}
+  @Column(name = "age")
+  public Integer getAge() {
+    return age;
+    }
 
   public void setAge(Integer age) {
     this.age = age;
@@ -112,11 +87,11 @@ public Integer getAge() {
 
   @Basic
   @Column(name = "isbusy")
-  public byte getIsbusy() {
+  public boolean getIsbusy() {
     return isbusy;
   }
 
-  public void setIsbusy(byte isbusy) {
+  public void setIsbusy(boolean isbusy) {
     this.isbusy = isbusy;
   }
 
@@ -130,6 +105,56 @@ public Integer getAge() {
     this.name = name;
   }
 
+  @Basic
+  @Column(name = "isAdmin")
+  public boolean getIsAdmin() {
+    return isAdmin;
+  }
+
+  public void setIsAdmin(boolean admin) {
+    isAdmin = admin;
+  }
+
+  @Basic
+  @Column(name = "isPlayer")
+  public boolean getIsPlayer() {
+    return isPlayer;
+  }
+
+  public void setIsPlayer(boolean player) {
+    isPlayer = player;
+  }
+
+  @Basic
+  @Column(name = "isManager")
+  public boolean getIsManager() {
+    return isManager;
+  }
+
+  public void setIsManager(boolean manager) {
+    isManager = manager;
+  }
+
+  @Basic
+  @Column(name = "isSupervisor")
+  public boolean getIsSupervisor() {
+    return isSupervisor;
+  }
+
+  public void setIsSupervisor(boolean supervisor) {
+    isSupervisor = supervisor;
+  }
+
+  @Basic
+  @Column(name = "isViewer")
+  public boolean getIsViewer() {
+    return isViewer;
+  }
+
+  public void setIsViewer(boolean viewer) {
+    isViewer = viewer;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -139,25 +164,21 @@ public Integer getAge() {
 
     if (id != user.id) return false;
     if (isbusy != user.isbusy) return false;
-    if (!Arrays.equals(permissions, user.permissions)) return false;
     if (age != null ? !age.equals(user.age) : user.age != null) return false;
     if (teamId != null ? !teamId.equals(user.teamId) : user.teamId != null) return false;
     if (eventId != null ? !eventId.equals(user.eventId) : user.eventId != null) return false;
     if (name != null ? !name.equals(user.name) : user.name != null) return false;
     if (password != null ? !password.equals(user.password) : user.password != null) return false;
-    if (email != null ? !email.equals(user.email) : user.email != null) return false;
+		return email != null ? email.equals(user.email) : user.email == null;
 
-    return true;
-  }
+	}
 
   @Override
   public int hashCode() {
     int result = id;
-    result = 31 * result + Arrays.hashCode(permissions);
     result = 31 * result + (age != null ? age.hashCode() : 0);
     result = 31 * result + (teamId != null ? teamId.hashCode() : 0);
     result = 31 * result + (eventId != null ? eventId.hashCode() : 0);
-    result = 31 * result + (int) isbusy;
     result = 31 * result + (name != null ? name.hashCode() : 0);
     result = 31 * result + (password != null ? password.hashCode() : 0);
     result = 31 * result + (email != null ? email.hashCode() : 0);

@@ -5,9 +5,6 @@ import by.bsuir.spp.ils.lab.service.AuthService;
 import by.bsuir.spp.ils.lab.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * Created by andrewjohnsson on 11.04.16.
  */
@@ -33,16 +30,16 @@ public class AuthAction extends ActionSupport {
       } else {
 				try {
 					setUser(authService.isLogged(email, pass));
-					authService.setUserLogin(getUser().getId(), getUser().getPermissions());
+					authService.setUserLogin(getUser().getId());
 					return SUCCESS;
 				}catch (Exception e){
+					user = null;
+					setError("Cannot login!");
 					System.out.println("No such user");
 					return SUCCESS;
 				}
       }
     }
-		user = null;
-		setError("Cannot login!");
     return SUCCESS;
   }
 

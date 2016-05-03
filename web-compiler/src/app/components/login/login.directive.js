@@ -21,7 +21,7 @@
 
       vm.loginFields = [
         {
-          key: 'email',
+          key: 'user.email',
           type: 'input',
           templateOptions: {
             type: 'email',
@@ -30,7 +30,7 @@
           }
         },
         {
-          key: 'password',
+          key: 'user.password',
           type: 'input',
           templateOptions: {
             type: 'password',
@@ -39,6 +39,8 @@
           }
         }
       ];
+
+      vm.originalFields = angular.copy(vm.loginFields);
 
       vm.isLogged = false;
 
@@ -50,16 +52,17 @@
         }
       });
 
-      vm.login = function(user){
-        AuthService.login(user).then(function(data){
+      vm.login = function(){
+        AuthService.login(vm.loginModel).then(function(data){
           if (data == true){
             vm.isLogged = true;
             vm.currentUser = AuthService.getUser();
+            vm.loginFields = angular.copy(vm.originalFields);
           }else{
             alert('Wrong Credentials');
           }
         }, function(){
-          $log.error('Login Failed For User ' + user.email)
+          $log.error('Login Failed For User ' + vm.loginModel.user.email)
         });
       };
 

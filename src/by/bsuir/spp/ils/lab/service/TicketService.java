@@ -42,13 +42,12 @@ public class TicketService extends HibernateUtil {
     public List<Ticket> list(){
         session = HibernateUtil.getSessionFactory().openSession();
         transaction = session.beginTransaction();
-        List<Ticket> tickets = new ArrayList<Ticket>();
-        tickets = (List<Ticket>) session.createQuery("from Ticket").list();
+        List<Ticket> tickets = (List<Ticket>) session.createQuery("from Ticket").list();
         return tickets;
     }
 
     public List<Ticket> find(Ticket ticket){
-        List<Ticket> tickets = new ArrayList<Ticket>();
+        List<Ticket> tickets = new ArrayList<>();
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
@@ -71,7 +70,7 @@ public class TicketService extends HibernateUtil {
     }
 
     public List<Ticket> findUserTickets(User user){
-        List<Ticket> tickets = new ArrayList<Ticket>();
+        List<Ticket> tickets = new ArrayList<>();
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
@@ -95,7 +94,7 @@ public class TicketService extends HibernateUtil {
     }
 
     public List<Ticket> findEventTickets(Event event){
-        List<Ticket> tickets = new ArrayList<Ticket>();
+        List<Ticket> tickets = new ArrayList<>();
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();

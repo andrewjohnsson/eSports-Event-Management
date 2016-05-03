@@ -6,7 +6,7 @@
     .service('ParserService', ParserService);
 
   /** @ngInject */
-  function ParserService($q) {
+  function ParserService() {
     /** @ngInject */
 
     var vm = this;

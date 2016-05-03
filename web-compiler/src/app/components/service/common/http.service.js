@@ -15,7 +15,9 @@
       $http({
         method: conf.method,
         url: conf.url,
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        data: conf.data,
+        dataType: 'json',
+        headers: {'Content-Type': 'application/json; charset=utf-8'}
       }).then(function (response) {
         deferred.resolve(response)
       }, function(){

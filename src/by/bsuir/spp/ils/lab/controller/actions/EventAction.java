@@ -2,7 +2,6 @@ package by.bsuir.spp.ils.lab.controller.actions;
 
 import by.bsuir.spp.ils.lab.entity.Event;
 import by.bsuir.spp.ils.lab.entity.Team;
-import by.bsuir.spp.ils.lab.entity.User;
 import by.bsuir.spp.ils.lab.helper.PermissionHelper;
 import by.bsuir.spp.ils.lab.service.AuthService;
 import by.bsuir.spp.ils.lab.service.EventService;

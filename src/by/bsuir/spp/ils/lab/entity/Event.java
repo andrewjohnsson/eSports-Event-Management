@@ -4,7 +4,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.sql.Timestamp;
 
 /**
  * Created by andrewjohnsson on 08.04.16.
@@ -13,7 +12,7 @@ import java.sql.Timestamp;
 public class Event {
   private int id;
   private String name;
-  private Timestamp date;
+  private String date;
 
   @Id
   @Column(name = "id")
@@ -37,11 +36,11 @@ public class Event {
 
   @Basic
   @Column(name = "date")
-  public Timestamp getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(Timestamp date) {
+  public void setDate(String date) {
     this.date = date;
   }
 
@@ -54,9 +53,8 @@ public class Event {
 
     if (id != event.id) return false;
     if (name != null ? !name.equals(event.name) : event.name != null) return false;
-    if (date != null ? !date.equals(event.date) : event.date != null) return false;
+    return date != null ? date.equals(event.date) : event.date == null;
 
-    return true;
   }
 
   @Override

@@ -9,7 +9,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,14 +16,16 @@ import java.util.Map;
  * Created by andrewjohnsson on 10.04.16.
  */
 public class EventService extends HibernateUtil {
+  private TicketService ticketService;
   private Session session;
   private Transaction transaction;
   private EventQuery builder;
-  private ParticipationService service;
+  private ParticipationService participationService;
   private List<Event> events;
 
   public EventService(){
-    service = new ParticipationService();
+		ticketService = new TicketService();
+		participationService = new ParticipationService();
   }
 
   public Event add(Event event){
@@ -40,7 +41,7 @@ public class EventService extends HibernateUtil {
             Ticket ticket = new Ticket();
             ticket.setEventId(event.getId());
             ticket.setSeat(String.valueOf(i));
-            session.save(ticket);
+            ticketService.add(ticket);
           }
           transaction.commit();
         }
@@ -66,7 +67,7 @@ public class EventService extends HibernateUtil {
     session = HibernateUtil.getSessionFactory().openSession();
     transaction = session.beginTransaction();
     events = (List<Event>) session.createQuery("from Event").list();
-    service.setParticipants(events);
+		participationService.setParticipants(events);
     return events;
   }
 
@@ -93,7 +94,7 @@ public class EventService extends HibernateUtil {
   }
 
   public Map<Integer, List<Team>> getParticipants(){
-    return service.getParticipants();
+    return participationService.getParticipants();
   }
 
   public Event update(Event event){
