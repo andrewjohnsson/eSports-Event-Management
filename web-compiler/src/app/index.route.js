@@ -21,17 +21,17 @@
         controllerAs: 'ctrl',
         resolve: {isLogged: function(AuthService, $location){AuthService.isLogged().then(function(data){if (data != true){$location.url('/404')}},function(){$location.url('/404')})}}
       })
-      .state('users', {
-        url: '/users',
-        templateUrl: 'app/user/users.html',
-        controller: 'UsersController',
-        controllerAs: 'users'
+      .state('user', {
+        url: '/user',
+        templateUrl: 'app/user/user.html',
+        controller: 'UserController',
+        controllerAs: 'ctrl'
       })
       .state('team', {
         url: '/team',
         templateUrl: 'app/team/team.html',
-        controller: 'TeamsController',
-        controllerAs: 'teams'
+        controller: 'TeamController',
+        controllerAs: 'ctrl'
       })
       .state('event', {
         url: '/event',

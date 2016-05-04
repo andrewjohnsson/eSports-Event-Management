@@ -47,19 +47,17 @@
 		            <td><input type="text" ng-model="user.email" class="form-control" value="{{ user.email }}"></td>
 		            <td><input type="text" ng-model="user.age" class="form-control" value="{{ user.age }}" style="width: 50px;"></td>
 		            <td>
-		              <select class="form-control" ng-model="user.teamId">
-		                <option value="{{team.id}}" ng-repeat="team in ctrl.teamsList">{{team.name}}</option>
-		              </select>
+                  <select class="form-control" ng-model="user.teamId" ng-options="team.name for team in ctrl.teamsList" ng-init="user.teamId = '0'"></select>
 		            </td>
 		            <td>
-		              <input type="checkbox" ng-model="user.permissions[0]" ng-checked="user.permissions[0] == 49">
-		              <input type="checkbox" ng-model="user.permissions[1]" ng-checked="user.permissions[1] == 49">
-		              <input type="checkbox" ng-model="user.permissions[2]" ng-checked="user.permissions[2] == 49">
-		              <input type="checkbox" ng-model="user.permissions[3]" ng-checked="user.permissions[3] == 49">
-		              <input type="checkbox" ng-model="user.permissions[4]" ng-checked="user.permissions[4] == 49">
+		              <input type="checkbox" ng-model="user.isViewer" ng-checked="user.isViewer == true">
+		              <input type="checkbox" ng-model="user.isPlayer" ng-checked="user.isPlayer == true">
+		              <input type="checkbox" ng-model="user.isManager" ng-checked="user.isManager == true">
+		              <input type="checkbox" ng-model="user.isSupervisor" ng-checked="user.isSupervisor == true">
+		              <input type="checkbox" ng-model="user.isAdmin" ng-checked="user.isAdmin == true">
 		            </td>
 		            <td>
-		              <button type="button" class="btn btn-default btn-xs" ng-click="ctrl.edit()"><span class="glyphicon glyphicon-pencil"/></button>
+		              <button type="button" class="btn btn-default btn-xs" ng-click="ctrl.edit('user', user)"><span class="glyphicon glyphicon-pencil"/></button>
 		              <button type="button" class="btn btn-danger btn-xs" ng-click="ctrl.remove('user', user.userId)"><span class="glyphicon glyphicon-trash"/></button>
 		            </td>
 		          </tr>
@@ -123,7 +121,7 @@
 		          <td>
 		            <div ng-repeat="team in ctrl.teamsList">
 		              <label for="team_{{team.id}}">{{ team.name }}</label>
-		              <input type="checkbox" id="team_{{team.id}}" ng-checked="ctrl.participants[event.id].hasOwnProperty(id) == team.id">
+		              <input type="checkbox" id="team_{{team.id}}" ng-checked="ctrl.participants[event.id].id == team.id">
 		            </div>
 		          </td>
 		          <td>

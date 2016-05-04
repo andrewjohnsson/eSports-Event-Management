@@ -64,6 +64,15 @@
         <result name="input" type="json"/>
       </action>
 
+      <action name="update_user" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="update">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
+        <result type="json"/>
+        <result name="error" type="json"/>
+        <result name="input" type="json"/>
+      </action>
+
       <action name="list_users" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="list">
         <result type="json"/>
       </action>

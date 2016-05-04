@@ -3,11 +3,19 @@
 
   angular
     .module('web')
-    .controller('TeamsController', TeamsController);
+    .controller('TeamController', TeamController);
 
   /** @ngInject */
-  function TeamsController() {
-    //var vm = this;
+  function TeamController(TeamService) {
+    var vm = this;
+
+    vm.title = 'Explore Teams';
+    vm.subtitle = 'and get schedules';
+
+    TeamService.get().then(function(response){
+      vm.teamsList = response.teams;
+      vm.participations = response.participations;
+    });
   }
 
 })();
