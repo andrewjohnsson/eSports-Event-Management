@@ -52,6 +52,26 @@
       }
     };
 
+    vm.edit = function(type, item){
+      switch (type){
+        case 'user':
+          UserService.edit(item).then(function(){
+            vm.list();
+          });
+          break;
+        case 'team':
+          TeamService.edit(item).then(function(){
+            vm.list();
+          });
+          break;
+        case 'event':
+          EventService.edit(item).then(function(){
+            vm.list();
+          });
+          break;
+      }
+    };
+
     vm.find = function(type, item){
       switch (type){
         case 'user':

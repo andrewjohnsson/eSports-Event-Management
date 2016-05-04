@@ -20,7 +20,6 @@
           usersBlock.stop();
           deferred.resolve(response.data)
         }else{
-          usersBlock.stop();
           deferred.resolve(null)
         }
       }, function(){
@@ -31,15 +30,23 @@
     };
 
     vm.add = function(user){
+      return HttpService.getData({method: 'POST', url: 'create_user?', data: angular.toJson(user)})
+    };
+
+    vm.edit = function(user){
+      var deferred = $q.defer();
       vm.params = ParserService.parseParams($.param(user), 'user');
-      return HttpService.getData({method: 'POST', url: 'create_user?'+ vm.params})
+      HttpService.getData({method: 'POST', url: 'update_user?', data: angular.toJson(user)}).then(function(response) {
+        deferred.resolve(response.data);
+        usersBlock.stop();
+      });
+      return deferred.promise;
     };
 
     vm.search = function(user){
       var deferred = $q.defer();
       usersBlock.start("Searching Users...");
-      vm.params = ParserService.parseParams($.param(user), 'user');
-      HttpService.getData({method: 'POST', url: 'read_user?' + vm.params}).then(function(response){
+      HttpService.getData({method: 'POST', url: 'read_user?', data: angular.toJson(user)}).then(function(response){
         deferred.resolve(response.data);
         usersBlock.stop();
       }, function(){
