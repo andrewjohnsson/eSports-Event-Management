@@ -46,7 +46,6 @@
 
     vm.login = function(user){
       var deferred = $q.defer();
-      var entity = user;
       loginForm.start("Logging in...");
       HttpService.getData({method: 'POST', url: 'login', data: user}).then(function(response){
         if (response.data.user != undefined){

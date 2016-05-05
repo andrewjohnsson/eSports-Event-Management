@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="text-center">
+      <div class="panel panel-default">
+        <h3>{{ event.name }}</h3>
+        <p>{{ event.date }}</p>
+      </div>
+
+      <div class="panel panel-default">
+        <h5 ng-repeat="team in participants[event.id]">{{ team.name }}</h5>
+      </div>
+    </div>
+  </div>
+</div>

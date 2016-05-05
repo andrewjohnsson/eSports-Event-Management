@@ -42,7 +42,17 @@ public class EventAction extends ActionSupport {
     return ERROR;
   }
 
-  public String read(){
+  public String find(){
+    try {
+      this.event = eventService.find(getEvent()).get(0);
+      this.participants = eventService.getParticipants();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return SUCCESS;
+  }
+
+  public String list(){
     try {
       this.events = eventService.list();
       this.participants = eventService.getParticipants();

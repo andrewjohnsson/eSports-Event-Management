@@ -31,11 +31,11 @@
         },
         {
           title: 'Teams',
-          link: 'team'
+          link: 'team.list'
         },
         {
           title: 'Events',
-          link: 'event'
+          link: 'event.list'
         },
         {
           title: 'About Us',

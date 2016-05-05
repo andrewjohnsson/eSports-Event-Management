@@ -23,9 +23,19 @@
       return deferred.promise;
     };
 
-    vm.add = function(team){
-        vm.params = ParserService.parseParams($.param(team), 'team');
-        return HttpService.getData({method: 'POST', url: 'create_team?'+ vm.params})
+    vm.add = function(model){
+      vm.params = ParserService.parseParams($.param(model), 'team');
+      return HttpService.getData({method: 'POST', url: 'create_team?'+ vm.params})
+    };
+
+    vm.edit = function(model){
+      var deferred = $q.defer();
+      teamsBlock.start("Editing Team...");
+      HttpService.getData({method: 'POST', url: 'edit_team', data: angular.toJson(model)}).then(function(response){
+        teamsBlock.stop();
+        deferred.resolve(response.data);
+      });
+      return deferred.promise;
     };
 
     vm.search = function(team){
