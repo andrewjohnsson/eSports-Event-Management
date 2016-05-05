@@ -6,7 +6,7 @@
     .service('EventService', EventService);
 
   /** @ngInject */
-  function EventService(HttpService, ParserService, $q, blockUI) {
+  function EventService(HttpService, $q, $log, blockUI) {
     /** @ngInject */
 
     var vm = this;
@@ -16,21 +16,28 @@
     vm.get = function(){
       var deferred = $q.defer();
       eventsBlock.start("Loading Events...");
-      HttpService.getData({method: 'GET', url: 'list_events'}).then(function(response){
+      HttpService.getData({method: 'GET', url: 'list_event'}).then(function(response){
         eventsBlock.stop();
         deferred.resolve(response.data)
       });
       return deferred.promise;
     };
 
-    vm.add = function(team){
-        vm.params = ParserService.parseParams($.param(team), 'event');
-        return HttpService.getData({method: 'POST', url: 'create_event?'+ vm.params})
+    vm.add = function(event){
+      return HttpService.getData({method: 'POST', url: 'create_event', data: angular.toJson(event)});
     };
 
-    vm.search = function(team){
-      vm.params = ParserService.parseParams($.param(team), 'event');
-      return HttpService.getData({method: 'POST', url: 'read_event?' + vm.params}).users
+    vm.search = function(event){
+      var deferred = $q.defer();
+      HttpService.getData({method: 'POST', url: 'find_event', data: angular.toJson(event)}).then(
+        function(response){
+          deferred.resolve(response.data);
+        },
+        function(){
+          deferred.reject(null);
+        }
+      );
+      return deferred.promise;
     };
 
     vm.remove = function(type, id){

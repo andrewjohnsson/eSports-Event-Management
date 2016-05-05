@@ -6,7 +6,7 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController(UserService, TeamService, EventService) {
+  function DashboardController(UserService, TeamService, EventService, $log) {
     var vm = this;
 
     vm.playerForm = {};
@@ -60,7 +60,8 @@
           });
           break;
         case 'team':
-          TeamService.edit(item).then(function(){
+          $log.log(item);
+          TeamService.edit({team: item}).then(function(){
             vm.list();
           });
           break;

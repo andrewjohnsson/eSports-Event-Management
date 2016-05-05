@@ -1,16 +1,15 @@
 package by.bsuir.spp.ils.lab.service;
 
-import java.util.List;
-import java.util.Map;
-
 import by.bsuir.spp.ils.lab.entity.Event;
 import by.bsuir.spp.ils.lab.entity.Team;
-import by.bsuir.spp.ils.lab.entity.TeamHasEvent;
 import by.bsuir.spp.ils.lab.helper.builder.query.TeamQuery;
 import by.bsuir.spp.ils.lab.persistence.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by andrewjohnsson on 10.04.16.
@@ -66,9 +65,13 @@ public class TeamService extends HibernateUtil {
     try {
       transaction = session.beginTransaction();
       try {
-        session.update(team);
+				Team temp = (Team) session.createQuery("from Team where id ="+ team.getId()).list().get(0);
+				System.out.println(temp.getName());
+				temp.setName(team.getName());
+				temp.setUserId(team.getUserId());
+        session.update(temp);
         transaction.commit();
-        return team;
+        return temp;
       }
       catch (HibernateException e){
         e.printStackTrace();
@@ -83,8 +86,6 @@ public class TeamService extends HibernateUtil {
     }
     return null;
   }
-
-
 
   public boolean delete(int id){
     session = HibernateUtil.getSessionFactory().openSession();

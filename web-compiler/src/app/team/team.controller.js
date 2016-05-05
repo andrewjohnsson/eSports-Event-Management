@@ -6,15 +6,15 @@
     .controller('TeamController', TeamController);
 
   /** @ngInject */
-  function TeamController(TeamService) {
+  function TeamController(TeamService, $scope) {
     var vm = this;
 
     vm.title = 'Explore Teams';
     vm.subtitle = 'and get schedules';
 
     TeamService.get().then(function(response){
-      vm.teamsList = response.teams;
-      vm.participations = response.participations;
+      $scope.teamsList = response.teams;
+      $scope.participations = response.participations;
     });
   }
 

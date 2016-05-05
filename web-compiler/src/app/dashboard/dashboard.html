@@ -76,7 +76,7 @@
             </form>
             <br/>
           </div>
-		      <table class="table table-striped">
+		      <table class="table table-striped" block-ui="teamsBlock">
 		        <tr>
 		          <td>Manager</td>
 		          <td>Name</td>
@@ -90,7 +90,7 @@
 		            <p ng-repeat="team in ctrl.participations[team.id]">{{ team.name }}</p>
 		          </td>
 		          <td>
-		            <button type="button" class="btn btn-default btn-xs" ng-click="ctrl.edit()"><span class="glyphicon glyphicon-pencil"/></button>
+		            <button type="button" class="btn btn-default btn-xs" ng-click="ctrl.edit('team', team)"><span class="glyphicon glyphicon-pencil"/></button>
 		            <button type="button" class="btn btn-danger btn-xs" ng-click="ctrl.remove('team', team.id)"><span class="glyphicon glyphicon-trash"/></button>
 		          </td>
 		        </tr>
@@ -121,7 +121,7 @@
 		          <td>
 		            <div ng-repeat="team in ctrl.teamsList">
 		              <label for="team_{{team.id}}">{{ team.name }}</label>
-		              <input type="checkbox" id="team_{{team.id}}" ng-checked="ctrl.participants[event.id].id == team.id">
+		              <input type="checkbox" id="team_{{team.id}}" ng-checked="ctrl.participants[event.id].hasOwnProperty(id) == team.id">
 		            </div>
 		          </td>
 		          <td>

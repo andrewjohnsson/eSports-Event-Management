@@ -5,6 +5,7 @@ import by.bsuir.spp.ils.lab.entity.Team;
 import by.bsuir.spp.ils.lab.helper.PermissionHelper;
 import by.bsuir.spp.ils.lab.service.TeamService;
 import com.opensymphony.xwork2.ActionSupport;
+
 import java.util.List;
 import java.util.Map;
 
@@ -47,7 +48,7 @@ public class TeamAction extends ActionSupport {
   public String update(){
     if (helper.canCreateTeam() || helper.isAdmin()){
       try {
-        this.teams = service.list();        //TO-DO Find impl here
+        this.team = service.update(getTeam());        //TO-DO Find impl here
       } catch (Exception e) {
         e.printStackTrace();
       }
