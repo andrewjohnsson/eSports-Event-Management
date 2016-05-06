@@ -27,7 +27,7 @@
       vm.items = [
         {
           title: 'Players',
-          link: 'user'
+          link: 'user.list'
         },
         {
           title: 'Teams',

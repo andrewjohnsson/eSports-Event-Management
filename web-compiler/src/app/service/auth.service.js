@@ -47,7 +47,7 @@
     vm.login = function(user){
       var deferred = $q.defer();
       loginForm.start("Logging in...");
-      HttpService.getData({method: 'POST', url: 'login', data: user}).then(function(response){
+      HttpService.getData({method: 'POST', url: 'auth_login', data: user}).then(function(response){
         if (response.data.user != undefined){
           vm.setUser(response.data.user);
           deferred.resolve(true);
@@ -65,7 +65,7 @@
 
     vm.isLogged = function(){
       var deferred = $q.defer();
-      HttpService.getData({method: 'GET', url: 'check'}).then(function(response){
+      HttpService.getData({method: 'GET', url: 'auth_isLogged'}).then(function(response){
         if (response.data.user != null && response.data.error == null){
           vm.setUser(response.data.user);
           deferred.resolve(true);
@@ -81,7 +81,7 @@
     vm.logout = function(){
       var deferred = $q.defer();
       userInfoBlock.start('Wait please');
-      HttpService.getData({method: 'POST', url: 'logout'}).then(function(response){
+      HttpService.getData({method: 'POST', url: 'auth_logout'}).then(function(response){
         userInfoBlock.stop();
         deferred.resolve(response.data)
       },function(){
@@ -93,7 +93,7 @@
 
     vm.register = function(model){
       var deferred = $q.defer();
-      HttpService.getData({method: 'POST', url: 'register', data: angular.toJson(model)}).then(function(response){
+      HttpService.getData({method: 'POST', url: 'auth_register', data: angular.toJson(model)}).then(function(response){
         deferred.resolve(response);
       },function(){
         deferred.reject();

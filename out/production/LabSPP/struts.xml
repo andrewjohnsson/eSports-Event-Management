@@ -7,6 +7,24 @@
 <struts>
   <constant name="struts.devMode" value="true" />
 
+  <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+  <constant name="struts.convention.default.parent.packege" value="angularstruts" />
+  <constant name="struts.mapper.class" value="org.apache.struts2.dispatcher.mapper.Restful2ActionMapper" />
+  <constant name="struts.enable.SlashesInActionNames" value="true"/>
+  <constant name="struts.mapper.alwaysSelectFullNamespace" value="false" />
+
+  <!--  <package name="default" extends="struts-default">
+      <action name="user" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="user">
+        <result name="success">user.jsp</result>
+      </action>
+      <action name="event" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="event">
+        <result name="success">event.jsp</result>
+      </action>
+      <action name="team" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="team">
+        <result name="success">team.jsp</result>
+      </action>
+    </package>
+  -->
     <package name="json-default" extends="struts-default">
       <result-types>
         <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
@@ -17,7 +35,28 @@
     </package>
 
     <package name="default" extends="json-default">
-      <action name="login" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="login">
+    </package>
+
+    <package name="permission" extends="json-default">
+      <action name="permissions.isAdmin" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isAdmin">
+        <result type="json"/>
+      </action>
+      <action name="permissions.isViewer" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isViewer">
+        <result type="json"/>
+      </action>
+      <action name="permissions.isPlayer" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isPlayer">
+        <result type="json"/>
+      </action>
+      <action name="permissions.isManager" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isManager">
+        <result type="json"/>
+      </action>
+      <action name="permissions.isSupervisor" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isSupervisor">
+        <result type="json"/>
+      </action>
+    </package>
+
+    <package name="auth" extends="json-default">
+      <action name="auth_login" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="login">
         <interceptor-ref name="json">
           <param name="contentType">application/json</param>
         </interceptor-ref>
@@ -26,45 +65,13 @@
         <result name="input" type="json"/>
       </action>
 
-      <action name="logout" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="logout">
+      <action name="auth_logout" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="logout">
         <result type="json"/>
         <result name="error" type="json"/>
         <result name="input" type="json"/>
       </action>
 
-      <action name="register" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="register">
-        <interceptor-ref name="json">
-          <param name="contentType">application/json</param>
-        </interceptor-ref>
-        <result type="json"/>
-        <result name="error" type="json"/>
-        <result name="input" type="json"/>
-      </action>
-
-      <action name="check" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="check">
-        <result type="json"/>
-        <result name="input" type="json"/>
-      </action>
-
-      <action name="create_user" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="create">
-        <interceptor-ref name="json">
-          <param name="contentType">application/json</param>
-        </interceptor-ref>
-        <result type="json"/>
-        <result name="input" type="json"/>
-      </action>
-
-      <action name="delete_user" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="delete">
-        <result name="input" type="json"/>
-        <result type="json"/>
-      </action>
-
-      <action name="read_user" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="read">
-        <result type="json"/>
-        <result name="input" type="json"/>
-      </action>
-
-      <action name="update_user" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="update">
+      <action name="auth_register" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="register">
         <interceptor-ref name="json">
           <param name="contentType">application/json</param>
         </interceptor-ref>
@@ -73,22 +80,58 @@
         <result name="input" type="json"/>
       </action>
 
-      <action name="list_users" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="list">
+      <action name="auth_isLogged" class="by.bsuir.spp.ils.lab.controller.actions.AuthAction" method="check">
+        <result type="json"/>
+        <result name="input" type="json"/>
+      </action>
+    </package>
+
+    <package name="user" extends="json-default">
+      <action name="user_create" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="create">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
+        <result type="json"/>
+        <result name="input" type="json"/>
+      </action>
+
+      <action name="user_read" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="read">
+        <result type="json"/>
+        <result name="input" type="json"/>
+      </action>
+
+      <action name="user_update" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="update">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
+        <result type="json"/>
+        <result name="error" type="json"/>
+        <result name="input" type="json"/>
+      </action>
+
+      <action name="user_delete" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="delete">
+        <result name="input" type="json"/>
         <result type="json"/>
       </action>
 
-      <action name="create_team" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="create">
+      <action name="user_list" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="list">
+        <result type="json"/>
+      </action>
+    </package>
+
+    <package name="team" extends="json-default">
+      <action name="team_create" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="create">
         <interceptor-ref name="json">
           <param name="contentType">application/json</param>
         </interceptor-ref>
         <result type="json"/>
       </action>
 
-      <action name="list_teams" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="read">
+      <action name="team_read" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="read">
         <result type="json"/>
       </action>
 
-      <action name="edit_team" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="update">
+      <action name="team_update" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="update">
         <interceptor-ref name="json">
           <param name="contentType">application/json</param>
         </interceptor-ref>
@@ -97,38 +140,44 @@
         <result name="error" type="json"/>
       </action>
 
-      <action name="delete_team" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="delete">
+      <action name="team_delete" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="delete">
         <result type="json"/>
         <result name="input" type="json"/>
         <result name="error" type="json"/>
       </action>
 
-      <action name="create_event" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="create">
+      <action name="team_list" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="list">
+        <result type="json"/>
+      </action>
+    </package>
+
+    <package name="event" extends="json-default">
+      <action name="event_create" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="create">
         <interceptor-ref name="json">
           <param name="contentType">application/json</param>
         </interceptor-ref>
         <result type="json"/>
       </action>
 
-      <action name="find_event" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="find">
+      <action name="event_read" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="find">
         <interceptor-ref name="json">
           <param name="contentType">application/json</param>
         </interceptor-ref>
         <result type="json"/>
       </action>
 
-      <action name="list_event" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="list">
-        <result type="json"/>
-      </action>
-
-      <action name="edit_event" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="update">
+      <action name="event_update" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="update">
         <interceptor-ref name="json">
           <param name="contentType">application/json</param>
         </interceptor-ref>
         <result type="json"/>
       </action>
 
-      <action name="delete_event" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="delete">
+      <action name="event_delete" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="delete">
+        <result type="json"/>
+      </action>
+
+      <action name="event_list" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="list">
         <result type="json"/>
       </action>
     </package>

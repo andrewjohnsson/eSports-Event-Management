@@ -14,14 +14,12 @@ import java.util.Map;
  * Created by andrewjohnsson on 10.04.16.
  */
 public class AuthService extends HibernateUtil implements SessionAware {
-  private UserService userService;
   private User currentUser;
   private Session session;
   private Map authSession;
 
   public AuthService(){
     this.authSession = ActionContext.getContext().getSession();
-    this.userService = new UserService();
   }
 
   public User isLogged(String email, String password){
@@ -66,8 +64,7 @@ public class AuthService extends HibernateUtil implements SessionAware {
     return null;
   }
 
-  public void setUserPermissions(byte[] value){this.authSession.put("permissions", value);
-  }
+  public void setUserPermissions(byte[] value){this.authSession.put("permissions", value); }
 
   public User getCurrentUser(){
     return this.currentUser;

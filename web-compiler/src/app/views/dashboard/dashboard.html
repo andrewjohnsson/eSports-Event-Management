@@ -42,12 +42,12 @@
 		            <td>Roles</td>
 		            <td>Actions</td>
 		          </tr>
-		          <tr ng-repeat="user in ctrl.userslist">
+		          <tr ng-repeat="user in ctrl.service.userslist">
 		            <td><input type="text" ng-model="user.name" class="form-control" value="{{ user.name }}"></td>
 		            <td><input type="text" ng-model="user.email" class="form-control" value="{{ user.email }}"></td>
 		            <td><input type="text" ng-model="user.age" class="form-control" value="{{ user.age }}" style="width: 50px;"></td>
 		            <td>
-                  <select class="form-control" ng-model="user.teamId" ng-options="team.id as team.name for team in ctrl.teamsList"/>
+                  <select class="form-control" ng-model="user.teamId" ng-options="team.id as team.name for team in ctrl.service.teamsList"/>
 		            </td>
 		            <td>
 		              <input type="checkbox" ng-model="user.isViewer" ng-checked="user.isViewer == true">
@@ -91,7 +91,7 @@
 		          <td>Events</td>
 		          <td>Actions</td>
 		        </tr>
-		        <tr ng-repeat="team in ctrl.teamsList">
+		        <tr ng-repeat="team in ctrl.service.teamsList">
 		          <td><input type="text" ng-model="team.userId" class="form-control" value="{{ team.userId }}"></td>
 		          <td><input type="text" ng-model="team.name" class="form-control" value="{{ team.name }}"></td>
 		          <td>
@@ -123,11 +123,11 @@
 		          <td>Teams</td>
 		          <td>Actions</td>
 		        </tr>
-		        <tr ng-repeat="event in ctrl.eventsList">
+		        <tr ng-repeat="event in ctrl.service.eventsList">
 		          <td><input type="text" ng-model="event.name" class="form-control" value="{{ event.name }}"></td>
 		          <td><input type="text" ng-model="event.date" class="form-control" value="{{ event.date }}"></td>
 		          <td>
-		            <div ng-repeat="team in ctrl.teamsList">
+		            <div ng-repeat="team in ctrl.service.teamsList">
 		              <label for="team_{{team.id}}">{{ team.name }}</label>
 		              <input type="checkbox" id="team_{{team.id}}" ng-checked="ctrl.participants[event.id].hasOwnProperty(id) == team.id">
 		            </div>

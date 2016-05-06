@@ -6,7 +6,7 @@
     .service('UserService', UserService);
 
   /** @ngInject */
-  function UserService(HttpService, ParserService, $q, blockUI) {
+  function UserService(HttpService, $q, $log, blockUI) {
     /** @ngInject */
     var vm = this;
 
@@ -15,7 +15,7 @@
     vm.get = function(){
       var deferred = $q.defer();
       usersBlock.start("Loading Users...");
-      HttpService.getData({method: 'GET', url: 'list_users'}).then(function(response){
+      HttpService.getData({method: 'GET', url: 'user_list'}).then(function(response){
         if (response.data != null){
           usersBlock.stop();
           deferred.resolve(response.data)
@@ -30,15 +30,14 @@
     };
 
     vm.add = function(user){
-      return HttpService.getData({method: 'POST', url: 'create_user?', data: angular.toJson(user)})
+      return HttpService.getData({method: 'POST', url: 'user_create', data: angular.toJson(user)})
     };
 
     vm.edit = function(user){
       var deferred = $q.defer();
-      vm.params = ParserService.parseParams($.param(user), 'user');
-      HttpService.getData({method: 'POST', url: 'update_user?', data: angular.toJson(user)}).then(function(response) {
+      $log.log(user);
+      HttpService.getData({method: 'POST', url: 'user_update', data: {user: user}}).then(function(response) {
         deferred.resolve(response.data);
-        usersBlock.stop();
       });
       return deferred.promise;
     };
@@ -46,7 +45,7 @@
     vm.search = function(user){
       var deferred = $q.defer();
       usersBlock.start("Searching Users...");
-      HttpService.getData({method: 'POST', url: 'read_user?', data: angular.toJson(user)}).then(function(response){
+      HttpService.getData({method: 'POST', url: 'user_find', data: {user: angular.toJson(user)}}).then(function(response){
         deferred.resolve(response.data);
         usersBlock.stop();
       }, function(){

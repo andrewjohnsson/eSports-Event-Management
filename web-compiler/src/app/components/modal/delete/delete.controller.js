@@ -8,7 +8,9 @@
   /** @ngInject */
   function ModalDeleteController($scope, $uibModal, UserService) {
     var vm = this;
+
     vm.uibModal = $uibModal;
+
     $scope.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
@@ -24,7 +26,8 @@
         animation: true,
         templateUrl: 'app/components/modal/delete/delete.html',
         controller: 'ModalController',
-        size: 'sm'
+        size: 'sm',
+        windowClass: 'aligned-modal'
       })
     }
   }

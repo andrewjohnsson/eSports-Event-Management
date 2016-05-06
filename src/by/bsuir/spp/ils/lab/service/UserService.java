@@ -1,13 +1,13 @@
 package by.bsuir.spp.ils.lab.service;
 
-import java.util.List;
 import by.bsuir.spp.ils.lab.entity.User;
-
 import by.bsuir.spp.ils.lab.helper.builder.query.UserQuery;
+import by.bsuir.spp.ils.lab.persistence.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import by.bsuir.spp.ils.lab.persistence.HibernateUtil;
 import org.hibernate.Transaction;
+
+import java.util.List;
 
 /**
  * Created by andrewjohnsson on 29.02.16.
@@ -105,4 +105,22 @@ public class UserService extends HibernateUtil{
     }
     return null;
   }
+
+	public User update(User user) {
+		session = HibernateUtil.getSessionFactory().openSession();
+		try{
+			Transaction transaction = session.beginTransaction();
+			try {
+				session.update(user);
+				transaction.commit();
+        return user;
+			}catch (HibernateException e){
+				transaction.rollback();
+				throw e;
+			}
+		}finally {
+			HibernateUtil.closeSession();
+		}
+	}
+
 }

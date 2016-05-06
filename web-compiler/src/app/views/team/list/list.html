@@ -4,13 +4,14 @@
     <small>{{ ctrl.subtitle }}</small>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <div class="panel panel-default">
         <table class="table" block-ui="teamsBlock" style="min-height: 125px;">
           <tbody>
-          <tr ng-repeat="item in teamsList">  <td>{{ item.name }} <a class="btn btn-default btn-sm" style="float: right;" href="/#/team/{{item.id - 1}}">Details</a></td>  </tr>
+            <tr ng-repeat="item in teamsList">  <td>{{ item.name }} <a class="btn btn-default btn-sm" style="float: right;" href="/#/team/{{item.id - 1}}">Details</a></td>  </tr>
           </tbody>
         </table>
       </div>

@@ -65,13 +65,9 @@ public class TeamService extends HibernateUtil {
     try {
       transaction = session.beginTransaction();
       try {
-				Team temp = (Team) session.createQuery("from Team where id ="+ team.getId()).list().get(0);
-				System.out.println(temp.getName());
-				temp.setName(team.getName());
-				temp.setUserId(team.getUserId());
-        session.update(temp);
+        session.update(team);
         transaction.commit();
-        return temp;
+        return team;
       }
       catch (HibernateException e){
         e.printStackTrace();
