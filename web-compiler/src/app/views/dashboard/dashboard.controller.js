@@ -6,7 +6,7 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController(ApiService, $log) {
+  function DashboardController(ApiService) {
     var vm = this;
 
     vm.playerForm = {};
@@ -19,19 +19,13 @@
     vm.add = function(type, item){
       switch (type){
         case 'user':
-          UserService.add(item).then(function(){
-            vm.list();
-          });
+          vm.service.createUser(item);
           break;
         case 'team':
-          TeamService.add(item).then(function(){
-            vm.list();
-          });
+          vm.service.createTeam(item);
           break;
         case 'event':
-          EventService.add(item).then(function(){
-            vm.list();
-          });
+          vm.service.createEvent(item);
           break;
       }
     };
@@ -39,25 +33,18 @@
     vm.edit = function(type, item){
       switch (type){
         case 'user':
-          UserService.edit(item).then(function(){
-            vm.list();
-          });
+          vm.service.updateUser(item);
           break;
         case 'team':
-          $log.log(item);
-          TeamService.edit({team: item}).then(function(){
-            vm.list();
-          });
+          vm.service.updateTeam(item);
           break;
         case 'event':
-          EventService.edit(item).then(function(){
-            vm.list();
-          });
+          vm.service.updateEvent(item);
           break;
       }
     };
 
-    vm.find = function(type, item){
+    /*vm.find = function(type, item){
       switch (type){
         case 'user':
           UserService.search(item).then(function(response){
@@ -75,21 +62,20 @@
           });
           break;
       }
-    };
+    };*/
 
     vm.remove = function(type, id){
       switch (type){
         case 'user':
-          UserService.remove(id);
+          vm.service.deleteUser(id);
           break;
         case 'team':
-          TeamService.remove(id);
+          vm.service.deleteTeam(id);
           break;
         case 'event':
-          EventService.remove(id);
+          vm.service.deleteEvent(id);
           break;
       }
-      vm.list();
     }
   }
 
