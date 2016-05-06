@@ -10,7 +10,7 @@
     var vm = this;
 
     EventService.get().then(function(response){
-      vm.event = response.events[$stateParams.id];
+      vm.events = response.events[$stateParams.id];
       vm.participants = response.participants;
     });
   }
