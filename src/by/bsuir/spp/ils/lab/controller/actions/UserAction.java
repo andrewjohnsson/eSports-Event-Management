@@ -13,15 +13,15 @@ import java.util.List;
  */
 public class UserAction extends ActionSupport{
   private UserService userService;
-  //private AuthService authService;
+  private String error;
   private PermissionHelper helper;
   private List<User> users;
   private User user;
 
   public UserAction(){
     userService = new UserService();
-    //authService = new AuthService();
     helper = new PermissionHelper();
+		setError(null);
   }
 
   public String create() {
@@ -31,9 +31,11 @@ public class UserAction extends ActionSupport{
       } catch (Exception e) {
         e.printStackTrace();
       }
-      return SUCCESS;
-    }
-    return ERROR;
+    }else{
+			setUser(null);
+			setError("You Don't Have Enough Rights To Do That");
+		}
+		return SUCCESS;
   }
 
   public String read() {
@@ -45,19 +47,12 @@ public class UserAction extends ActionSupport{
     return Action.SUCCESS;
   }
 
-  public String update() {
-    if (helper.isAdmin()) {
-      this.users = userService.list();
-    }else{
-      return ERROR;
-    }
-    return SUCCESS;
-  }
-
   public String delete() {
     if (helper.isAdmin()) {
       userService.delete(getUser().getId());
-    }
+    }else{
+			setError("You Don't Have Enough Rights To Do That");
+		}
     return SUCCESS;
   }
 
@@ -71,13 +66,27 @@ public class UserAction extends ActionSupport{
     return SUCCESS;
   }
 
-  public List<User> getUsers() {
-    return users;
-  }
+	public String update(){
+    if (helper.isAdmin()) {
+      if (this.getUser() != null) {
+        this.user = userService.update(this.getUser());
+      }
+    }else{
+			setUser(null);
+			setError("You Don't Have Enough Rights To Do That");
+		}
+		return SUCCESS;
+	}
+
+  public List<User> getUsers() { return users; }
 
   public User getUser() { return user; }
 
   public void setUser(User person) {
     this.user = person;
   }
+
+  public String getError() { return error; }
+
+  public void setError(String error) { this.error = error; }
 }

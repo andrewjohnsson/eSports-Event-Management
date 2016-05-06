@@ -17,26 +17,21 @@ public class AuthAction extends ActionSupport {
   public AuthAction(){
 		authService = new AuthService();
 		userService = new UserService();
+		setError(null);
   }
 
   public String login(){
-    String email, pass;
     if (this.getUser() != null) {
-      email = this.getUser().getEmail();
-      pass = this.getUser().getPassword();
-      if (email.length() < 4 || pass.length() < 4) {
+      if (getUser().getEmail().length() < 4 || getUser().getPassword().length() < 4) {
         System.out.println("Incorrect login or pass length");
         return ERROR;
       } else {
 				try {
-					setUser(authService.isLogged(email, pass));
+					setUser(authService.isLogged(getUser().getEmail(), getUser().getPassword()));
 					authService.setUserLogin(getUser().getId());
-					return SUCCESS;
 				}catch (Exception e){
-					user = null;
+					setUser(null);
 					setError("Cannot login!");
-					System.out.println("No such user");
-					return SUCCESS;
 				}
       }
     }
@@ -46,7 +41,7 @@ public class AuthAction extends ActionSupport {
 	public String register(){
 		if ((getUser() != null) && authService.getUserId() == 0) {
 			try {
-				this.user = userService.add(getUser());
+				setUser(userService.add(getUser()));
 				return SUCCESS;
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -60,7 +55,7 @@ public class AuthAction extends ActionSupport {
 		if (id != 0){
 			User temp = new User();
 			temp.setId(id);
-			this.setUser(userService.find(temp).get(0));
+			setUser(userService.find(temp).get(0));
 			return SUCCESS;
 		}
 		setError("You are not logged in!");

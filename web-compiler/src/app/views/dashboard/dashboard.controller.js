@@ -6,31 +6,15 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController(UserService, TeamService, EventService, $log) {
+  function DashboardController(ApiService, $log) {
     var vm = this;
 
     vm.playerForm = {};
     vm.teamForm = {};
     vm.eventForm = {};
 
-    vm.list = function() {
-      UserService.get().then(function(response){
-        vm.userslist = response.users;
-      });
-
-      TeamService.get().then(function(response){
-        vm.teamsList = response.teams;
-        vm.participations = response.participations;
-      });
-
-      EventService.get().then(function(response){
-        vm.eventsList = response.events;
-        vm.participants = response.participants;
-      });
-
-    };
-
-    vm.list();
+    vm.service = ApiService;
+    vm.service.updateData();
 
     vm.add = function(type, item){
       switch (type){

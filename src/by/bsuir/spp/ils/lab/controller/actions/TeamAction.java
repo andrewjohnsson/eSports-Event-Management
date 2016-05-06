@@ -18,9 +18,11 @@ public class TeamAction extends ActionSupport {
   private Team team;
   private List<Team> teams;
   private Map<Integer, List<Event>> participations;
+  private String error;
 
   public TeamAction(){
     helper = new PermissionHelper();
+		setError(null);
   }
 
   public String create(){
@@ -30,12 +32,23 @@ public class TeamAction extends ActionSupport {
       } catch (Exception e) {
         e.printStackTrace();
       }
-      return SUCCESS;
-    }
-    return ERROR;
+    }else{
+			setError("You Don't Have Enough Rights To Do That");
+		}
+		return SUCCESS;
   }
 
   public String read() {
+    try {
+      this.teams = service.list();
+      this.participations = service.getParticipations();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return SUCCESS;
+  }
+
+  public String list() {
     try {
       this.teams = service.list();
       this.participations = service.getParticipations();
@@ -52,18 +65,22 @@ public class TeamAction extends ActionSupport {
       } catch (Exception e) {
         e.printStackTrace();
       }
-      return SUCCESS;
-    }
-    return ERROR;
+    }else{
+			setError("You Should Be A Manager Of This Team Or Be An Admin");
+		}
+    return SUCCESS;
   }
 
   public String delete() {
     if (helper.canCreateTeam() || helper.isAdmin()) {
       service.delete(getTeam().getId());
       return SUCCESS;
-    }
+    }else{
+			setError("You Don't Have Enough Rights To Do That");
+		}
     return ERROR;
   }
+
 
   public Team getTeam() { return this.team;}
 
@@ -76,4 +93,8 @@ public class TeamAction extends ActionSupport {
   }
 
   public Map<Integer, List<Event>> getParticipations() {return participations;}
+
+	public String getError() { return error; }
+
+	public void setError(String error) { this.error = error; }
 }
