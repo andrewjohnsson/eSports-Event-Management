@@ -47,9 +47,7 @@
 		            <td><input type="text" ng-model="user.email" class="form-control" value="{{ user.email }}"></td>
 		            <td><input type="text" ng-model="user.age" class="form-control" value="{{ user.age }}" style="width: 50px;"></td>
 		            <td>
-                  <select class="form-control" ng-model="user.teamId">
-                    <option ng-repeat="team in ctrl.teamsList" value="team.id" ng-selected="user.teamId == team.id">{{team.name}}</option>
-                  </select>
+                  <select class="form-control" ng-model="user.teamId" ng-options="team.id as team.name for team in ctrl.teamsList"/>
 		            </td>
 		            <td>
 		              <input type="checkbox" ng-model="user.isViewer" ng-checked="user.isViewer == true">
