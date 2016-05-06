@@ -1,0 +1,4 @@
+.aligned-modal{
+  top: 50%;
+  transform: translateY(-25%);
+}
