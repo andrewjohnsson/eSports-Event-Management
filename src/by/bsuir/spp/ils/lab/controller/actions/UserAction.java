@@ -2,8 +2,8 @@ package by.bsuir.spp.ils.lab.controller.actions;
 
 import by.bsuir.spp.ils.lab.entity.User;
 import by.bsuir.spp.ils.lab.helper.PermissionHelper;
+import by.bsuir.spp.ils.lab.service.AuthService;
 import by.bsuir.spp.ils.lab.service.UserService;
-import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.List;
@@ -13,12 +13,15 @@ import java.util.List;
  */
 public class UserAction extends ActionSupport{
   private UserService userService;
+	private AuthService authService;
   private String error;
   private PermissionHelper helper;
   private List<User> users;
   private User user;
+	int adminCount = 0;
 
   public UserAction(){
+		authService = new AuthService();
     userService = new UserService();
     helper = new PermissionHelper();
 		setError(null);
@@ -38,24 +41,42 @@ public class UserAction extends ActionSupport{
 		return SUCCESS;
   }
 
-  public String read() {
-    try {
-      this.users = userService.find(getUser());
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-    return Action.SUCCESS;
-  }
+	public String update(){
+		if (helper.isAdmin()) {
+			if (this.getUser() != null) {
+				setUser(userService.update(this.getUser()));
+			}
+		}else{
+			setUser(null);
+			setError("You Don't Have Enough Rights To Do That");
+		}
+		return SUCCESS;
+	}
+
+	public void incAdminCount(){
+		adminCount++;
+	}
 
   public String delete() {
-    if (helper.isAdmin()) {
-      userService.delete(getUser().getId());
-    }else{
+		list();
+		users.forEach(item -> {
+			if (user.getIsAdmin()){
+				incAdminCount();
+			}
+		});
+		if (helper.isAdmin() && adminCount >=2) {
+			if (this.getUser() != null) {
+				userService.delete(this.getUser());
+				if(this.getUser().getId() == authService.getCurrentUser().getId()){
+					authService.logout();
+				}
+			}
+		}else{
+			setUser(null);
 			setError("You Don't Have Enough Rights To Do That");
 		}
     return SUCCESS;
   }
-
 
   public String list(){
     try {
@@ -65,18 +86,6 @@ public class UserAction extends ActionSupport{
     }
     return SUCCESS;
   }
-
-	public String update(){
-    if (helper.isAdmin()) {
-      if (this.getUser() != null) {
-        this.user = userService.update(this.getUser());
-      }
-    }else{
-			setUser(null);
-			setError("You Don't Have Enough Rights To Do That");
-		}
-		return SUCCESS;
-	}
 
   public List<User> getUsers() { return users; }
 

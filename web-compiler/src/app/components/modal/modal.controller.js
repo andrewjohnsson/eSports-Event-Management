@@ -6,12 +6,11 @@
     .controller('ModalController', ModalController);
 
   /** @ngInject */
-  function ModalController($uibModalInstance) {
-    var vm = this;
-    vm.cancel = function() {
+  function ModalController($scope, $uibModalInstance) {
+    $scope.cancel = function() {
       $uibModalInstance.dismiss('cancel');
     };
-    vm.accept = function(){
+    $scope.accept = function(){
       $uibModalInstance.dismiss('accept');
     }
   }

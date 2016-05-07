@@ -16,7 +16,6 @@
         method: conf.method,
         url: conf.url,
         data: conf.data,
-        dataType: 'json',
         headers: {'Content-Type': 'application/json; charset=utf-8'}
       }).then(function (response) {
         deferred.resolve(response)

@@ -27,7 +27,7 @@ public class AuthAction extends ActionSupport {
         return ERROR;
       } else {
 				try {
-					setUser(authService.isLogged(getUser().getEmail(), getUser().getPassword()));
+					setUser(authService.check(getUser().getEmail(), getUser().getPassword()));
 					authService.setUserLogin(getUser().getId());
 				}catch (Exception e){
 					setUser(null);
@@ -68,12 +68,9 @@ public class AuthAction extends ActionSupport {
 	}
 
   public User getUser() { return user; }
-
   public void setUser(User person) {
     this.user = person;
   }
-
 	public String getError() { return error; }
-
 	public void setError(String error) { this.error = error; }
 }

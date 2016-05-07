@@ -6,46 +6,73 @@
     .service('ApiService', ApiService);
 
   /** @ngInject */
-  function ApiService(AuthService, UserService, TeamService, EventService) {
+  function ApiService(AuthService, PermissionService, UserService, TeamService, EventService, $location, $log) {
     /** @ngInject */
     var vm = this;
+    vm.location = $location;
+    vm.adminCount = 0;
 
     vm.updateUsers = function(){
       UserService.get().then(function(response){
         vm.userslist = response.users;
+        vm.userslist.forEach(function(user){
+          if (user.isAdmin){
+            vm.adminCount++;
+          }
+        });
       });
     };
 
     vm.createUser = function(user){
-      if(AuthService.getUser().isAdmin){
-        UserService.add(user).then(function(){
-          vm.updateUsers();
-        });
-      }else{
-        alert("You should be admin to create users.")
-      }
+      AuthService.isLogged().then(function(response){
+        if (response){
+          PermissionService.isAdmin().then(function(response){
+            if (response.check){
+              UserService.add(user).then(function(){
+                vm.updateUsers();
+              });
+            }else{
+              alert(response.info);
+            }
+          });
+        }
+      });
     };
 
     vm.updateUser = function(user){
-      if(AuthService.getUser().isAdmin){
-        UserService.edit(user).then(function(){
-          vm.updateUsers();
-        });
-      }else{
-        alert("You should be admin to edit users.")
-      }
+      AuthService.isLogged().then(function(response) {
+        if (response) {
+          PermissionService.isAdmin().then(function (response) {
+            if (response.check) {
+              UserService.edit(user).then(function () {
+                vm.updateUsers();
+              });
+            } else {
+              alert(response.info)
+            }
+          })
+        }
+      });
     };
 
-    vm.deleteUser = function(id){
-      if(AuthService.getUser().isAdmin){
-        if (UserService.remove(id)){
-          vm.updateUsers();
-        }else{
-          alert("Error occured while deleting user!")
+    vm.deleteUser = function(user){
+      AuthService.isLogged().then(function(response){
+        if (response){
+          PermissionService.isAdmin().then(function(response){
+            if (response.check){
+              if (vm.getAdminCount() >= 2) {
+                UserService.remove(user).then(function () {
+                  vm.updateUsers();
+                });
+              } else {
+                alert("System should have at least 1 admin.")
+              }
+            }else{
+              alert(response.info);
+            }
+          })
         }
-      }else{
-        alert("You should be admin to create users.")
-      }
+      });
     };
 
     vm.createTeam = function(team){
@@ -98,7 +125,7 @@
     };
 
     vm.deleteEvent = function(id){
-      if(AuthService.getUser().isAdmin || AuthService.getUser().isSupervisor){
+      if(vm.authService.getUser().isAdmin || vm.authService.getUser().isSupervisor){
         if (EventService.remove(id)){
           vm.updateEvents();
         }else{
@@ -110,7 +137,7 @@
     };
 
     vm.updateEvent = function(event){
-      if(AuthService.getUser().isAdmin || AuthService.getUser().isSupervisor){
+      if(vm.authService.getUser().isAdmin || vm.authService.getUser().isSupervisor){
         EventService.edit(event).then(function(){
           vm.updateEvent();
         });
@@ -127,9 +154,17 @@
     };
 
     vm.updateData = function() {
-      vm.updateUsers();
-      vm.updateTeams();
-      vm.updateEvents();
+      AuthService.isLogged().then(function(response){
+        if (response == true){
+          vm.updateUsers();
+          vm.updateTeams();
+          vm.updateEvents();
+        }
+      });
+    };
+
+    vm.getAdminCount = function(){
+      return vm.adminCount;
     };
   }
 
