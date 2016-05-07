@@ -17,6 +17,9 @@ npm install
 bower install
 ```
 
+##DB Dump
+Actual DB Dump can be downloaded [here](https://www.dropbox.com/s/8rbmovujtdur9dt/esports.sql)
+
 ##Done by
 - [Andrey Ivanov](https://github.com/andrewjohnsson) - Lead, Java
 - [Andrey Litvinchuk](https://github.com/dreusly) - Web Design
