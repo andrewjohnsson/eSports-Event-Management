@@ -16,67 +16,95 @@
     vm.service = ApiService;
     vm.service.updateData();
 
-    vm.add = function(type, item){
-      switch (type){
-        case 'user':
-          vm.service.createUser(item);
-          break;
-        case 'team':
-          vm.service.createTeam(item);
-          break;
-        case 'event':
-          vm.service.createEvent(item);
-          break;
+    vm.userFields = [
+      {
+        key: 'user.email',
+        type: 'input',
+        templateOptions: {
+          type: 'email'
+        }
+      },
+      {
+        key: 'user.password',
+        type: 'input',
+        templateOptions: {
+          type: 'password'
+        }
+      },
+      {
+        key: 'user.name',
+        type: 'input',
+        templateOptions: {
+          type: 'text'
+        }
+      },
+      {
+        key: 'user.age',
+        type: 'input',
+        templateOptions: {
+          type: 'number'
+        }
+      },
+      {
+        key: 'user.isViewer',
+        type: 'checkbox',
+        templateOptions: {
+          type: 'checkbox',
+          label: 'Viewer'
+        }
+      },
+      {
+        key: 'user.isPlayer',
+        type: 'checkbox',
+        templateOptions: {
+          type: 'checkbox',
+          label: 'Player'
+        }
+      },
+      {
+        key: 'user.isManager',
+        type: 'checkbox',
+        templateOptions: {
+          type: 'checkbox',
+          label: 'Supervisor'
+        }
+      },
+      {
+        key: 'user.isSupervisor',
+        type: 'checkbox',
+        templateOptions: {
+          type: 'checkbox',
+          label: 'Manager'
+        }
       }
-    };
+    ];
 
-    vm.edit = function(type, item){
-      switch (type){
-        case 'user':
-          vm.service.updateUser(item);
-          break;
-        case 'team':
-          vm.service.updateTeam(item);
-          break;
-        case 'event':
-          vm.service.updateEvent(item);
-          break;
+    vm.teamFields = [
+      {
+        key: 'team.name',
+        type: 'input',
+        templateOptions: {
+          type: 'text'
+        }
       }
-    };
+    ];
 
-    /*vm.find = function(type, item){
-      switch (type){
-        case 'user':
-          UserService.search(item).then(function(response){
-            vm.userslist = response.users;
-          });
-          break;
-        case 'team':
-          TeamService.search(item).then(function(response){
-            vm.teamslist = response.teams;
-          });
-          break;
-        case 'event':
-          EventService.search(item).then(function(response){
-            vm.eventslist = response.events;
-          });
-          break;
+    vm.eventFields = [
+      {
+        key: 'event.name',
+        type: 'input',
+        templateOptions: {
+          type: 'text'
+        }
+      },
+      {
+        key: 'event.date',
+        type: 'input',
+        templateOptions: {
+          type: 'date'
+        }
       }
-    };*/
-
-    vm.remove = function(type, id){
-      switch (type){
-        case 'user':
-          vm.service.deleteUser(id);
-          break;
-        case 'team':
-          vm.service.deleteTeam(id);
-          break;
-        case 'event':
-          vm.service.deleteEvent(id);
-          break;
-      }
-    }
+    ];
   }
 
 })();

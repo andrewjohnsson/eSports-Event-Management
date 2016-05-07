@@ -13,7 +13,7 @@ import java.util.Map;
  * Created by andrewjohnsson on 10.04.16.
  */
 public class TeamAction extends ActionSupport {
-  private TeamService service = new TeamService();
+  private TeamService service;
   private PermissionHelper helper;
   private Team team;
   private List<Team> teams;
@@ -21,6 +21,7 @@ public class TeamAction extends ActionSupport {
   private String error;
 
   public TeamAction(){
+		service = new TeamService();
     helper = new PermissionHelper();
 		setError(null);
   }
@@ -59,12 +60,12 @@ public class TeamAction extends ActionSupport {
   }
 
   public String update(){
-    if (helper.canCreateTeam() || helper.isAdmin()){
-      try {
-        this.team = service.update(getTeam());        //TO-DO Find impl here
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
+		if (helper.isAdmin()){
+			try {
+				this.team = service.update(getTeam());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
     }else{
 			setError("You Should Be A Manager Of This Team Or Be An Admin");
 		}

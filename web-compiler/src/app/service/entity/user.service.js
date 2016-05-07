@@ -35,29 +35,15 @@
 
     vm.edit = function(user){
       var deferred = $q.defer();
-      $log.log(user);
       HttpService.getData({method: 'POST', url: 'user_update', data: {user: user}}).then(function(response) {
         deferred.resolve(response.data);
       });
       return deferred.promise;
     };
 
-    vm.search = function(user){
+    vm.remove = function(user){
       var deferred = $q.defer();
-      usersBlock.start("Searching Users...");
-      HttpService.getData({method: 'POST', url: 'user_find', data: {user: angular.toJson(user)}}).then(function(response){
-        deferred.resolve(response.data);
-        usersBlock.stop();
-      }, function(){
-        deferred.reject(null);
-        usersBlock.stop();
-      });
-      return deferred.promise;
-    };
-
-    vm.remove = function(type, id){
-      var deferred = $q.defer();
-      HttpService.getData({method: 'POST', url: 'delete_user?id='+id}).then(function(){
+      HttpService.getData({method: 'POST', url: 'user_delete', data: {user: user}}).then(function(){
         deferred.resolve(true)
       },function(){
         deferred.reject(false)

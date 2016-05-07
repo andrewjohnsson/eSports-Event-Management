@@ -13,18 +13,6 @@
   <constant name="struts.enable.SlashesInActionNames" value="true"/>
   <constant name="struts.mapper.alwaysSelectFullNamespace" value="false" />
 
-  <!--  <package name="default" extends="struts-default">
-      <action name="user" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="user">
-        <result name="success">user.jsp</result>
-      </action>
-      <action name="event" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="event">
-        <result name="success">event.jsp</result>
-      </action>
-      <action name="team" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="team">
-        <result name="success">team.jsp</result>
-      </action>
-    </package>
-  -->
     <package name="json-default" extends="struts-default">
       <result-types>
         <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
@@ -38,19 +26,19 @@
     </package>
 
     <package name="permission" extends="json-default">
-      <action name="permissions.isAdmin" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isAdmin">
+      <action name="isAdmin" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isAdmin">
         <result type="json"/>
       </action>
-      <action name="permissions.isViewer" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isViewer">
+      <action name="isViewer" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isViewer">
         <result type="json"/>
       </action>
-      <action name="permissions.isPlayer" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isPlayer">
+      <action name="isPlayer" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isPlayer">
         <result type="json"/>
       </action>
-      <action name="permissions.isManager" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isManager">
+      <action name="isManager" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isManager">
         <result type="json"/>
       </action>
-      <action name="permissions.isSupervisor" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isSupervisor">
+      <action name="isSupervisor" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isSupervisor">
         <result type="json"/>
       </action>
     </package>
@@ -95,11 +83,6 @@
         <result name="input" type="json"/>
       </action>
 
-      <action name="user_read" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="read">
-        <result type="json"/>
-        <result name="input" type="json"/>
-      </action>
-
       <action name="user_update" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="update">
         <interceptor-ref name="json">
           <param name="contentType">application/json</param>
@@ -110,6 +93,9 @@
       </action>
 
       <action name="user_delete" class="by.bsuir.spp.ils.lab.controller.actions.UserAction" method="delete">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
         <result name="input" type="json"/>
         <result type="json"/>
       </action>

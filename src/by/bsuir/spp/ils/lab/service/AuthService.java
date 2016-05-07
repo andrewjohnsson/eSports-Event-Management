@@ -22,7 +22,7 @@ public class AuthService extends HibernateUtil implements SessionAware {
     this.authSession = ActionContext.getContext().getSession();
   }
 
-  public User isLogged(String email, String password){
+  public User check(String email, String password){
     if ((null != email) && (null != password)){
       if ((!email.isEmpty()) && (!password.isEmpty())){
         session = HibernateUtil.getSessionFactory().openSession();
@@ -76,6 +76,7 @@ public class AuthService extends HibernateUtil implements SessionAware {
 
   public void logout(){
     this.authSession.clear();
+    setCurrentUser(null);
   }
 
   public void setSession(Map<String, Object> sessionMap) {

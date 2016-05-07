@@ -6,31 +6,12 @@
     .service('AuthService', AuthService);
 
   /** @ngInject */
-  function AuthService(HttpService, blockUI, $q) {
+  function AuthService(HttpService, blockUI, $q, $log) {
     /** @ngInject */
     var vm = this;
 
-    var currentUser = {};
-
-    vm.permissions = [
-      { nodeIndex: 0, description: 'Watch Games'},
-      { nodeIndex: 1, description: 'Play Games'},
-      { nodeIndex: 2, description: 'Manage Teams'},
-      { nodeIndex: 3, description: 'Manage Events'}
-    ];
-
     vm.getPermissions = function(){
       return vm.permissions;
-    };
-
-    vm.addPermission = function(description){
-      vm.permissions.push({nodeIndex: Object.keys(vm.permissions).length+1, description: description})
-    };
-
-    vm.rmPermission = function(id){
-      if (vm.permissions[id] != undefined){
-        vm.permissions.splice(id, 1);
-      }
     };
 
     var loginForm = blockUI.instances.get('loginFormBlock');
@@ -49,7 +30,8 @@
       loginForm.start("Logging in...");
       HttpService.getData({method: 'POST', url: 'auth_login', data: user}).then(function(response){
         if (response.data.user != undefined){
-          vm.setUser(response.data.user);
+          vm.currentUser = response.data.user;
+          $log.log(vm.currentUser);
           deferred.resolve(true);
           loginForm.stop();
         }else{

@@ -60,27 +60,21 @@ public class TeamService extends HibernateUtil {
     return service.getParticipations();
   }
 
-  public Team update(Team team){
+  public Team update(Team team) {
     session = HibernateUtil.getSessionFactory().openSession();
-    try {
+    try{
       transaction = session.beginTransaction();
       try {
         session.update(team);
         transaction.commit();
         return team;
-      }
-      catch (HibernateException e){
-        e.printStackTrace();
+      }catch (HibernateException e){
         transaction.rollback();
+        throw e;
       }
-    }
-    catch (Exception e){
-      transaction.rollback();
-    }
-    finally {
+    }finally {
       session.close();
     }
-    return null;
   }
 
   public boolean delete(int id){

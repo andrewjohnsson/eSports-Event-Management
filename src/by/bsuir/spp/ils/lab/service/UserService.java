@@ -18,46 +18,41 @@ public class UserService extends HibernateUtil{
   private UserQuery builder;
 
   public UserService() {
-    this.builder = new UserQuery();
+		builder = new UserQuery();
   }
 
   public User add(User user) {
-    session = HibernateUtil.getSessionFactory().openSession();
-    try {
-      transaction = session.beginTransaction();
-      try {
-        session.save(user);
-        transaction.commit();
-      } catch (Exception e) {
-        transaction.rollback();
-        throw e;
-      }
-    } finally {
-      session.close();
-    }
-    return user;
+		session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			transaction = session.beginTransaction();
+			try {
+				session.save(user);
+				transaction.commit();
+			} catch (Exception e) {
+				transaction.rollback();
+				throw e;
+			}
+		} finally {
+			session.close();
+		}
+		return user;
   }
 
-  public boolean delete(int id) {
-    session = HibernateUtil.getSessionFactory().openSession();
-    try {
-      transaction = session.beginTransaction();
-      try {
-        User user = (User) session.load(User.class, id);
-        if (null != user) {
-          session.delete(user);
-          return true;
-        }
-        transaction.commit();
-      } catch (Exception e) {
-        transaction.rollback();
-        throw e;
-      }
-    } finally {
-      session.close();
-    }
-    return false;
-  }
+	public void delete(User user){
+		session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			transaction = session.beginTransaction();
+			try {
+				session.delete(user);
+				transaction.commit();
+			} catch (Exception e) {
+				transaction.rollback();
+				throw e;
+			}
+		} finally {
+			session.close();
+		}
+	}
 
   public List<User> find(User user) {
     session = HibernateUtil.getSessionFactory().openSession();
@@ -109,7 +104,7 @@ public class UserService extends HibernateUtil{
 	public User update(User user) {
 		session = HibernateUtil.getSessionFactory().openSession();
 		try{
-			Transaction transaction = session.beginTransaction();
+			transaction = session.beginTransaction();
 			try {
 				session.update(user);
 				transaction.commit();
@@ -119,7 +114,7 @@ public class UserService extends HibernateUtil{
 				throw e;
 			}
 		}finally {
-			HibernateUtil.closeSession();
+			session.close();
 		}
 	}
 

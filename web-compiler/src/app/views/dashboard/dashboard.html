@@ -5,34 +5,16 @@
 		  <uib-tabset type="tabs">
 		    <uib-tab index="0" heading="Users">
 		      <div class="row">
-		        <div class="col-xs-12">
-		          <form ng-submit="ctrl.add('user', user)">
-		            <div class="container-fluid">
-		              <div class="form-group col-xs-6 col-md-3 col-md-offset-2">
-		                <input type="text" ng-model="user.name" class="form-control" placeholder=Name>
-		                <input type="text" ng-model="user.age" class="form-control" placeholder=Age>
-		                <input type="text" ng-model="user.permissions" class="form-control" placeholder=Permissions>
-		              </div>
-		              <div class="form-group col-xs-6 col-md-3">
-		                <input type="text" ng-model="user.login" class="form-control" placeholder=Login>
-		                <input type="email" ng-model="user.email" class="form-control" placeholder=Email>
-		                <input type="password" ng-model="user.password" class="form-control" placeholder=Password>
-		              </div>
-		              <div class="form-group col-xs-6 col-md-2">
-		                <button type="button" class="btn btn-default" ng-click="ctrl.find('user', user)">Find</button>
-		                <button type="submit" class="btn btn-default">Add</button>
-		              </div>
-
-		              <div class="col-xs-12 col-md-4">
-		                <div class="form-group col-xs-2" ng-repeat="role in ctrl.roles">
-		                  <label for="{{role.index}}">{{role.name}}</label>
-		                  <input type="checkbox" id="{{role.index}}">
-		                </div>
-		              </div>
-		            </div>
-		          </form>
-		          <br/>
-		        </div>
+		        <div class="col-xs-6 col-xs-offset-3">
+              <formly-form model="ctrl.userModel" fields="ctrl.userFields" style="padding-bottom: 15px;">
+                <div class="form-group">
+                  <select class="form-control" ng-model="ctrl.userModel.user.teamId" ng-options="team.id as team.name for team in ctrl.service.teamsList"/>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-block" ng-click="ctrl.service.createUser(ctrl.userModel)">Create</button>
+                </div>
+              </formly-form>
+            </div>
 		        <table class="table table-striped" block-ui="usersBlock" style="min-height: 125px;">
 		          <tr>
 		            <td>Name</td>
@@ -50,20 +32,20 @@
                   <select class="form-control" ng-model="user.teamId" ng-options="team.id as team.name for team in ctrl.service.teamsList"/>
 		            </td>
 		            <td>
-		              <input type="checkbox" ng-model="user.isViewer" ng-checked="user.isViewer == true">
-		              <input type="checkbox" ng-model="user.isPlayer" ng-checked="user.isPlayer == true">
-		              <input type="checkbox" ng-model="user.isManager" ng-checked="user.isManager == true">
-		              <input type="checkbox" ng-model="user.isSupervisor" ng-checked="user.isSupervisor == true">
-		              <input type="checkbox" ng-model="user.isAdmin" ng-checked="user.isAdmin == true">
+		              <input type="checkbox" ng-model="user.isViewer" ng-checked="user.isViewer == true" uib-tooltip="Viewer">
+		              <input type="checkbox" ng-model="user.isPlayer" ng-checked="user.isPlayer == true" uib-tooltip="Player">
+		              <input type="checkbox" ng-model="user.isManager" ng-checked="user.isManager == true" uib-tooltip="Manager">
+		              <input type="checkbox" ng-model="user.isSupervisor" ng-checked="user.isSupervisor == true" uib-tooltip="Supervisor">
+		              <input type="checkbox" ng-model="user.isAdmin" ng-checked="user.isAdmin == true" uib-tooltip="Admin">
 		            </td>
 		            <td>
                   <ul class="list-inline">
                     <li>
-                      <button type="button" class="btn btn-default btn-xs" ng-click="ctrl.edit('user', user)"><span class="glyphicon glyphicon-pencil"/></button>
+                      <button type="button" class="btn btn-default btn-xs" ng-click="ctrl.service.updateUser(user)"><span class="glyphicon glyphicon-pencil"/></button>
                     </li>
                     <li>
                       <div ng-controller="ModalDeleteController as delCtrl">
-                        <button type="button" class="btn btn-danger btn-xs" ng-click="delCtrl.open(user.id)"><span class="glyphicon glyphicon-trash"/></button>
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="delCtrl.open(user)"><span class="glyphicon glyphicon-trash"/></button>
                       </div>
                     </li>
                   </ul>
@@ -73,65 +55,57 @@
 		      </div>
 		    </uib-tab>
 		    <uib-tab index="1" heading="Teams">
-          <div class="col-xs-12">
-            <form ng-submit="ctrl.add('team', team)">
-              <div class="container-fluid">
-                <div class="form-group col-xs-6 col-md-3 col-md-offset-2">
-                  <input type="text" ng-model="team.name" class="form-control" placeholder=Name>
-                  <input type="number" ng-model="team.managerId" class="form-control" placeholder=Date>
-                </div>
+          <div class="col-xs-6 col-xs-offset-3">
+            <formly-form model="ctrl.teamModel" fields="ctrl.teamFields" style="padding-bottom: 15px;">
+              <div class="form-group">
+                <select class="form-control" ng-model="ctrl.teamModel.team.userId" ng-options="user.id as user.name for user in ctrl.service.userslist"/>
               </div>
-            </form>
-            <br/>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block" ng-click="ctrl.service.createTeam(ctrl.teamModel)">Create</button>
+              </div>
+            </formly-form>
           </div>
 		      <table class="table table-striped" block-ui="teamsBlock">
 		        <tr>
 		          <td>Manager</td>
 		          <td>Name</td>
-		          <td>Events</td>
 		          <td>Actions</td>
 		        </tr>
 		        <tr ng-repeat="team in ctrl.service.teamsList">
-		          <td><input type="text" ng-model="team.userId" class="form-control" value="{{ team.userId }}"></td>
+		          <td>
+                <select class="form-control" ng-model="team.userId" ng-options="user.id as user.name for user in ctrl.service.userslist"/>
+              </td>
 		          <td><input type="text" ng-model="team.name" class="form-control" value="{{ team.name }}"></td>
 		          <td>
-		            <p ng-repeat="team in ctrl.participations[team.id]">{{ team.name }}</p>
-		          </td>
-		          <td>
-		            <button type="button" class="btn btn-default btn-xs" ng-click="ctrl.edit('team', team)"><span class="glyphicon glyphicon-pencil"/></button>
-		            <button type="button" class="btn btn-danger btn-xs" ng-click="ctrl.remove('team', team.id)"><span class="glyphicon glyphicon-trash"/></button>
+		            <button type="button" class="btn btn-default btn-xs" ng-click="ctrl.service.updateTeam(team)"><span class="glyphicon glyphicon-pencil"/></button>
+		            <button type="button" class="btn btn-danger btn-xs" ng-click="ctrl.service.deleteTeam(team.id)"><span class="glyphicon glyphicon-trash"/></button>
 		          </td>
 		        </tr>
 		      </table>
 		    </uib-tab>
 		    <uib-tab index="2" heading="Events">
-          <div class="col-xs-12">
-            <form ng-submit="ctrl.add('event', event)">
-              <div class="container-fluid">
-                <div class="form-group col-xs-6 col-md-3 col-md-offset-2">
-                  <input type="text" ng-model="event.name" class="form-control" placeholder=Name>
-                  <input type="text" ng-model="event.date" class="form-control" placeholder=Date>
-                </div>
+          <div class="col-xs-6 col-xs-offset-3">
+            <formly-form model="ctrl.eventModel" fields="ctrl.teamFields" style="padding-bottom: 15px;">
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block" ng-click="ctrl.service.createEvent(ctrl.eventModel)">Create</button>
               </div>
-            </form>
-            <br/>
+            </formly-form>
           </div>
 		      <table class="table table-striped">
 		        <tr>
 		          <td>Name</td>
 		          <td>Date</td>
-		          <td>Teams</td>
 		          <td>Actions</td>
 		        </tr>
 		        <tr ng-repeat="event in ctrl.service.eventsList">
 		          <td><input type="text" ng-model="event.name" class="form-control" value="{{ event.name }}"></td>
 		          <td><input type="text" ng-model="event.date" class="form-control" value="{{ event.date }}"></td>
-		          <td>
+		          <!--<td>
 		            <div ng-repeat="team in ctrl.service.teamsList">
 		              <label for="team_{{team.id}}">{{ team.name }}</label>
-		              <input type="checkbox" id="team_{{team.id}}" ng-checked="ctrl.participants[event.id].hasOwnProperty(id) == team.id">
+		              <input type="checkbox" id="team_{{team.id}}" ng-checked="ctrl.service.participants[event.id].hasOwnProperty(id) == team.id">
 		            </div>
-		          </td>
+		          </td>-->
 		          <td>
 		            <button type="button" class="btn btn-default btn-xs" ng-click="ctrl.edit()"><span class="glyphicon glyphicon-pencil"/></button>
 		            <button type="button" class="btn btn-danger btn-xs" ng-click="ctrl.remove('event', event.id)"><span class="glyphicon glyphicon-trash"/></button>

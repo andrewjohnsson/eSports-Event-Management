@@ -16,7 +16,7 @@
     };
 
     /** @ngInject */
-    function LoginController(AuthService, $log, $location) {
+    function LoginController(AuthService, $location, $log) {
       var vm = this;
 
       vm.loginFields = [
@@ -46,7 +46,6 @@
         if (data == true){
           vm.isLogged = true;
           vm.currentUser = AuthService.getUser();
-          $log.log(vm.currentUser);
         }
       });
 
