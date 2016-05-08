@@ -1,19 +1,18 @@
-<div class="container">
+<div class="container" block-ui="usersBlock">
   <div class="jumbotron text-center">
     <h1>{{ ctrl.title }}</h1>
     <small>{{ ctrl.subtitle }}</small>
   </div>
-</div>
 
-<div class="container">
-  <div class="row">
+  <div class="row" ng-hide="ctrl.service.usersList == null">
     <div class="col-xs-12">
       <div class="panel panel-default">
-        <table class="table" block-ui="usersBlock" style="min-height: 125px;">
-          <tbody>
-            <tr ng-repeat="user in ctrl.service.usersList">  <td>{{ user.name }} <a class="btn btn-default btn-sm" style="float: right;" href="/#/user/{{user.id - 1}}">Details</a></td>  </tr>
-          </tbody>
-        </table>
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="user in ctrl.service.usersList">
+            <span class="badge"><a style="color: #fff; text-decoration: none" href="/#/user/{{user.id}}">Details</a></span>
+            {{ user.name }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>
