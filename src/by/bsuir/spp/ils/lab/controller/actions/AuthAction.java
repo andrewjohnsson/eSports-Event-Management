@@ -53,12 +53,11 @@ public class AuthAction extends ActionSupport {
 	public String check(){
 		int id = authService.getUserId();
 		if (id != 0){
-			User temp = new User();
-			temp.setId(id);
-			setUser(userService.find(temp).get(0));
-			return SUCCESS;
+			setUser(userService.find(id));
+		}else {
+			setUser(null);
+			setError("You are not logged in!");
 		}
-		setError("You are not logged in!");
 		return SUCCESS;
 	}
 

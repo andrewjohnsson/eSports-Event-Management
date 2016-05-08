@@ -24,7 +24,7 @@
 		            <td>Roles</td>
 		            <td>Actions</td>
 		          </tr>
-		          <tr ng-repeat="user in ctrl.service.userslist">
+		          <tr ng-repeat="user in ctrl.service.usersList">
 		            <td><input type="text" ng-model="user.name" class="form-control" value="{{ user.name }}"></td>
 		            <td><input type="text" ng-model="user.email" class="form-control" value="{{ user.email }}"></td>
 		            <td><input type="text" ng-model="user.age" class="form-control" value="{{ user.age }}" style="width: 50px;"></td>
@@ -58,7 +58,7 @@
           <div class="col-xs-6 col-xs-offset-3">
             <formly-form model="ctrl.teamModel" fields="ctrl.teamFields" style="padding-bottom: 15px;">
               <div class="form-group">
-                <select class="form-control" ng-model="ctrl.teamModel.team.userId" ng-options="user.id as user.name for user in ctrl.service.userslist"/>
+                <select class="form-control" ng-model="ctrl.teamModel.team.userId" ng-options="user.id as user.name for user in ctrl.service.usersList"/>
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block" ng-click="ctrl.service.createTeam(ctrl.teamModel)">Create</button>
@@ -73,7 +73,7 @@
 		        </tr>
 		        <tr ng-repeat="team in ctrl.service.teamsList">
 		          <td>
-                <select class="form-control" ng-model="team.userId" ng-options="user.id as user.name for user in ctrl.service.userslist"/>
+                <select class="form-control" ng-model="team.userId" ng-options="user.id as user.name for user in ctrl.service.usersList"/>
               </td>
 		          <td><input type="text" ng-model="team.name" class="form-control" value="{{ team.name }}"></td>
 		          <td>

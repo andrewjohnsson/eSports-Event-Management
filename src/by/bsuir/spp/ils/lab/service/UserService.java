@@ -1,7 +1,6 @@
 package by.bsuir.spp.ils.lab.service;
 
 import by.bsuir.spp.ils.lab.entity.User;
-import by.bsuir.spp.ils.lab.helper.builder.query.UserQuery;
 import by.bsuir.spp.ils.lab.persistence.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -15,11 +14,8 @@ import java.util.List;
 public class UserService extends HibernateUtil{
   private Session session;
   private Transaction transaction;
-  private UserQuery builder;
 
-  public UserService() {
-		builder = new UserQuery();
-  }
+  public UserService() {}
 
   public User add(User user) {
 		session = HibernateUtil.getSessionFactory().openSession();
@@ -54,15 +50,15 @@ public class UserService extends HibernateUtil{
 		}
 	}
 
-  public List<User> find(User user) {
+  public User find(int id) {
     session = HibernateUtil.getSessionFactory().openSession();
-    List<User> users = null;
     try {
       transaction = session.beginTransaction();
       try {
         try {
-          users = (List<User>) session.createQuery(this.builder.generateUserQuery(user)).list();
+          User user = (User) session.createQuery("from User where id="+id).list().get(0);
           transaction.commit();
+					return user;
         } catch (HibernateException e) {
           e.printStackTrace();
           transaction.rollback();
@@ -74,7 +70,7 @@ public class UserService extends HibernateUtil{
     } finally {
       session.close();
     }
-    return users;
+    return null;
   }
 
   public List<User> list() {
