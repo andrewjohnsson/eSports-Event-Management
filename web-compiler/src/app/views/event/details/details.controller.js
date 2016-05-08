@@ -6,12 +6,34 @@
     .controller('EventDetailsController', EventDetailsController);
 
   /** @ngInject */
-  function EventDetailsController(EventService, $stateParams) {
+  function EventDetailsController(ApiService, AuthService, $stateParams) {
     var vm = this;
+    vm.apiService = ApiService;
+    vm.isSupervisor = false;
 
-    EventService.get().then(function(response){
-      vm.events = response.events[$stateParams.id];
-      vm.participants = response.participants;
+    vm.apiService.updateEvents().then(function(){
+      vm.apiService.eventsList.forEach(function(event){
+        if (event.id == $stateParams.id){
+          vm.event = event;
+
+        }
+      });
+
+      vm.participants = vm.apiService.participants[$stateParams.id];
+      vm.apiService.updateUsers().then(function() {
+        vm.apiService.usersList.forEach(function(user){
+          if(user.eventId == vm.event.id){
+            vm.supervisor = user;
+          }
+        });
+      });
+      AuthService.isLogged().then(function(response){
+        if (response == true) {
+          if (vm.event.id == AuthService.getUser().eventId) {
+            vm.isSupervisor = true;
+          }
+        }
+      })
     });
   }
 

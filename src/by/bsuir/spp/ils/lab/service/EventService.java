@@ -3,7 +3,6 @@ package by.bsuir.spp.ils.lab.service;
 import by.bsuir.spp.ils.lab.entity.Event;
 import by.bsuir.spp.ils.lab.entity.Team;
 import by.bsuir.spp.ils.lab.entity.Ticket;
-import by.bsuir.spp.ils.lab.helper.builder.query.EventQuery;
 import by.bsuir.spp.ils.lab.persistence.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -19,7 +18,6 @@ public class EventService extends HibernateUtil {
   private TicketService ticketService;
   private Session session;
   private Transaction transaction;
-  private EventQuery builder;
   private ParticipationService participationService;
   private List<Event> events;
 
@@ -68,28 +66,6 @@ public class EventService extends HibernateUtil {
     transaction = session.beginTransaction();
     events = (List<Event>) session.createQuery("from Event").list();
 		participationService.setParticipants(events);
-    return events;
-  }
-
-  public List<Event> find(Event event) {
-    session = HibernateUtil.getSessionFactory().openSession();
-    try {
-      transaction = session.beginTransaction();
-      try {
-        try {
-          events = (List<Event>) session.createQuery(this.builder.generateEventQuery(event)).list();
-          transaction.commit();
-        } catch (HibernateException e) {
-          e.printStackTrace();
-          transaction.rollback();
-        }
-      } catch (Exception e) {
-        transaction.rollback();
-        throw e;
-      }
-    } finally {
-      session.close();
-    }
     return events;
   }
 

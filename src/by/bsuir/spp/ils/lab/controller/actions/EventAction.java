@@ -55,16 +55,6 @@ public class EventAction extends ActionSupport {
 		return SUCCESS;
   }
 
-  public String find(){
-    try {
-      this.event = eventService.find(getEvent()).get(0);
-      this.participants = eventService.getParticipants();
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-    return SUCCESS;
-  }
-
   public String list(){
     try {
       this.events = eventService.list();
@@ -78,7 +68,7 @@ public class EventAction extends ActionSupport {
   public String update(){
     if (permissionHelper.canAddEvent() || permissionHelper.isAdmin()) {
       try {
-        this.events = eventService.list();        //TO-DO Find impl here
+        this.event = eventService.update(getEvent());
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -90,7 +80,7 @@ public class EventAction extends ActionSupport {
 
   public String delete(){
     if (permissionHelper.canAddEvent() || permissionHelper.isAdmin()) {
-      if (userService.find(authService.getCurrentUser()).get(0).getEventId() == getEvent().getId()){
+      if (userService.find(authService.getCurrentUser().getId()).getEventId() == getEvent().getId()){
         eventService.delete(getEvent().getId());
       }
     }else{

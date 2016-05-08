@@ -8,7 +8,7 @@
   /** @ngInject */
   function MainController() {
     var vm = this;
-    vm.title = 'This is Lab #3';
+    vm.title = 'This is SPP Lab';
     vm.subtitle = 'Made by Andrey Ivanov, Andrey Litvinchuk and Alexey Shaveiko';
   }
 

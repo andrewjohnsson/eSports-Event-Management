@@ -20,7 +20,7 @@
     };
 
     vm.open = function(user){
-      var user = user;
+      var person = user;
       vm.uibModal = $uibModal.open({
         animation: true,
         templateUrl: 'app/components/modal/delete/delete.html',
@@ -31,7 +31,7 @@
 
       vm.uibModal.result.then(function(){},function(result){
         if(result == 'accept'){
-          ApiService.deleteUser(user);
+          ApiService.deleteUser(person);
         }
       })
     }

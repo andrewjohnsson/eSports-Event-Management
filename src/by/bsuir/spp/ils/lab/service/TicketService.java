@@ -3,7 +3,6 @@ package by.bsuir.spp.ils.lab.service;
 import by.bsuir.spp.ils.lab.entity.Event;
 import by.bsuir.spp.ils.lab.entity.Ticket;
 import by.bsuir.spp.ils.lab.entity.User;
-import by.bsuir.spp.ils.lab.helper.builder.query.TicketQuery;
 import by.bsuir.spp.ils.lab.persistence.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -19,7 +18,6 @@ public class TicketService extends HibernateUtil {
 
     private Session session;
     private Transaction transaction;
-    private TicketQuery builder;
 
     public Ticket add(Ticket ticket){
         session = HibernateUtil.getSessionFactory().openSession();
@@ -46,29 +44,6 @@ public class TicketService extends HibernateUtil {
         return tickets;
     }
 
-    public List<Ticket> find(Ticket ticket){
-        List<Ticket> tickets = new ArrayList<>();
-        session = HibernateUtil.getSessionFactory().openSession();
-        try {
-            transaction = session.beginTransaction();
-            try {
-                try {
-                    tickets = (List<Ticket>) session.createQuery(this.builder.generateTicketQuery(ticket)).list();
-                    transaction.commit();
-                } catch (HibernateException e) {
-                    e.printStackTrace();
-                    transaction.rollback();
-                }
-            } catch (Exception e) {
-                transaction.rollback();
-                throw e;
-            }
-        } finally {
-            session.close();
-        }
-        return tickets;
-    }
-
     public List<Ticket> findUserTickets(User user){
         List<Ticket> tickets = new ArrayList<>();
         session = HibernateUtil.getSessionFactory().openSession();
@@ -76,7 +51,7 @@ public class TicketService extends HibernateUtil {
             transaction = session.beginTransaction();
             try {
                 try {
-                    tickets = (List<Ticket>) session.createQuery(this.builder.generateTicketWithUserQuery(user)).list();
+                    tickets = (List<Ticket>) session.createQuery("from Ticket where userId="+user.getId()).list();
                     transaction.commit();
                 } catch (HibernateException e) {
                     e.printStackTrace();
@@ -100,7 +75,7 @@ public class TicketService extends HibernateUtil {
             transaction = session.beginTransaction();
             try {
                 try {
-                    tickets = (List<Ticket>) session.createQuery(this.builder.generateTicketWithEventQuery(event)).list();
+                    tickets = (List<Ticket>) session.createQuery("from Ticket where eventId="+event.getId()).list();
                     transaction.commit();
                 } catch (HibernateException e) {
                     e.printStackTrace();
