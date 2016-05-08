@@ -2,7 +2,6 @@ package by.bsuir.spp.ils.lab.service;
 
 import by.bsuir.spp.ils.lab.entity.Event;
 import by.bsuir.spp.ils.lab.entity.Team;
-import by.bsuir.spp.ils.lab.helper.builder.query.TeamQuery;
 import by.bsuir.spp.ils.lab.persistence.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -17,7 +16,6 @@ import java.util.Map;
 public class TeamService extends HibernateUtil {
   private Session session;
   private Transaction transaction;
-  private TeamQuery builder;
   private List<Team> teams;
   private ParticipationService service;
 

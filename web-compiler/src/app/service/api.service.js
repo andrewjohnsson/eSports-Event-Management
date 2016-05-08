@@ -6,21 +6,27 @@
     .service('ApiService', ApiService);
 
   /** @ngInject */
-  function ApiService(AuthService, PermissionService, UserService, TeamService, EventService, $location, $log) {
+  function ApiService(AuthService, PermissionService, UserService, TeamService, EventService, $location, $q) {
     /** @ngInject */
     var vm = this;
     vm.location = $location;
     vm.adminCount = 0;
+    vm.authService = AuthService;
 
     vm.updateUsers = function(){
+      var deferred = $q.defer();
       UserService.get().then(function(response){
-        vm.userslist = response.users;
-        vm.userslist.forEach(function(user){
+        vm.usersList = response.users;
+        vm.usersList.forEach(function(user){
           if (user.isAdmin){
             vm.adminCount++;
           }
         });
+        deferred.resolve();
+      }, function(){
+        deferred.reject();
       });
+      return deferred.promise;
     };
 
     vm.createUser = function(user){
@@ -108,10 +114,15 @@
     };
 
     vm.updateTeams = function(){
+      var deferred = $q.defer();
       TeamService.get().then(function(response){
         vm.teamsList = response.teams;
         vm.participations = response.participations;
+        deferred.resolve();
+      },function(){
+        deferred.reject();
       });
+      return deferred.promise;
     };
 
     vm.createEvent = function(event){
@@ -147,10 +158,15 @@
     };
 
     vm.updateEvents = function(){
+      var deferred = $q.defer();
       EventService.get().then(function(response){
         vm.eventsList = response.events;
         vm.participants = response.participants;
+        deferred.resolve();
+      },function(){
+        deferred.reject();
       });
+      return deferred.promise;
     };
 
     vm.updateData = function() {
