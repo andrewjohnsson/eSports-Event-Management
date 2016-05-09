@@ -1,3 +1,11 @@
 .panel>.btn{
   margin-bottom: 15px;
 }
+
+.badge-link{
+  color: #fff;
+}
+
+.badge-link:hover{
+  color: #c1c1c1;
+}
