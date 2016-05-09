@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a597d598-a8e8-4a95-8dff-e697f7415b5b" name="Default" comment="Add API Service">
+    <list default="true" id="a597d598-a8e8-4a95-8dff-e697f7415b5b" name="Default" comment="Change Details Controllers And Views">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Bundled_Web_Content/index.html" afterPath="$PROJECT_DIR$/out/artifacts/Bundled_Web_Content/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/index.html" afterPath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/event/details/details.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/event/details/details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/event/list/list.css" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/event/list/list.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/event/list/list.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/event/list/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/team/details/details.controller.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/team/details/details.controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/team/details/details.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/team/details/details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/team/list/list.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/team/list/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/user/details/details.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/user/details/details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/user/list/list.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/user/list/list.html" />
     </list>
     <ignored path="LabSPP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,16 +67,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="team.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-compiler/src/app/views/team/team.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-compiler/src/app/views/user/list/list.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -128,21 +109,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-compiler/src/app/views/event/list/list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="97" selection-start-line="0" selection-start-column="97" selection-end-line="0" selection-end-column="97" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="details.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="team.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-compiler/src/app/views/team/team.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.625">
+              <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="details.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-compiler/src/app/views/team/details/details.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="97" selection-start-line="0" selection-start-column="97" selection-end-line="0" selection-end-column="97" />
+            <state vertical-scroll-proportion="0.22727273">
+              <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -264,10 +255,10 @@
         <option value="$PROJECT_DIR$/web-compiler/src/app/views/event/list/list.css" />
         <option value="$PROJECT_DIR$/web-compiler/src/app/views/user/list/list.html" />
         <option value="$PROJECT_DIR$/web-compiler/src/app/views/event/details/details.html" />
-        <option value="$PROJECT_DIR$/web-compiler/src/app/views/team/details/details.html" />
         <option value="$PROJECT_DIR$/web-compiler/src/app/views/team/list/list.html" />
         <option value="$PROJECT_DIR$/web-compiler/src/app/views/user/details/details.html" />
         <option value="$PROJECT_DIR$/web-compiler/src/app/views/event/list/list.html" />
+        <option value="$PROJECT_DIR$/web-compiler/src/app/views/team/details/details.html" />
       </list>
     </option>
   </component>
@@ -1895,7 +1886,7 @@
       <workItem from="1462723033303" duration="1549000" />
       <workItem from="1462733544640" duration="3622000" />
       <workItem from="1462743086627" duration="3539000" />
-      <workItem from="1462796166220" duration="2253000" />
+      <workItem from="1462796166220" duration="2818000" />
     </task>
     <task id="LOCAL-00001" summary="Set Up Git At IntelliJ">
       <created>1458573469333</created>
@@ -1993,11 +1984,17 @@
       <option name="project" value="LOCAL" />
       <updated>1462746592166</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Change Details Controllers And Views">
+      <created>1462798617564</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1462798617564</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="438788000" />
+    <option name="totallyTimeSpent" value="439353000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2010,7 +2007,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -2026,7 +2023,7 @@
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17412141" sideWeight="0.48122528" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17412141" sideWeight="0.48122528" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1799787" sideWeight="0.5049407" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1799787" sideWeight="0.5049407" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15282215" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17412141" sideWeight="0.49505928" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19808307" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2077,7 +2074,8 @@
     <MESSAGE value="Deploy New Routing" />
     <MESSAGE value="Add API Service" />
     <MESSAGE value="Add User Details" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add User Details" />
+    <MESSAGE value="Change Details Controllers And Views" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change Details Controllers And Views" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -2264,13 +2262,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-compiler/src/app/views/team/team.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-compiler/src/app/components/modal/modal.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2453,16 +2444,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-compiler/src/app/views/team/details/details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="97" selection-start-line="0" selection-start-column="97" selection-end-line="0" selection-end-column="97" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-compiler/src/app/views/team/list/list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
@@ -2502,6 +2483,24 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="97" selection-start-line="0" selection-start-column="97" selection-end-line="0" selection-end-column="97" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-compiler/src/app/views/team/team.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.625">
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-compiler/src/app/views/team/details/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22727273">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
