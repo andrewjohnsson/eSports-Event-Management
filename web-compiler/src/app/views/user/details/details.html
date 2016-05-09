@@ -1,8 +1,7 @@
-<div class="container" block-ui="usersBlock" style="min-height: 125px;">
-  <div class="row" ng-hide="uDetCtrl.user.name == null">
+<div class="container col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" block-ui="usersBlock" style="min-height: 125px;">
+  <div class="row" ng-hide="uDetCtrl.user == null">
     <div class="jumbotron text-center">
       <h1>{{ uDetCtrl.user.name }}</h1>
-      <small ng-show=""></small>
     </div>
 
     <div class="panel panel-default">
@@ -13,7 +12,7 @@
           Email
         </li>
         <li class="list-group-item">
-          <span class="badge">{{uDetCtrl.user.age}}</span>
+          <span class="badge">{{uDetCtrl.user.age}} years</span>
           Age
         </li>
         <li class="list-group-item" ng-hide="uDetCtrl">
@@ -21,12 +20,12 @@
           <a href="/#/team/{{uDetCtrl.team.id}}">Team</a>
         </li>
         <li class="list-group-item" ng-hide="uDetCtrl.managedTeam == null">
-          <span class="badge">{{uDetCtrl.managedTeam.name}}</span>
-          <a href="/#/team/{{uDetCtrl.managedTeam.id}}">Manager</a>
+          <span class="badge"><a class="badge-link" href="/#/team/{{uDetCtrl.managedTeam.id}}">{{uDetCtrl.managedTeam.name}}</a></span>
+          Manager
         </li>
         <li class="list-group-item" ng-hide="uDetCtrl.event == null">
-          <span class="badge">{{uDetCtrl.event.name}}</span>
-          <a href="/#/event/{{uDetCtrl.event.id}}">Supervisor</a>
+          <span class="badge"><a class="badge-link" href="/#/event/{{uDetCtrl.event.id}}">{{uDetCtrl.event.name}}</a></span>
+          Supervisor
         </li>
         <li class="list-group-item" ng-hide="!uDetCtrl.user.isAdmin">
           Administrator

@@ -1,19 +1,18 @@
-<div class="container">
+<div class="container col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" block-ui="teamsBlock">
   <div class="jumbotron text-center">
     <h1>{{ ctrl.title }}</h1>
     <small>{{ ctrl.subtitle }}</small>
   </div>
-</div>
 
-<div class="container">
-  <div class="row">
+  <div class="row" ng-hide="teamsList == null">
     <div class="col-xs-12">
       <div class="panel panel-default">
-        <table class="table" block-ui="teamsBlock" style="min-height: 125px;">
-          <tbody>
-            <tr ng-repeat="item in teamsList">  <td>{{ item.name }} <a class="btn btn-default btn-sm" style="float: right;" href="/#/team/{{item.id}}">Details</a></td>  </tr>
-          </tbody>
-        </table>
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="item in teamsList">
+            <span class="badge"><a class="badge-link" href="/#/team/{{item.id}}">Details</a></span>
+            {{ item.name }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>
