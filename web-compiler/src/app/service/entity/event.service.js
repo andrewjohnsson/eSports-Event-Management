@@ -19,30 +19,38 @@
       HttpService.getData({method: 'GET', url: 'event_list'}).then(function(response){
         eventsBlock.stop();
         deferred.resolve(response.data)
+      },function(){
+        deferred.reject();
       });
       return deferred.promise;
     };
 
-    vm.add = function(event){
-      return HttpService.getData({method: 'POST', url: 'event_create', data: angular.toJson(event)});
+    vm.add = function(model){
+      return HttpService.getData({method: 'POST', url: 'event_create', data: angular.toJson(model)});
     };
 
-    vm.search = function(event){
+    vm.edit = function(model){
       var deferred = $q.defer();
-      HttpService.getData({method: 'POST', url: 'event_read', data: angular.toJson(event)}).then(
-        function(response){
-          deferred.resolve(response.data);
-        },
-        function(){
-          deferred.reject(null);
-        }
-      );
+      HttpService.getData({method: 'POST', url: 'event_update', data: {event: model}}).then(function(response){
+        deferred.resolve(response.data);
+      },function(){
+        deferred.reject();
+      });
       return deferred.promise;
     };
 
-    vm.remove = function(type, id){
-      HttpService.getData({method: 'POST', url: 'event_delete?id='+id});
-      return true
+    vm.remove = function(model){
+      var deferred = $q.defer();
+      HttpService.getData({method: 'POST', url: 'event_delete', data: {event: model}}).then(function(response){
+        if (response.data.error == null){
+          deferred.resolve(true);
+        }else{
+          deferred.resolve(false)
+        }
+      },function(){
+        deferred.reject();
+      });
+      return deferred.promise;
     }
   }
 
