@@ -13,6 +13,18 @@
     vm.adminCount = 0;
     vm.authService = AuthService;
 
+    vm.supervisorPass = {
+      eventId: null
+    };
+
+    vm.managerPass = {
+      eventId: null
+    };
+
+    vm.playerPass = {
+      eventId: null
+    };
+
     vm.updateUsers = function(){
       var deferred = $q.defer();
       UserService.get().then(function(response){
@@ -91,16 +103,16 @@
       }
     };
 
-    vm.deleteTeam = function(id){
-      if(AuthService.getUser().isAdmin || AuthService.getUser().isManager){
-        if (TeamService.remove(id)){
+    vm.deleteTeam = function(team){
+      TeamService.remove(team).then(function(response){
+        if(response.error == null){
           vm.updateTeams();
         }else{
-          alert("Error occured while deleting team!")
+          alert(response.error);
         }
-      }else{
-        alert("You should be admin or manager to delete teams.")
-      }
+      },function(){
+        alert('Error while removing team')
+      })
     };
 
     vm.updateTeam = function(team){
@@ -135,13 +147,13 @@
       }
     };
 
-    vm.deleteEvent = function(id){
+    vm.deleteEvent = function(event){
       if(vm.authService.getUser().isAdmin || vm.authService.getUser().isSupervisor){
-        if (EventService.remove(id)){
+        EventService.remove(event).then(function(){
           vm.updateEvents();
-        }else{
-          alert("Error occured while deleting event!")
-        }
+        }, function(){
+          alert("Error occured while deleting event!");
+        });
       }else{
         alert("You should be admin or supervisor to delete events.")
       }
