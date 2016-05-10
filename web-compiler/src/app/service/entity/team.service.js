@@ -30,7 +30,7 @@
     vm.edit = function(model){
       var deferred = $q.defer();
       teamsBlock.start("Editing Team...");
-      HttpService.getData({method: 'POST', url: 'team_update', data: angular.toJson(model)}).then(function(response){
+      HttpService.getData({method: 'POST', url: 'team_update', data: {team: model}}).then(function(response){
         teamsBlock.stop();
         deferred.resolve(response.data);
       });
@@ -38,12 +38,17 @@
     };
 
     vm.search = function(model){
-      return HttpService.getData({method: 'POST', url: 'team_read', data: angular.toJson(model)}).users
+      return HttpService.getData({method: 'POST', url: 'team_read', data: {team: model}}).users
     };
 
-    vm.remove = function(type, id){
-      HttpService.getData({method: 'POST', url: 'team_delete?id='+id});
-      return true
+    vm.remove = function(model){
+      var deferred = $q.defer();
+      HttpService.getData({method: 'POST', url: 'team_delete', data: {team: model}}).then(function(response){
+        deferred.resolve(response.data)
+      }, function(){
+        deferred.reject();
+      });
+      return deferred.promise;
     }
 
   }
