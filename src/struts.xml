@@ -25,6 +25,12 @@
     <package name="default" extends="json-default">
     </package>
 
+  <package name="sample_doc_generation" namespace="/" extends="struts-default">
+    <action name="generate_doc" class="by.bsuir.spp.ils.lab.controller.actions.generator.EventInviteGenerationAction" method="execute">
+      <!-- NO NEED TO HAVE RESULT TYPE STREAM CONFIGURATION-->
+    </action>
+  </package>
+
     <package name="permission" extends="json-default">
       <action name="isAdmin" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isAdmin">
         <result type="json"/>
