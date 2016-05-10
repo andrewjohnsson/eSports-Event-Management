@@ -6,24 +6,29 @@
     .controller('TeamDetailsController', TeamDetailsController);
 
   /** @ngInject */
-  function TeamDetailsController(AuthService, ApiService, $stateParams) {
+  function TeamDetailsController(ApiService, $rootScope, $stateParams) {
     var vm = this;
 
-    vm.apiService = ApiService;
-    vm.isManager = false;
-    vm.isPlayer = false;
+    if (!$rootScope.apiService){
+      $rootScope.apiService = ApiService;
+    }
+
+    vm.service = $rootScope.apiService;
+
+    vm.isManager = vm.service.authService.isManager;
     vm.players = [];
 
-    vm.apiService.updateTeams().then(function(){
-      vm.apiService.teamsList.forEach(function(team){
+    vm.service.updateTeams().then(function(){
+      vm.service.teamsList.forEach(function(team){
         if (team.id == $stateParams.id){
           vm.team = team;
         }
       });
-      vm.participations = vm.apiService.participations[$stateParams.id];
 
-      vm.apiService.updateUsers().then(function() {
-        vm.apiService.usersList.forEach(function(user){
+      vm.participations = vm.service.participations[$stateParams.id];
+
+      vm.service.updateUsers().then(function() {
+        vm.service.usersList.forEach(function(user){
           if(vm.team.userId == user.id){
             vm.manager = user;
           }
@@ -33,13 +38,10 @@
         });
       });
 
-      AuthService.isLogged().then(function(response){
+      vm.service.authService.isLogged().then(function(response){
         if (response == true) {
-          if (vm.team.userId == AuthService.getUser().id) {
+          if (vm.team.userId == vm.service.authService.getUser().id) {
             vm.isManager = true;
-          }
-          if (vm.team.id == AuthService.getUser().teamId){
-            vm.isPlayer = true;
           }
         }
       })

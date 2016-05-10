@@ -6,16 +6,18 @@
     .controller('TeamController', TeamController);
 
   /** @ngInject */
-  function TeamController(TeamService, $scope) {
+  function TeamController($rootScope, ApiService) {
     var vm = this;
 
     vm.title = 'Explore Teams';
     vm.subtitle = 'and get schedules';
 
-    TeamService.get().then(function(response){
-      $scope.teamsList = response.teams;
-      $scope.participations = response.participations;
-    });
+    if (!$rootScope.apiService){
+      $rootScope.apiService = ApiService;
+    }
+
+    vm.service = $rootScope.apiService;
+    vm.service.updateTeams();
   }
 
 })();
