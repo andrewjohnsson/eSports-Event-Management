@@ -4,14 +4,24 @@
       <h1>{{ eDetCtrl.event.name }}</h1>
       <small><a href="/#/user/{{eDetCtrl.supervisor.id}}" ng-hide="eDetCtrl.isSupervisor">{{ eDetCtrl.supervisor.name }}</a></small>
       <a href="" class="btn btn-primary" ng-show="eDetCtrl.isSupervisor">Get Supervisor Pass</a>
+      <a href="" class="btn btn-primary" ng-show="eDetCtrl.isPlayer">Get Player Pass <small>({{eDetCtrl.team.name}})</small></a>
     </div>
 
-    <div class="panel panel-default" ng-hide="eDetCtrl.participants == null">
+    <div class="panel panel-default" ng-show="eDetCtrl.participants[0] == undefined">
+      <h4 class="text-center">No Participants</h4>
+      <ul class="list-group">
+        <li class="list-group-item text-center">
+          <p>This event has no participants.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="panel panel-default" ng-hide="eDetCtrl.participants[0] == undefined">
       <h4 class="text-center">Participants</h4>
       <ul class="list-group">
         <li class="list-group-item" ng-repeat="team in eDetCtrl.participants">
-          <span class="badge" ng-show="tDetCtrl.isPlayer"><a href="" class="badge-link" >Get Player Pass</a></span>
-          <a href="/#/team/{{team.id}}">{{ team.name }}</a>
+          <span class="badge"><a href="/#/team/{{team.id}}" class="badge-link" >Details</a></span>
+          {{ team.name }}
         </li>
       </ul>
     </div>

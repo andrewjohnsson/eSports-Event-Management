@@ -16,7 +16,7 @@
     };
 
     /** @ngInject */
-    function LoginController(AuthService, $location, $log) {
+    function LoginController($rootScope) {
       var vm = this;
 
       vm.loginFields = [
@@ -25,7 +25,6 @@
           type: 'input',
           templateOptions: {
             type: 'email',
-            label: 'Email address',
             placeholder: 'Email address'
           }
         },
@@ -34,42 +33,30 @@
           type: 'input',
           templateOptions: {
             type: 'password',
-            label: 'Password',
             placeholder: 'Password'
           }
         }
       ];
 
-      vm.isLogged = false;
+      vm.service = $rootScope.apiService;
 
-      AuthService.isLogged().then(function(data){
-        if (data == true){
-          vm.isLogged = true;
-          vm.currentUser = AuthService.getUser();
-        }
+      vm.service.authService.isLogged().then(function(){
+        vm.isLogged = vm.service.authService.logged;
+      }, function(){
+        vm.isLogged = vm.service.authService.logged;
       });
 
       vm.login = function(){
-        AuthService.login(vm.loginModel).then(function(data){
-          if (data == true){
-            vm.isLogged = true;
-            vm.currentUser = AuthService.getUser();
-          }else{
+        vm.service.authService.login(vm.loginModel).then(function(data){
+          if (data != true){
             alert('Wrong Credentials');
+          }else{
+            vm.isLogged = vm.service.authService.logged;
           }
         }, function(){
-          $log.error('Login Failed For User ' + vm.loginModel.user.email)
+          alert('Login Failed')
         });
       };
-
-      vm.logout = function(){
-        AuthService.isLogged().then(function(){
-          AuthService.logout().then(function(){
-            vm.isLogged = false;
-            $location.url('/');
-          });
-        });
-      }
     }
 
     return directive;

@@ -6,32 +6,47 @@
     .controller('EventDetailsController', EventDetailsController);
 
   /** @ngInject */
-  function EventDetailsController(ApiService, AuthService, $stateParams) {
+  function EventDetailsController(ApiService, $rootScope, $stateParams) {
     var vm = this;
-    vm.apiService = ApiService;
-    vm.isSupervisor = false;
 
-    vm.apiService.updateEvents().then(function(){
-      vm.apiService.eventsList.forEach(function(event){
+    vm.isPlayer = false;
+
+    if (!$rootScope.apiService){
+      $rootScope.apiService = ApiService;
+    }
+
+    vm.service = $rootScope.apiService;
+    vm.isSupervisor = vm.service.authService.isSupervisor;
+    vm.isPlayer = vm.service.authService.isPlayer;
+
+    vm.service.updateEvents().then(function(){
+      vm.service.eventsList.forEach(function(event){
         if (event.id == $stateParams.id){
           vm.event = event;
-
         }
       });
 
-      vm.participants = vm.apiService.participants[$stateParams.id];
-      vm.apiService.updateUsers().then(function() {
-        vm.apiService.usersList.forEach(function(user){
+      vm.participants = vm.service.participants[$stateParams.id];
+
+      vm.service.updateUsers().then(function() {
+        vm.service.usersList.forEach(function(user){
           if(user.eventId == vm.event.id){
             vm.supervisor = user;
           }
         });
       });
-      AuthService.isLogged().then(function(response){
+
+      vm.service.authService.isLogged().then(function(response){
         if (response == true) {
-          if (vm.event.id == AuthService.getUser().eventId) {
+          if (vm.event.id == vm.service.authService.getUser().eventId) {
             vm.isSupervisor = true;
           }
+          vm.participants.forEach(function(team){
+            if (team.id == vm.service.authService.getUser().teamId){
+              vm.isPlayer = true;
+              vm.team = team;
+            }
+          });
         }
       })
     });

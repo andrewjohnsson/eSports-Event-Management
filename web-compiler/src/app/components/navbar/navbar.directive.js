@@ -16,8 +16,15 @@
     };
 
     /** @ngInject */
-    function NavbarController() {
+    function NavbarController($rootScope, ApiService) {
       var vm = this;
+
+      if (!$rootScope.apiService){
+        $rootScope.apiService = ApiService;
+      }
+
+      vm.service = $rootScope.apiService;
+      vm.currentUser = vm.service.authService.isLogged();
 
       vm.brand = {
         title: 'LabSPP',
