@@ -6,14 +6,18 @@
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardController(ApiService) {
+  function DashboardController(ApiService, $rootScope) {
     var vm = this;
 
     vm.playerForm = {};
     vm.teamForm = {};
     vm.eventForm = {};
 
-    vm.service = ApiService;
+    if (!$rootScope.apiService){
+      $rootScope.apiService = ApiService;
+    }
+
+    vm.service = $rootScope.apiService;
     vm.service.updateData();
 
     vm.userFields = [
@@ -21,28 +25,32 @@
         key: 'user.email',
         type: 'input',
         templateOptions: {
-          type: 'email'
+          type: 'email',
+          placeholder: 'Email'
         }
       },
       {
         key: 'user.password',
         type: 'input',
         templateOptions: {
-          type: 'password'
+          type: 'password',
+          placeholder: 'Password'
         }
       },
       {
         key: 'user.name',
         type: 'input',
         templateOptions: {
-          type: 'text'
+          type: 'text',
+          placeholder: 'Name'
         }
       },
       {
         key: 'user.age',
         type: 'input',
         templateOptions: {
-          type: 'number'
+          type: 'number',
+          placeholder: 'Age'
         }
       },
       {
@@ -84,7 +92,8 @@
         key: 'team.name',
         type: 'input',
         templateOptions: {
-          type: 'text'
+          type: 'text',
+          placeholder: 'Name'
         }
       }
     ];
@@ -94,14 +103,24 @@
         key: 'event.name',
         type: 'input',
         templateOptions: {
-          type: 'text'
+          type: 'text',
+          placeholder: 'Name'
         }
       },
       {
         key: 'event.date',
         type: 'input',
         templateOptions: {
-          type: 'date'
+          type: 'text',
+          placeholder: 'Date'
+        }
+      },
+      {
+        key: 'tickets',
+        type: 'input',
+        templateOptions: {
+          type: 'number',
+          placeholder: 'Tickets Amount'
         }
       }
     ];
