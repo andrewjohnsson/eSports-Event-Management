@@ -74,7 +74,7 @@ public class TeamAction extends ActionSupport {
 
   public String delete() {
     if (helper.canCreateTeam() || helper.isAdmin()) {
-      service.delete(getTeam().getId());
+      service.delete(getTeam());
       return SUCCESS;
     }else{
 			setError("You Don't Have Enough Rights To Do That");

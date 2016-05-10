@@ -75,18 +75,14 @@ public class TeamService extends HibernateUtil {
     }
   }
 
-  public boolean delete(int id){
+  public boolean delete(Team team){
     session = HibernateUtil.getSessionFactory().openSession();
     try {
       transaction = session.beginTransaction();
       try {
-        Team team = (Team) session.load(Team.class, id);
-        if (null != team) {
-          session.delete(team);
-          transaction.commit();
-          return true;
-        }
+        session.delete(team);
         transaction.commit();
+        return true;
       } catch (Exception e) {
         transaction.rollback();
         throw e;
@@ -94,6 +90,5 @@ public class TeamService extends HibernateUtil {
     } finally {
       session.close();
     }
-    return false;
   }
 }
