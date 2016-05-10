@@ -6,16 +6,18 @@
     .service('AuthService', AuthService);
 
   /** @ngInject */
-  function AuthService(HttpService, blockUI, $q, $log) {
+  function AuthService(HttpService, $q) {
     /** @ngInject */
     var vm = this;
+    vm.currentUser = null;
+    vm.logged = false;
+    vm.isSupervisor = false;
+    vm.isManager = false;
+    vm.isPlayer = false;
 
     vm.getPermissions = function(){
       return vm.permissions;
     };
-
-    var loginForm = blockUI.instances.get('loginFormBlock');
-    var userInfoBlock = blockUI.instances.get('userInfoBlock');
 
     vm.getUser = function(){
       return vm.currentUser;
@@ -27,19 +29,17 @@
 
     vm.login = function(user){
       var deferred = $q.defer();
-      loginForm.start("Logging in...");
       HttpService.getData({method: 'POST', url: 'auth_login', data: user}).then(function(response){
         if (response.data.user != undefined){
-          vm.currentUser = response.data.user;
-          $log.log(vm.currentUser);
+          vm.setUser(response.data.user);
+          vm.logged = true;
           deferred.resolve(true);
-          loginForm.stop();
         }else{
+          vm.setUser(null);
+          vm.logged = false;
           deferred.resolve(false);
-          loginForm.stop();
         }
       }, function(){
-        loginForm.stop();
         deferred.reject();
       });
       return deferred.promise;
@@ -50,8 +50,11 @@
       HttpService.getData({method: 'GET', url: 'auth_isLogged'}).then(function(response){
         if (response.data.user != null && response.data.error == null){
           vm.setUser(response.data.user);
+          vm.logged = true;
           deferred.resolve(true);
         }else{
+          vm.setUser(null);
+          vm.logged = false;
           deferred.resolve(false);
         }
       },function(){
@@ -62,12 +65,12 @@
 
     vm.logout = function(){
       var deferred = $q.defer();
-      userInfoBlock.start('Wait please');
-      HttpService.getData({method: 'POST', url: 'auth_logout'}).then(function(response){
-        userInfoBlock.stop();
-        deferred.resolve(response.data)
+      HttpService.getData({method: 'POST', url: 'auth_logout'}).then(function(){
+        vm.logged = false;
+        deferred.resolve(true)
       },function(){
-        userInfoBlock.stop();
+        deferred.resolve(false);
+      },function(){
         deferred.reject();
       });
       return deferred.promise;
