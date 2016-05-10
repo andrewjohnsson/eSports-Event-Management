@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a597d598-a8e8-4a95-8dff-e697f7415b5b" name="Default" comment="Add New Auth System And UI">
+    <list default="true" id="a597d598-a8e8-4a95-8dff-e697f7415b5b" name="Default" comment="New User Section (Add &quot;My Account&quot;)">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/user/details/details.controller.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/user/details/details.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/user/details/details.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/user/details/details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/user/user.controller.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/user/user.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/event/details/details.controller.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/event/details/details.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/event/details/details.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/event/details/details.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/event/event.controller.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/event/event.controller.js" />
     </list>
     <ignored path="LabSPP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1068,7 +1068,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Fix_User_Section.patch" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Fix_Event_Section.patch" />
     <property name="js.buildTools.gulp.node_interpreter" value="/usr/local/bin/node" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="/usr/local/lib/node_modules/gulp" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -1891,7 +1891,7 @@
       <workItem from="1462796166220" duration="2818000" />
       <workItem from="1462886293626" duration="369000" />
       <workItem from="1462886770976" duration="20000" />
-      <workItem from="1462887403181" duration="78000" />
+      <workItem from="1462887403181" duration="159000" />
     </task>
     <task id="LOCAL-00001" summary="Set Up Git At IntelliJ">
       <created>1458573469333</created>
@@ -2019,11 +2019,17 @@
       <option name="project" value="LOCAL" />
       <updated>1462887452280</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="New User Section (Add &quot;My Account&quot;)">
+      <created>1462887521984</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1462887521984</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="439820000" />
+    <option name="totallyTimeSpent" value="439901000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2082,7 +2088,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Set Up Git At IntelliJ" />
     <MESSAGE value="Fix Search" />
     <MESSAGE value="Add Auth Mockup" />
     <MESSAGE value="Add Auth At Backend" />
@@ -2107,7 +2112,8 @@
     <MESSAGE value="Fix event create and delete" />
     <MESSAGE value="Change dashboard (fix crud)" />
     <MESSAGE value="Add New Auth System And UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add New Auth System And UI" />
+    <MESSAGE value="New User Section (Add &quot;My Account&quot;)" />
+    <option name="LAST_COMMIT_MESSAGE" value="New User Section (Add &quot;My Account&quot;)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
