@@ -6,13 +6,13 @@
     .controller('EventController', EventController);
 
   /** @ngInject */
-  function EventController(ApiService) {
+  function EventController($rootScope) {
     var vm = this;
 
     vm.title = 'Explore Events';
     vm.subtitle = 'and buy tickets';
 
-    vm.service = ApiService;
+    vm.service = $rootScope.apiService;
     vm.service.updateEvents();
   }
 

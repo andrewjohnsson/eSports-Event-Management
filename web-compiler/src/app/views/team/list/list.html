@@ -4,13 +4,13 @@
     <small>{{ ctrl.subtitle }}</small>
   </div>
 
-  <div class="row" ng-hide="teamsList == null">
+  <div class="row" ng-hide="ctrl.service.teamsList == null">
     <div class="col-xs-12">
       <div class="panel panel-default">
         <ul class="list-group">
-          <li class="list-group-item" ng-repeat="item in teamsList">
-            <span class="badge"><a class="badge-link" href="/#/team/{{item.id}}">Details</a></span>
-            {{ item.name }}
+          <li class="list-group-item" ng-repeat="team in ctrl.service.teamsList">
+            <span class="badge"><a class="badge-link" href="/#/team/{{team.id}}">Details</a></span>
+            {{ team.name }}
           </li>
         </ul>
       </div>
