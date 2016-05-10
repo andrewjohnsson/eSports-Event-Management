@@ -25,6 +25,12 @@
     <package name="default" extends="json-default">
     </package>
 
+  <package name="sample_doc_generation" namespace="/" extends="struts-default">
+    <action name="generate_doc" class="by.bsuir.spp.ils.lab.controller.actions.generator.EventInviteGenerationAction" method="execute">
+      <!-- NO NEED TO HAVE RESULT TYPE STREAM CONFIGURATION-->
+    </action>
+  </package>
+
     <package name="permission" extends="json-default">
       <action name="isAdmin" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isAdmin">
         <result type="json"/>
@@ -113,10 +119,6 @@
         <result type="json"/>
       </action>
 
-      <action name="team_read" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="read">
-        <result type="json"/>
-      </action>
-
       <action name="team_update" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="update">
         <interceptor-ref name="json">
           <param name="contentType">application/json</param>
@@ -127,6 +129,9 @@
       </action>
 
       <action name="team_delete" class="by.bsuir.spp.ils.lab.controller.actions.TeamAction" method="delete">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
         <result type="json"/>
         <result name="input" type="json"/>
         <result name="error" type="json"/>
@@ -145,13 +150,6 @@
         <result type="json"/>
       </action>
 
-      <action name="event_read" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="find">
-        <interceptor-ref name="json">
-          <param name="contentType">application/json</param>
-        </interceptor-ref>
-        <result type="json"/>
-      </action>
-
       <action name="event_update" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="update">
         <interceptor-ref name="json">
           <param name="contentType">application/json</param>
@@ -160,6 +158,9 @@
       </action>
 
       <action name="event_delete" class="by.bsuir.spp.ils.lab.controller.actions.EventAction" method="delete">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
         <result type="json"/>
       </action>
 
