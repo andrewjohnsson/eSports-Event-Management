@@ -6,7 +6,7 @@
     .service('UserService', UserService);
 
   /** @ngInject */
-  function UserService(HttpService, $q, $log, blockUI) {
+  function UserService(HttpService, $q, blockUI) {
     /** @ngInject */
     var vm = this;
 

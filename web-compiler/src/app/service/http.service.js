@@ -6,7 +6,7 @@
     .service('HttpService', HttpService);
 
   /** @ngInject */
-  function HttpService($http, $q) {
+  function HttpService($http, $q, FileSaver, Blob) {
     /** @ngInject */
     var vm = this;
 
@@ -23,6 +23,38 @@
         deferred.reject(undefined)
       });
       return deferred.promise;
+    };
+
+    vm.getDocument = function(conf){
+      switch (conf.data.docType){
+        case 'EXCEL':
+          vm.header = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+          vm.extension = '.xls';
+          break;
+        case 'CSV':
+          vm.header = 'application/csv';
+          vm.extension = '.csv';
+          break;
+        case 'PDF':
+          vm.header = 'application/pdf';
+          vm.extension = '.pdf';
+          break;
+      }
+      $http({
+        url: 'generate_' + conf.type,
+        method: 'POST',
+        responseType: 'arraybuffer',
+        data: conf.data,
+        headers: {
+          'Content-type': 'application/json',
+          'Accept': vm.header
+        }
+      }).then(function(response){
+          var blob = new Blob([response.data], {type: vm.header});
+          FileSaver.saveAs(blob, conf.type + vm.extension);
+        },function(){
+          alert('Error occured while getting your document!')
+        });
     }
   }
 

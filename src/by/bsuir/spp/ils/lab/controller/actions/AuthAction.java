@@ -1,9 +1,13 @@
 package by.bsuir.spp.ils.lab.controller.actions;
 
+import by.bsuir.spp.ils.lab.entity.Ticket;
 import by.bsuir.spp.ils.lab.entity.User;
 import by.bsuir.spp.ils.lab.service.AuthService;
+import by.bsuir.spp.ils.lab.service.TicketService;
 import by.bsuir.spp.ils.lab.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
+
+import java.util.List;
 
 /**
  * Created by andrewjohnsson on 11.04.16.
@@ -11,12 +15,15 @@ import com.opensymphony.xwork2.ActionSupport;
 public class AuthAction extends ActionSupport {
   private AuthService authService;
 	private UserService userService;
+	private TicketService ticketService;
   private User user;
+	private List<Ticket> tickets;
 	private String error;
 
   public AuthAction(){
 		authService = new AuthService();
 		userService = new UserService();
+		ticketService = new TicketService();
 		setError(null);
   }
 
@@ -28,9 +35,11 @@ public class AuthAction extends ActionSupport {
       } else {
 				try {
 					setUser(authService.check(getUser().getEmail(), getUser().getPassword()));
+					setTickets(ticketService.findUserTickets(getUser().getId()));
 					authService.setUserLogin(getUser().getId());
 				}catch (Exception e){
 					setUser(null);
+					setTickets(null);
 					setError("Cannot login!");
 				}
       }
@@ -42,6 +51,7 @@ public class AuthAction extends ActionSupport {
 		if ((getUser() != null) && authService.getUserId() == 0) {
 			try {
 				setUser(userService.add(getUser()));
+				setTickets(ticketService.findUserTickets(getUser().getId()));
 				return SUCCESS;
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -52,10 +62,12 @@ public class AuthAction extends ActionSupport {
 
 	public String check(){
 		int id = authService.getUserId();
-		if (id != 0){
+		if (id > 0 ){
 			setUser(userService.find(id));
+			setTickets(ticketService.findUserTickets(id));
 		}else {
 			setUser(null);
+			setTickets(null);
 			setError("You are not logged in!");
 		}
 		return SUCCESS;
@@ -70,6 +82,8 @@ public class AuthAction extends ActionSupport {
   public void setUser(User person) {
     this.user = person;
   }
+	public List<Ticket> getTickets(){ return tickets; }
+	public void setTickets(List<Ticket> tickets){ this.tickets = tickets; }
 	public String getError() { return error; }
 	public void setError(String error) { this.error = error; }
 }

@@ -9,15 +9,16 @@
   function EventDetailsController(ApiService, $rootScope, $stateParams) {
     var vm = this;
 
-    vm.isPlayer = false;
-
     if (!$rootScope.apiService){
       $rootScope.apiService = ApiService;
     }
 
+    vm.tickets = {};
+
     vm.service = $rootScope.apiService;
     vm.isSupervisor = vm.service.authService.isSupervisor;
     vm.isPlayer = vm.service.authService.isPlayer;
+    vm.isViewer = vm.service.authService.isViewer;
 
     vm.service.updateEvents().then(function(){
       vm.service.eventsList.forEach(function(event){
@@ -45,6 +46,14 @@
             if (team.id == vm.service.authService.getUser().teamId){
               vm.isPlayer = true;
               vm.team = team;
+              if (vm.service.authService.tickets != null){
+                vm.service.authService.tickets.forEach(function(ticket){
+                  if (ticket.eventId == vm.event.id){
+                    vm.isViewer = true;
+                    vm.tickets.push(ticket);
+                  }
+                })
+              }
             }
           });
         }
