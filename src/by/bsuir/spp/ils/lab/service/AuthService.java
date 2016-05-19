@@ -33,7 +33,7 @@ public class AuthService extends HibernateUtil implements SessionAware {
             transaction.commit();
             if (temp != null){
               setCurrentUser(temp);
-              return this.currentUser;
+              return getCurrentUser();
             }
           }catch (HibernateException e){
             transaction.rollback();

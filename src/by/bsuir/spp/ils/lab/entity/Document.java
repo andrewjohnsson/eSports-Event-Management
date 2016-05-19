@@ -10,7 +10,6 @@ import javax.persistence.*;
 public class Document {
   private int id;
   private int userId;
-  private int typeId;
   private Integer inheritId;
   private String series;
   private Integer number;
@@ -44,17 +43,14 @@ public class Document {
     Document document = (Document) o;
 
     if (id != document.id) return false;
-    if (userId != document.userId) return false;
-    if (typeId != document.typeId) return false;
+    return userId == document.userId;
 
-    return true;
   }
 
   @Override
   public int hashCode() {
     int result = id;
     result = 31 * result + userId;
-    result = 31 * result + typeId;
     return result;
   }
 

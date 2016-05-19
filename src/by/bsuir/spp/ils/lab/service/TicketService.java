@@ -2,7 +2,6 @@ package by.bsuir.spp.ils.lab.service;
 
 import by.bsuir.spp.ils.lab.entity.Event;
 import by.bsuir.spp.ils.lab.entity.Ticket;
-import by.bsuir.spp.ils.lab.entity.User;
 import by.bsuir.spp.ils.lab.persistence.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -44,14 +43,14 @@ public class TicketService extends HibernateUtil {
         return tickets;
     }
 
-    public List<Ticket> findUserTickets(User user){
+    public List<Ticket> findUserTickets(int id){
         List<Ticket> tickets = new ArrayList<>();
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
             try {
                 try {
-                    tickets = (List<Ticket>) session.createQuery("from Ticket where userId="+user.getId()).list();
+                    tickets = (List<Ticket>) session.createQuery("from Ticket where userId="+id).list();
                     transaction.commit();
                 } catch (HibernateException e) {
                     e.printStackTrace();

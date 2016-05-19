@@ -90,12 +90,10 @@ public class UserAction extends ActionSupport{
   public List<User> getUsers() { return users; }
 
   public User getUser() { return user; }
-
   public void setUser(User person) {
     this.user = person;
   }
 
   public String getError() { return error; }
-
   public void setError(String error) { this.error = error; }
 }

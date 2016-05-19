@@ -33,27 +33,23 @@
     <div class="panel panel-default" ng-show="uDetCtrl.service.authService.logged && uDetCtrl.user.id == apiService.authService.currentUser.id">
       <h4 class="text-center">Get Docs</h4>
       <ul class="list-group">
-
-        <li class="list-group-item" ng-show="uDetCtrl.user.id == apiService.authService.currentUser.id && uDetCtrl.isPlayer">
-          <span class="badge"><a href="" class="badge-link">Get</a> </span>
-          Player Pass
-        </li>
         <li class="list-group-item" ng-show="uDetCtrl.user.id == apiService.authService.currentUser.id">
-          <span class="badge"><a ng-click="apiService.getManagerPass(uDetCtrl.managedTeam.id)" class="badge-link">Get</a> </span>
+          <span class="badge"><a ng-click="apiService.documentService.generatePass(apiService.authService.currentUser, uDetCtrl.managedTeam, apiService.authService.docFormat)" class="badge-link">Get</a> </span>
           Manager Pass
         </li>
         <li class="list-group-item" ng-show="apiService.authService.currentUser.isSupervisor">
-          <span class="badge"><a href="" class="badge-link">Get</a></span>
+          <span class="badge"><a ng-click="apiService.documentService.generatePass(apiService.authService.currentUser, uDetCtrl.event, apiService.authService.docFormat)" class="badge-link">Get</a></span>
           Supervisor Pass
         </li>
         <li class="list-group-item" ng-show="apiService.authService.currentUser.isAdmin">
-          <span class="badge"><a href="" class="badge-link">Get</a></span>
+          <span class="badge"><a ng-click="apiService.documentService.generateReport('user',apiService.authService.docFormat)" class="badge-link">Get</a></span>
           Users Report
         </li>
         <li class="list-group-item" ng-show="apiService.authService.currentUser.isAdmin">
-          <span class="badge"><a href="" class="badge-link">Get</a></span>
+          <span class="badge"><a ng-click="apiService.documentService.generateReport('event',apiService.authService.docFormat)" class="badge-link">Get</a></span>
           Event List
         </li>
+      </ul>
     </div>
   </div>
 </div>

@@ -6,12 +6,13 @@
     .service('ApiService', ApiService);
 
   /** @ngInject */
-  function ApiService(AuthService, PermissionService, UserService, TeamService, EventService, $location, $q) {
+  function ApiService(AuthService, PermissionService, DocumentService, UserService, TeamService, EventService, $location, $q) {
     /** @ngInject */
     var vm = this;
     vm.location = $location;
     vm.adminCount = 0;
     vm.authService = AuthService;
+    vm.documentService = DocumentService;
 
     vm.supervisorPass = {
       eventId: null

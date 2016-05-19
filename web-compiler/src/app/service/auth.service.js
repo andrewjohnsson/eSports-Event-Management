@@ -11,9 +11,29 @@
     var vm = this;
     vm.currentUser = null;
     vm.logged = false;
+
+    vm.docFormat = 'PDF';
+
+    vm.docFormats = [
+      {
+        id: 'PDF',
+        value: 'PDF'
+      },
+      {
+        id: 'CSV',
+        value: 'CSV'
+      },
+      {
+        id: 'EXCEL',
+        value: 'Excel File (XLS)'
+      }
+    ];
+
+    vm.tickets = {};
     vm.isSupervisor = false;
     vm.isManager = false;
     vm.isPlayer = false;
+    vm.isViewer = false;
 
     vm.getPermissions = function(){
       return vm.permissions;
@@ -33,10 +53,12 @@
         if (response.data.user != undefined){
           vm.setUser(response.data.user);
           vm.logged = true;
+          vm.tickets = response.data.user.tickets;
           deferred.resolve(true);
         }else{
           vm.setUser(null);
           vm.logged = false;
+          vm.tickets = null;
           deferred.resolve(false);
         }
       }, function(){
@@ -51,10 +73,12 @@
         if (response.data.user != null && response.data.error == null){
           vm.setUser(response.data.user);
           vm.logged = true;
+          vm.tickets = response.data.user.tickets;
           deferred.resolve(true);
         }else{
           vm.setUser(null);
           vm.logged = false;
+          vm.tickets = null;
           deferred.resolve(false);
         }
       },function(){
