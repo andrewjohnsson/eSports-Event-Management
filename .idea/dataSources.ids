@@ -66,6 +66,7 @@ user_id</columns>
       <column id="20" parent="3" name="name">
         <mandatory>1</mandatory>
         <data-type>varchar(45)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
       </column>
       <column id="21" parent="3" name="date">
         <mandatory>1</mandatory>

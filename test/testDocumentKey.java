@@ -1,7 +1,5 @@
 import by.bsuir.spp.ils.lab.entity.DocumentPK;
-import by.bsuir.spp.ils.lab.entity.TicketPK;
 import org.junit.Test;
-import org.w3c.dom.Document;
 
 import static junit.framework.Assert.assertEquals;
 

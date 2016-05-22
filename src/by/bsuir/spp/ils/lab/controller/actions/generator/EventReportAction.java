@@ -43,7 +43,7 @@ public class EventReportAction extends ActionSupport {
 					PdfWriter.getInstance(document, baos);
 					document.open();
 					pdfGenerator.generateEventReport(document, eventService.list(), eventService.getParticipants());
-					ServletOutputStream outputStream = response.getOutputStream() ;
+					ServletOutputStream outputStream = response.getOutputStream();
 					baos.writeTo(outputStream);
 					response.setHeader("Content-Disposition", "attachment; filename=\"report.pdf\"");
 					response.setContentType("application/pdf");

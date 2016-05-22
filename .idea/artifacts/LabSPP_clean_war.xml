@@ -16,9 +16,11 @@
           <element id="library" level="project" name="iTextPDF-5.4.3" />
           <element id="library" level="project" name="struts2-json-plugin-2.3.15" />
           <element id="library" level="project" name="JUnit-4.12" />
+          <element id="library" level="project" name="struts2-junit-plugin-2.3.20.1" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="LabSPP/web/Web" />
+      <element id="dir-copy" path="$PROJECT_DIR$/assets" />
     </root>
   </artifact>
 </component>

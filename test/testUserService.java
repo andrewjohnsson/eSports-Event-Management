@@ -4,6 +4,7 @@ import org.hibernate.StaleStateException;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.assertNull;
 
 /**

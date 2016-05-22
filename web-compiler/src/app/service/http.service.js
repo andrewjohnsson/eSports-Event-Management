@@ -6,7 +6,7 @@
     .service('HttpService', HttpService);
 
   /** @ngInject */
-  function HttpService($http, $q, FileSaver, Blob) {
+  function HttpService($http, $q, $log, FileSaver, Blob) {
     /** @ngInject */
     var vm = this;
 
@@ -50,9 +50,12 @@
           'Accept': vm.header
         }
       }).then(function(response){
+          $log.log(response);
           var blob = new Blob([response.data], {type: vm.header});
           FileSaver.saveAs(blob, conf.type + vm.extension);
         },function(){
+          var blob = new Blob([response.data], {type: vm.header});
+          FileSaver.saveAs(blob, conf.type + vm.extension);
           alert('Error occured while getting your document!')
         });
     }

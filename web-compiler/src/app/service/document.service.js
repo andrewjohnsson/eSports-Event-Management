@@ -10,6 +10,23 @@
     /** @ngInject */
     var vm = this;
 
+    vm.docFormat = 'PDF';
+
+    vm.docFormats = [
+      {
+        id: 'PDF',
+        value: 'PDF'
+      },
+      {
+        id: 'CSV',
+        value: 'CSV'
+      },
+      {
+        id: 'EXCEL',
+        value: 'Excel File (XLS)'
+      }
+    ];
+
     vm.generatePass = function(user, event, doctype){
       HttpService.getDocument({type: 'pass', data: {user: user, event: event, docType: doctype}});
     };
