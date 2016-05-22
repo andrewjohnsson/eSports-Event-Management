@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a597d598-a8e8-4a95-8dff-e697f7415b5b" name="Default" comment="Config Project Artifacts">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/struts2-junit-plugin-2.3.20.1.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/LabSPP_clean_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/LabSPP_clean_war.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/LabSPP_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/LabSPP_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+    <list default="true" id="a597d598-a8e8-4a95-8dff-e697f7415b5b" name="Default" comment="Add Missing Libraries">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/JUnit_4_12.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/MySQL_Connector_5_1_38.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/POI_3_14.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/SuperCSV_2_4_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/iTextPDF_5_4_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/struts2_json_plugin_2_3_15.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/struts2_junit_plugin_2_3_20_1.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LabSPP.iml" afterPath="$PROJECT_DIR$/LabSPP.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Bundled_Web_Content/index.html" afterPath="$PROJECT_DIR$/out/artifacts/Bundled_Web_Content/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/WEB-INF/classes/struts.xml" afterPath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/WEB-INF/classes/struts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/index.html" afterPath="$PROJECT_DIR$/out/artifacts/LabSPP_war_exploded/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LabSPP/struts.xml" afterPath="$PROJECT_DIR$/out/production/LabSPP/struts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/actions/generator/EventReportAction.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/actions/generator/EventReportAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/actions/generator/UserReportAction.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/controller/actions/generator/UserReportAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/generator/CSVGenerator.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/generator/CSVGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/generator/ExcelGenerator.java" afterPath="$PROJECT_DIR$/src/by/bsuir/spp/ils/lab/generator/ExcelGenerator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/testAuthService.java" afterPath="$PROJECT_DIR$/test/testAuthService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/testDocument.java" afterPath="$PROJECT_DIR$/test/testDocument.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/testDocumentKey.java" afterPath="$PROJECT_DIR$/test/testDocumentKey.java" />
@@ -33,14 +26,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/testTicketService.java" afterPath="$PROJECT_DIR$/test/testTicketService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/testUser.java" afterPath="$PROJECT_DIR$/test/testUser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/testUserService.java" afterPath="$PROJECT_DIR$/test/testUserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/components/logged/logged.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/components/logged/logged.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/service/auth.service.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/service/auth.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/service/document.service.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/service/document.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/service/http.service.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/service/http.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/event/details/details.controller.js" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/event/details/details.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/event/details/details.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/event/details/details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/team/details/details.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/team/details/details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-compiler/src/app/views/user/details/details.html" afterPath="$PROJECT_DIR$/web-compiler/src/app/views/user/details/details.html" />
     </list>
     <ignored path="LabSPP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -279,9 +264,9 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="andrewjohnsson@icloud.com" />
         <option value="andrewjohnsson@icloud.comFix" />
         <option value="andrewjohnsson@icloud.comC" />
-        <option value="andrewjohnsson@icloud.com" />
         <option value="andrewjohnsson@icloud.c" />
         <option value="andrewjohnsson@icloud.comA" />
       </list>
@@ -1060,7 +1045,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1074,15 +1059,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
+              <option name="myItemId" value="libraries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1096,15 +1077,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="persistence" />
+              <option name="myItemId" value="copyright" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1118,107 +1095,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eSports-Event-Management" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eSports-Event-Management" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eSports-Event-Management" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="actions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LabSPP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eSports-Event-Management" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="actions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generator" />
+              <option name="myItemId" value="artifacts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2205,7 +2086,7 @@
       <workItem from="1463746496781" duration="2976000" />
       <workItem from="1463749735201" duration="141000" />
       <workItem from="1463924753471" duration="365000" />
-      <workItem from="1463928450538" duration="4807000" />
+      <workItem from="1463928450538" duration="4956000" />
     </task>
     <task id="LOCAL-00001" summary="Set Up Git At IntelliJ">
       <created>1458573469333</created>
@@ -2381,7 +2262,13 @@
       <option name="project" value="LOCAL" />
       <updated>1463933156172</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Several Fixes">
+      <created>1463938497433</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1463938497433</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2417,7 +2304,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="496351000" />
+    <option name="totallyTimeSpent" value="496500000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2430,7 +2317,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -2446,7 +2333,7 @@
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17412141" sideWeight="0.48122528" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17412141" sideWeight="0.48122528" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19009584" sideWeight="0.5049407" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19009584" sideWeight="0.5049407" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17412141" sideWeight="0.49505928" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28901735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32772276" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2476,7 +2363,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Add Ticket service" />
     <MESSAGE value="Fix Auth" />
     <MESSAGE value="Delete Form Reset To Prevent Error" />
     <MESSAGE value="Add Main Sections And Reformat Frontend File Structure" />
@@ -2501,7 +2387,8 @@
     <MESSAGE value="Doc Generation (Bower Install first pls)" />
     <MESSAGE value="Add Tests&#10;Fix PDF Generation" />
     <MESSAGE value="Fix Login Form Disappear at Logout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Login Form Disappear at Logout" />
+    <MESSAGE value="Several Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Several Fixes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -2673,6 +2560,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
