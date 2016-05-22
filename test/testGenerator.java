@@ -3,7 +3,7 @@ import by.bsuir.spp.ils.lab.generator.ExcelGenerator;
 import by.bsuir.spp.ils.lab.generator.PDFGenerator;
 import org.junit.Test;
 
-import static junit.framework.Assert.*;
+import static junit.framework.Assert.assertNotNull;
 
 /**
  * Created by andrewjohnsson on 11.05.2016.

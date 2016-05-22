@@ -6,30 +6,13 @@
     .service('AuthService', AuthService);
 
   /** @ngInject */
-  function AuthService(HttpService, $q) {
+  function AuthService(HttpService, $q, $log) {
     /** @ngInject */
     var vm = this;
     vm.currentUser = null;
     vm.logged = false;
 
-    vm.docFormat = 'PDF';
-
-    vm.docFormats = [
-      {
-        id: 'PDF',
-        value: 'PDF'
-      },
-      {
-        id: 'CSV',
-        value: 'CSV'
-      },
-      {
-        id: 'EXCEL',
-        value: 'Excel File (XLS)'
-      }
-    ];
-
-    vm.tickets = {};
+    vm.tickets = [];
     vm.isSupervisor = false;
     vm.isManager = false;
     vm.isPlayer = false;
@@ -74,6 +57,7 @@
           vm.setUser(response.data.user);
           vm.logged = true;
           vm.tickets = response.data.user.tickets;
+          $log.log(vm.tickets);
           deferred.resolve(true);
         }else{
           vm.setUser(null);

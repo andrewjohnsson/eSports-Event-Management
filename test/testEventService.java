@@ -3,7 +3,7 @@ import by.bsuir.spp.ils.lab.service.EventService;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static junit.framework.Assert.*;
+import static junit.framework.Assert.assertNull;
 
 /**
  * Created by andrewjohnsson on 11.05.2016.

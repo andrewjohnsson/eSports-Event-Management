@@ -8,7 +8,6 @@
   <constant name="struts.devMode" value="true" />
 
   <constant name="struts.enable.DynamicMethodInvocation" value="false" />
-  <constant name="struts.convention.default.parent.packege" value="angularstruts" />
   <constant name="struts.mapper.class" value="org.apache.struts2.dispatcher.mapper.Restful2ActionMapper" />
   <constant name="struts.enable.SlashesInActionNames" value="true"/>
   <constant name="struts.mapper.alwaysSelectFullNamespace" value="false" />
@@ -25,11 +24,28 @@
     <package name="default" extends="json-default">
     </package>
 
-  <package name="sample_doc_generation" namespace="/" extends="struts-default">
-    <action name="generate_doc" class="by.bsuir.spp.ils.lab.controller.actions.generator.EventInviteGenerationAction" method="execute">
-      <!-- NO NEED TO HAVE RESULT TYPE STREAM CONFIGURATION-->
-    </action>
-  </package>
+    <package name="document" namespace="/" extends="json-default">
+      <action name="generate_pass" class="by.bsuir.spp.ils.lab.controller.actions.generator.EventPassAction" method="execute">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
+      </action>
+      <action name="generate_user_report" class="by.bsuir.spp.ils.lab.controller.actions.generator.UserReportAction" method="execute">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
+      </action>
+      <action name="generate_event_report" class="by.bsuir.spp.ils.lab.controller.actions.generator.EventReportAction" method="execute">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
+      </action>
+      <action name="generate_ticket" class="by.bsuir.spp.ils.lab.controller.actions.generator.TicketAction" method="execute">
+        <interceptor-ref name="json">
+          <param name="contentType">application/json</param>
+        </interceptor-ref>
+      </action>
+    </package>
 
     <package name="permission" extends="json-default">
       <action name="isAdmin" class="by.bsuir.spp.ils.lab.controller.actions.PermissionAction" method="isAdmin">

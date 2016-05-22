@@ -1,7 +1,5 @@
-import by.bsuir.spp.ils.lab.controller.actions.generator.EventPassAction;
 import by.bsuir.spp.ils.lab.entity.Document;
 import by.bsuir.spp.ils.lab.entity.Event;
-import by.bsuir.spp.ils.lab.entity.User;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

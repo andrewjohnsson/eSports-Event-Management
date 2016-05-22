@@ -13,7 +13,7 @@
       $rootScope.apiService = ApiService;
     }
 
-    vm.tickets = {};
+    vm.tickets = [];
 
     vm.service = $rootScope.apiService;
     vm.isSupervisor = vm.service.authService.isSupervisor;

@@ -41,12 +41,8 @@ public class CSVGenerator {
 			return processors;
     }
 
-		public static CellProcessor[] getProcessorsForReport(){
-			final CellProcessor[] processors = new CellProcessor[] {
-				new NotNull(),
-				new NotNull(),
-				new NotNull()
-			};
+		public static List<CellProcessor[]> getProcessorsForReport(){
+			final List<CellProcessor[]> processors = new ArrayList<CellProcessor[]>();
 			return processors;
     }
 
@@ -94,16 +90,25 @@ public class CSVGenerator {
 
 				final String[] header = {"Event Name","Date","Participants"};
         final List<Object> eventData = new ArrayList<Object>();
-        final CellProcessor[] processors = getProcessorsForReport();
-
-        eventData.add(eventsList.get(0).getDate());
-        eventData.add(eventsList.get(0).getName());
-        eventData.add(participants.get(0).get(0).getName());
+        final List<CellProcessor[]> processors = getProcessorsForReport();
 
 				listWriter.writeHeader(header);
-        listWriter.write(eventData, processors);
+				for(int j=0;j<eventsList.size();j++) {
+					StringBuilder teams = new StringBuilder();
 
-				eventData.clear();
+					participants.get(eventsList.get(j).getId()).forEach(team -> {
+						teams.append(team.getName());
+						teams.append(",");
+					});
+
+					eventData.add(eventsList.get(j).getName());
+					eventData.add(eventsList.get(j).getDate());
+					eventData.add(teams.toString());
+					processors.add(new CellProcessor[]{new NotNull(), new NotNull(), new NotNull()});
+					listWriter.write(eventData, processors.get(0));
+					eventData.clear();
+					processors.clear();
+				}
 
         if (listWriter != null) {
             listWriter.close();
@@ -113,17 +118,22 @@ public class CSVGenerator {
 		public void generateUserReport(List<User> usersList, OutputStream stream) throws IOException {
 			ICsvListWriter listWriter = null;
 			listWriter = new CsvListWriter(new OutputStreamWriter(stream), CsvPreference.EXCEL_NORTH_EUROPE_PREFERENCE);
+
 			final String[] header = {"User Name", "Age", "Email"};
-
 			final List<String> usersData = new ArrayList<String>();
-			final CellProcessor[] processors = getProcessorsForReport();
+			final List<CellProcessor[]> processors = getProcessorsForReport();
 
-			usersList.forEach(user -> {
-				usersData.add(user.getId(), user.getName() + " " + user.getAge() + " " + user.getEmail());
-			});
 			listWriter.writeHeader(header);
-			listWriter.write(usersData, processors);
-			usersData.clear();
+
+			for (int i=0;i<usersList.size();i++){
+				usersData.add(usersList.get(i).getName());
+				usersData.add(usersList.get(i).getAge().toString());
+				usersData.add(usersList.get(i).getEmail());
+				processors.add(new CellProcessor[]{new NotNull(), new NotNull(), new NotNull()});
+				listWriter.write(usersData, processors.get(0));
+				usersData.clear();
+				processors.clear();
+			}
 
 			if (listWriter != null) {
 				listWriter.close();

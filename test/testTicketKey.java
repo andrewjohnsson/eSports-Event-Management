@@ -1,6 +1,4 @@
 import by.bsuir.spp.ils.lab.entity.TicketPK;
-import by.bsuir.spp.ils.lab.helper.MD5Helper;
-import com.opensymphony.xwork2.ActionSupport;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;

@@ -27,10 +27,10 @@ public class UserReportAction extends ActionSupport {
 	private String docType;
 
 	public UserReportAction(){
+		userService = new UserService();
 		response = ServletActionContext.getResponse();
 		pdfGenerator = PDFGenerator.getInstance();
 		csvGenerator = CSVGenerator.getInstance();
-		userService = new UserService();
 	}
 
 	public String execute() throws DocumentException, IOException {
@@ -56,7 +56,7 @@ public class UserReportAction extends ActionSupport {
 					fileName += ".csv";
 					response.setContentType("text/csv");
 					response.setHeader("Content-Disposition",
-						"attachment;filename=" + fileName);
+														"attachment;filename=" + fileName);
 					csvGenerator.generateUserReport(userService.list(), response.getOutputStream());
 				}
 				break;

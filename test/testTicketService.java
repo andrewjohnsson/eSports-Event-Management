@@ -1,12 +1,10 @@
 import by.bsuir.spp.ils.lab.entity.Event;
 import by.bsuir.spp.ils.lab.entity.Ticket;
-import by.bsuir.spp.ils.lab.service.*;
+import by.bsuir.spp.ils.lab.service.TicketService;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.List;
-
-import static junit.framework.Assert.*;
+import static junit.framework.Assert.assertNull;
 
 /**
  * Created by andrewjohnsson on 11.05.2016.

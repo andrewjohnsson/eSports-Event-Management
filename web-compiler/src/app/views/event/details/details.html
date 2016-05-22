@@ -3,19 +3,25 @@
     <div class="jumbotron text-center">
       <h1>{{ eDetCtrl.event.name }}</h1>
       <small><a href="/#/user/{{eDetCtrl.supervisor.id}}" ng-hide="eDetCtrl.isSupervisor">{{ eDetCtrl.supervisor.name }}</a></small>
-      <a href="" class="btn btn-primary" ng-show="eDetCtrl.isSupervisor">Get Supervisor Pass</a>
-      <form ng-submit="apiService.documentService.generatePass(vm.service.authService.currentUser, eDetCtrl.event, apiService.authService.docFormat)"
-            ng-show="eDetCtrl.isPlayer">
-        <button type="submit" class="btn btn-primary">Get Player Pass<small>({{eDetCtrl.team.name}})</small></button>
-      </form>
-      <form ng-submit="apiService.documentService.generateTicket(eDetCtrl.event, eDetCtrl.team, vm.service.authService.currentUser, eDetCtrl.ticket, apiService.authService.docFormat)"
-            ng-show="eDetCtrl.isViewer && eDetCtrl.tickets[0] != null">
-        <select class="form-control"
-                ng-model="eDetCtrl.ticket"
-                ng-options="ticket.id as ticket.eventId for ticket in eDetCtrl.tickets"/>
-        <button type="submit" class="btn btn-primary">Get Player Pass</button>
-      </form>
-
+      <div class="form-group" ng-show="eDetCtrl.isSupervisor">
+        <a ng-click="apiService.documentService.generatePass(apiService.authService.currentUser, eDetCtrl.event, apiService.documentService.docFormat)"
+           class="btn btn-primary">
+          Get Supervisor Pass
+        </a>
+      </div>
+      <div class="form-group" ng-show="eDetCtrl.isPlayer">
+        <form ng-submit="apiService.documentService.generatePass(apiService.authService.currentUser, eDetCtrl.event, apiService.documentService.docFormat)">
+          <button type="submit" class="btn btn-primary">Get Player Pass<small>({{eDetCtrl.team.name}})</small></button>
+        </form>
+      </div>
+      <div class="form-group" ng-show="eDetCtrl.isViewer && apiService.authService.tickets[0] != null">
+        <form ng-submit="apiService.documentService.generateTicket(eDetCtrl.event, eDetCtrl.team, apiService.authService.currentUser, eDetCtrl.ticket, apiService.documentService.docFormat)">
+          <select class="form-control"
+                  ng-model="eDetCtrl.ticket"
+                  ng-options="ticket.id as ticket.eventId for ticket in eDetCtrl.tickets"/>
+          <button type="submit" class="btn btn-primary">Get Ticket</button>
+        </form>
+      </div>
     </div>
 
     <div class="panel panel-default" ng-show="eDetCtrl.participants[0] == undefined">

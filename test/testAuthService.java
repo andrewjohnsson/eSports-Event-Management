@@ -1,15 +1,8 @@
-import by.bsuir.spp.ils.lab.controller.actions.AuthAction;
-import by.bsuir.spp.ils.lab.controller.actions.UserAction;
-import by.bsuir.spp.ils.lab.entity.User;
 import by.bsuir.spp.ils.lab.helper.MD5Helper;
-import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
-import com.sun.net.httpserver.Authenticator;
 import org.junit.Test;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import com.opensymphony.xwork2.ActionProxy;
-import static junit.framework.Assert.*;
+
+import static junit.framework.Assert.assertEquals;
 
 /**
  * Created by andrewjohnsson on 11.05.2016.

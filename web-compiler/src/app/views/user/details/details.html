@@ -34,19 +34,19 @@
       <h4 class="text-center">Get Docs</h4>
       <ul class="list-group">
         <li class="list-group-item" ng-show="uDetCtrl.user.id == apiService.authService.currentUser.id">
-          <span class="badge"><a ng-click="apiService.documentService.generatePass(apiService.authService.currentUser, uDetCtrl.managedTeam, apiService.authService.docFormat)" class="badge-link">Get</a> </span>
+          <span class="badge"><a ng-click="apiService.documentService.generatePass(apiService.authService.currentUser, uDetCtrl.event, apiService.documentService.docFormat)" class="badge-link">Get</a> </span>
           Manager Pass
         </li>
         <li class="list-group-item" ng-show="apiService.authService.currentUser.isSupervisor">
-          <span class="badge"><a ng-click="apiService.documentService.generatePass(apiService.authService.currentUser, uDetCtrl.event, apiService.authService.docFormat)" class="badge-link">Get</a></span>
+          <span class="badge"><a ng-click="apiService.documentService.generatePass(apiService.authService.currentUser, uDetCtrl.event, apiService.documentService.docFormat)" class="badge-link">Get</a></span>
           Supervisor Pass
         </li>
         <li class="list-group-item" ng-show="apiService.authService.currentUser.isAdmin">
-          <span class="badge"><a ng-click="apiService.documentService.generateReport('user',apiService.authService.docFormat)" class="badge-link">Get</a></span>
+          <span class="badge"><a ng-click="apiService.documentService.generateReport('user',apiService.documentService.docFormat)" class="badge-link">Get</a></span>
           Users Report
         </li>
         <li class="list-group-item" ng-show="apiService.authService.currentUser.isAdmin">
-          <span class="badge"><a ng-click="apiService.documentService.generateReport('event',apiService.authService.docFormat)" class="badge-link">Get</a></span>
+          <span class="badge"><a ng-click="apiService.documentService.generateReport('event',apiService.documentService.docFormat)" class="badge-link">Get</a></span>
           Event List
         </li>
       </ul>

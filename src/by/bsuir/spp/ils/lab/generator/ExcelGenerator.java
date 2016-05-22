@@ -40,7 +40,7 @@ public class ExcelGenerator {
 
     public HSSFWorkbook generateEventPass(Event event, User user) throws IOException{
         HSSFWorkbook workbook = new HSSFWorkbook();
-        HSSFSheet sheet = workbook.createSheet("Event" + event.getName()+ "Pass for "+ user.getName());
+        HSSFSheet sheet = workbook.createSheet("Pass for "+ user.getName());
         int i = 0;
 
         HSSFRow headRow = sheet.createRow(i);
@@ -52,22 +52,20 @@ public class ExcelGenerator {
         HSSFRow eventNameRow = sheet.createRow(i);
         eventNameRow.createCell(0).setCellValue("");
         eventNameRow.createCell(1).setCellValue("Event name:");
-        eventNameRow.createCell(2).setCellValue(event.getName());
+        eventNameRow.createCell(2).setCellValue(event.getName().toString());
         i++;
 
         HSSFRow eventDateRow = sheet.createRow(i);
-        eventNameRow.createCell(0).setCellValue("");
-        eventNameRow.createCell(1).setCellValue("Event date:");
-        eventNameRow.createCell(2).setCellValue(event.getDate());
+        eventDateRow.createCell(0).setCellValue("");
+        eventDateRow.createCell(1).setCellValue("Event date:");
+        eventDateRow.createCell(2).setCellValue(event.getDate());
         i++;
 
         HSSFRow EventInviteGettingDate = sheet.createRow(i);
         EventInviteGettingDate.createCell(0).setCellValue("");
         EventInviteGettingDate.createCell(1).setCellValue("Issue date:");
-
         EventInviteGettingDate.createCell(2).setCellValue(reportDate);
         i++;
-
 
         HSSFRow personNameRow = sheet.createRow(i);
         personNameRow.createCell(0).setCellValue("");
@@ -122,6 +120,10 @@ public class ExcelGenerator {
 					eventParticipantsRow.createCell(1).setCellValue("Event participants:");
 					eventParticipantsRow.createCell(2).setCellValue(teams.toString());
 					i++;
+            sheet.createRow(i);
+            i++;
+            sheet.createRow(i);
+            i++;
 				}
 
         return workbook;

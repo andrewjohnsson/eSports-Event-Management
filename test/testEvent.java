@@ -1,6 +1,7 @@
 import by.bsuir.spp.ils.lab.entity.Event;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static junit.framework.Assert.*;
 
 /**

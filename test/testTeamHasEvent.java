@@ -1,4 +1,3 @@
-import by.bsuir.spp.ils.lab.entity.DocumentPK;
 import by.bsuir.spp.ils.lab.entity.TeamHasEvent;
 import org.junit.Test;
 
