@@ -5,11 +5,12 @@ import by.bsuir.spp.ils.lab.entity.Team;
 import by.bsuir.spp.ils.lab.entity.Ticket;
 import by.bsuir.spp.ils.lab.entity.User;
 import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.*;
-import com.itextpdf.text.pdf.codec.Base64;
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.CMYKColor;
+import com.itextpdf.text.pdf.PdfWriter;
 
-import java.io.IOException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URL;
 import java.text.DateFormat;
@@ -39,10 +40,7 @@ public class PDFGenerator {
 		reportDate = df.format(today);
 	}
 
-	public Document generateEventPass(Document document, Event event, User user, OutputStream stream) throws DocumentException, IOException {
-			Document doc = document;
-			PdfWriter.getInstance(doc, new FileOutputStream("pass.pdf"));
-			doc.open();
+	public Document generateEventPass(Document doc, Event event, User user, OutputStream stream) throws DocumentException, IOException {
 			Image image = Image.getInstance(new URL("http://localhost:8080/bg.png"));
 			image.setAbsolutePosition(250f, 450f);
 			image.scaleToFit(100f, 100f);
@@ -74,8 +72,6 @@ public class PDFGenerator {
 			doc.add(new Phrase(String.valueOf(user.getEmail()), new Font(baseFont, 10, Font.UNDERLINE)));
 			doc.add(Chunk.NEWLINE);
 			doc.add(Chunk.NEWLINE);
-
-			doc.close();
 
 			return doc;
 	}

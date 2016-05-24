@@ -15,6 +15,10 @@
 
     vm.service = $rootScope.apiService;
 
+    vm.managerPass = {
+      eventId: 1
+    };
+
     vm.isManager = vm.service.authService.isManager;
     vm.players = [];
 

@@ -57,7 +57,6 @@
           vm.setUser(response.data.user);
           vm.logged = true;
           vm.tickets = response.data.user.tickets;
-          $log.log(vm.tickets);
           deferred.resolve(true);
         }else{
           vm.setUser(null);
