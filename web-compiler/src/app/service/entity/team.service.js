@@ -6,7 +6,7 @@
     .service('TeamService', TeamService);
 
   /** @ngInject */
-  function TeamService(HttpService, $q, blockUI) {
+  function TeamService(HttpService, $q, $log, blockUI) {
     /** @ngInject */
 
     var vm = this;
@@ -24,6 +24,7 @@
     };
 
     vm.add = function(model){
+      $log.log(angular.toJson(model));
       return HttpService.getData({method: 'POST', url: 'team_create', data: angular.toJson(model)})
     };
 

@@ -36,15 +36,21 @@ public class EventPassAction extends ActionSupport {
 		try {
 			switch (getDocType()) {
 				case "PDF": {
-					Document document = new Document();
-					ByteArrayOutputStream baos = new ByteArrayOutputStream();
-					PdfWriter.getInstance(document, baos);
-					document.open();
-					pdfGenerator.generateEventPass(document, getEvent(), getUser(), response.getOutputStream());
-					ServletOutputStream outputStream = response.getOutputStream() ;
-					baos.writeTo(outputStream);
 					response.setHeader("Content-Disposition", "attachment; filename=\"pass.pdf\"");
 					response.setContentType("application/pdf");
+
+					Document document = new Document();
+					ByteArrayOutputStream baos = new ByteArrayOutputStream();
+					ServletOutputStream outputStream = response.getOutputStream();
+
+					PdfWriter writer = PdfWriter.getInstance(document, baos);
+					writer.setEncryption("123".getBytes(), "123".getBytes(), ~(PdfWriter.ALLOW_COPY), PdfWriter.ENCRYPTION_AES_128);
+
+					document.open();
+					pdfGenerator.generateEventPass(document, getEvent(), getUser(), response.getOutputStream());
+					document.close();
+					baos.writeTo(outputStream);
+
 					outputStream.flush();
 					outputStream.close();
 				}
